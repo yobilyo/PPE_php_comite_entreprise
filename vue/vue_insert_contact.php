@@ -7,11 +7,11 @@
 		</tr>
 		<tr> 
 			<td> Contenu : </td> 
-			<td> <input type="date" name="contenu" value ="<?php echo ($unContact!=null) ? $unContact['contenu']:""; ?>"></td>
+			<td> <input type="text" name="contenu" value ="<?php echo ($unContact!=null) ? $unContact['contenu']:""; ?>"></td>
 		</tr>
 		<tr> 
 			<td> Date : </td> 
-			<td> <input type="text" name="date" value ="<?php echo ($unContact!=null) ? $unContact['date']:""; ?>"></td>
+			<td> <input type="date" name="date" value ="<?php echo ($unContact!=null) ? $unContact['date']:""; ?>"></td>
 		</tr>
 		<tr>
 		    <td> Utilisateur : </td> 
