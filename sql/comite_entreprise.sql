@@ -37,9 +37,9 @@ CREATE TABLE activite(
 );
 
 insert into activite values (NULL, "Parc Asterix", "Plailly", 250, 1000, "Venez decouvrir Noel au sein d'Asterix", "2020-11-28", "2021-05-15", 25, 1),
-							(NULL, "Disneyland Paris", "Marne-La-Vallee", 550, 500, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 1);
-							(NULL, "Voyage a NYC", "Etats Unis", 25, 25000, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 1);
-							(NULL, "Soins massage", "Paris", 350, 990, "Detendez-vous en optant pour un voyage exceptionnel", "2020-12-14", "2021-05-10", 32, 1);
+	(NULL, "Disneyland Paris", "Marne-La-Vallee", 550, 500, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 1),
+	(NULL, "Voyage a NYC", "Etats Unis", 25, 25000, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 1),
+	(NULL, "Soins massage", "Paris", 350, 990, "Detendez-vous en optant pour un voyage exceptionnel", "2020-12-14", "2021-05-10", 32, 1);
 
 #------------------------------------------------------------
 # Table: utilisateur
@@ -104,6 +104,9 @@ insert into sponsor values (6, "IMACInfo", 8000, "0184452566", 1),
 							(8, "ImatRepair", 9500, "0180300322", 1),
 							(9, "SpaceTech", 10000, "0144857852", 1);
 
+# voir tous les utilisateurs:
+select * from utilisateur;
+
 #------------------------------------------------------------
 # Table: commentaire
 #------------------------------------------------------------
@@ -119,10 +122,10 @@ CREATE TABLE commentaire(
 		FOREIGN KEY (idutilisateur) REFERENCES salarie(idutilisateur)
 );
 
-insert into commentaire values (NULL, "2020-29-11", "Nous y retournerons tres prochainement, c'etais super !", 1, 1),
-								(NULL, "2020-29-11", "Assez satisfait, prix interessant", 2, 2),
-								(NULL, "2020-30-11", "Un voyage inoubliable !", 3, 3),
-								(NULL, "2020-02-12", "Mauvaise masseuse, prix bien trop eleve.", 4, 4);
+insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons tres prochainement, c'etais super !", 1, 1),
+	(NULL, "2020-11-29", "Assez satisfait, prix interessant", 2, 2),
+	(NULL, "2020-11-30", "Un voyage inoubliable !", 3, 3),
+	(NULL, "2020-12-02", "Mauvaise masseuse, prix bien trop eleve.", 4, 4);
 
 
 
@@ -175,14 +178,13 @@ insert into participer values (1, 1, "2020-10-05"),
 								(4, 4, "2020-04-17");
 
 #------------------------------------------------------------
-# View : utilisateur_sponsor_tresorerie
+# View : utilisateur_sponsor
 #------------------------------------------------------------
 
-create view utilisateur_sponsor_tresorerie as (
+create view utilisateur_sponsor as (
 	select u.idutilisateur, u.username, u.email, s.societe, s.budget, s.tel, t.id_tresorerie
 	from utilisateur u, sponsor s, tresorerie t
 	where u.idutilisateur = s.idutilisateur 
-	and s.id_tresorerie = t.id_tresorerie
 );
 
 
@@ -206,4 +208,13 @@ create view utilisateur_salarie_admin as (
 	where a.idutilisateur = sa.idutilisateur
 	and sa.idutilisateur = u.idutilisateur
 );
+
+# verification :
+select * from utilisateur_salarie;
+select * from utilisateur_salarie_admin;
+select * from utilisateur_sponsor;
+select * from activite;
+select * from commentaire;
+select * from tresorerie;
+select * from contact;
 
