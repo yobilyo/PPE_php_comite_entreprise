@@ -3,8 +3,13 @@
 	<table class="table table-striped">
 		<thead>
 			<tr> 
-						<th> Id Sponsor </th> <th> Société </th>
-						<th> Budget </th> <th> Téléphone  </th> 
+						<th> Nom d'utilisateur  </th>
+						<th> Email </th>
+						<th> password </th>
+						<th> Id Sponsor </th> 
+						<th> Société </th>
+						<th> Budget </th> 
+						<th> Téléphone  </th> 
 						
 						
 						<?php 
@@ -20,6 +25,9 @@
 			<?php 
 			foreach ($lesSponsors as $leSponsor) {
 				echo "<tr> 
+						<td>".$leSponsor['username']." </td>
+						<td>".$leSponsor['email']." </td>
+						<td>".$leSponsor['password']." </td>
 						<td>".$leSponsor['idsponsor']." </td>
 						<td>".$leSponsor['societe']." </td>
 						<td>".$leSponsor['budget']." </td>

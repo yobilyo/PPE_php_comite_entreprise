@@ -2,6 +2,18 @@
 <form method ="post" action ="">
 	<table>
 		<tr> 
+			<td> Nom d'utilisateur : </td> 
+			<td> <input type="text" name="username" value ="<?php echo ($leSponsor!=null) ? $leSponsor['username']:""; ?>" ></td>
+		</tr>
+        <tr> 
+			<td> Email : </td> 
+			<td> <input type="text" name="email" value ="<?php echo ($leSponsor!=null) ? $leSponsor['email']:""; ?>" ></td>
+		</tr>
+        <tr> 
+			<td> Mot de passe : </td> 
+			<td> <input type="password" name="password" value ="<?php echo ($leSponsor!=null) ? $leSponsor['password']:""; ?>" ></td>
+		</tr>
+		<tr> 
 			<td> Société : </td> 
 			<td> <input type="text" name="societe" value ="<?php echo ($leSponsor!=null) ? $leSponsor['societe']:""; ?>"></td>
 		</tr>

@@ -195,7 +195,9 @@ CREATE TABLE don(
 		FOREIGN key (id_tresorerie) REFERENCES tresorerie(id_tresorerie)
 );
 
-INSERT INTO don VALUES (NULL,"2020-11-15", 5000, "Avec plaisir", 1,1);
+INSERT INTO don VALUES (NULL,"2020-11-15", 5000, "Avec plaisir", 7,1),
+						(NULL,"2020-12-10", 4000, "Pour vous aidez", 6,1),
+						(NULL,"2020-12-10", 4000, "Etant riche, je me permet de vous donnez cette somme", 8,1);
 
 #------------------------------------------------------------
 # View : utilisateur_sponsor
@@ -334,7 +336,8 @@ create view utilisateur_sponsor_don as (
         d.appreciation
 
     from utilisateur u, sponsor s, don d
-    where u.idutilisateur = s.idutilisateur AND s.idutilisateur = d.idutilisateur
+    where u.idutilisateur = s.idutilisateur 
+	AND s.idutilisateur = d.idutilisateur
 );
 
 # verification :

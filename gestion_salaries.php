@@ -70,7 +70,7 @@
                 $where =array("idutilisateur"=>$idutilisateur);
 
                 $unControleur->update($tab, $where);
-                header("Location: index.php?page=1");
+                header("Location: index.php?page=2");
             }
 
             if (isset($_POST['valider'])){
