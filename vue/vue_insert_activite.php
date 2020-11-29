@@ -39,7 +39,7 @@
 		</tr>
 
 				
-		<?php echo ($uneActivite!=null) ? "<input type='hidden' name='id_activite' value ='".$uneActivite['id_activite']."'>" : ""; ?>
+		<?php echo ($uneActivite!=null) ? "<input type='hidden' name='idactivite' value ='".$uneActivite['idactivite']."'>" : ""; ?>
 
 
 		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  

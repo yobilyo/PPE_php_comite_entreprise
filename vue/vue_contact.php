@@ -6,7 +6,7 @@
 			<tr > 
 				<th> Id </th>
 				<th> Objet </th> <th> Contenu</th>
-				<th> Date</th> <th> Uitlisateur</th> 
+				<th> Date</th> <th> Utilisateur</th> 
 				<th>Operations</th>
 			</tr>
 		</thead>
