@@ -44,7 +44,7 @@
 
 
 		
-	//	<?php echo ($leDon!=null) ? "<input type='hidden' name='idmembre' value ='".$leDon['idmembre']."'>" : "";?>
+		<?php echo ($leDon!=null) ? "<input type='hidden' name='id_utilisateur' value ='".$leDon['id_utilisateur']."'>" : "";?>
 
 			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
 			<td> <input type="submit" 

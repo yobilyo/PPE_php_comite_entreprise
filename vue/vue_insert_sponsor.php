@@ -18,7 +18,7 @@
 	
     
 		
-		<?php echo ($leSponsor!=null) ? "<input type='hidden' name='idprojet' value ='".$leSponsor['idsponsor']."'>" : ""; ?>
+		<?php echo ($leSponsor!=null) ? "<input type='hidden' name='id_utilisateur' value ='".$leSponsor['id_utilisateur']."'>" : ""; ?>
 
 		<tr> 
 			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
