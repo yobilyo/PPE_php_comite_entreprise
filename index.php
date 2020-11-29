@@ -47,10 +47,10 @@
 
 
 
-           /*if (isset($_SESSION['droits']))
+           /*if (isset($_SESSION['droits']))src="lib/images/logo_3dsoft.jpg"
             {*/
                     echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
-                    <a href='index.php?page=0' class='navbar-brand'><img src='images/secours-logo.png' width=50px/></a>
+                    <a href='index.php?page=0' class='navbar-brand'><img src='lib/images/logo_3dsoft.jpg' width=170px/></a>
                     <button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbarCollapse'>
                         <span class='navbar-toggler-icon'></span>
                     </button>
