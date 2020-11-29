@@ -5,8 +5,8 @@
 			<tr> 
 				<th> Id dons </th>
 				<th> Date Don </th>
-				<th> Somme</th> <th> Appréciation </th> 
-				<th> Nom du Projet </th> <th> Nom du donateur </th> <th> Opération </th> 
+				<th> Montant du don</th> <th> Appréciation </th> 	
+                 <th> Société donatrice </th> <th> Opération </th> 
 			</tr>
 		</thead>
 
@@ -16,10 +16,10 @@
 				echo "<tr> 
 						<td>".$leDon['iddon']." </td>
 						<td>".$leDon['datedon']." </td>
-						<td>".$leDon['somme']." </td>
+						<td>".$leDon['montant']." </td>
 						<td>".$leDon['appreciation']." </td>
-						<td>".$leDon['description']." </td>
-						<td>".$leDon['nom']." </td>
+						<td>".$leDon['societe']." </td>
+					
 						<td>
 						<a href='index.php?page=3&action=sup&iddon=".$leDon['iddon']."'>
 						<img src ='images/sup.jpg' height='30' witdh='30'> </a>

@@ -2,13 +2,13 @@
 <form method ="post" action ="">
 	<table>
 		<tr> 
-		<td> Membre : </td> 
+		<td> Société donatrice : </td> 
 					
 				<td> 
-				<select name ="idmembre">
+				<select name ="idsponsor">
 						 <?php
-						 	foreach ($lesMembres as $unMembre) {
-								 echo "<option value ='".$unMembre['idmembre']."'>".$unMembre['nom']."  ".$unMembre['prenom']."</option>";
+						 	foreach ($lesSponsors as $unSponsor) {
+								 echo "<option value ='".$unSponsor['idsponsor']."'>".$unSponsor['societe']."</option>";
 								
 						 	}
 						 ?>
@@ -16,19 +16,19 @@
 				</td>
 		</tr>
 		<tr>
-	<td> Description du projet : </td> 
-		<td>		 <select name ="idprojet">
+    	<td>Budget </td> 
+		<td>		 <select name ="idsponsor">
 						 <?php
-						 	foreach ($lesProjets as $unProjet) {
-						 		echo "<option value ='".$unProjet['idprojet']."'>".$unProjet['description']."  "."</option>";
+						 	foreach ($lesSponsors as $unSponsor) {
+						 		echo "<option value ='".$unSponsor['idsponsor']."'>".$unSponsor['societe']."  "."</option>";
 						 	}
 						 ?>
 					</select>
 				</td>
 		</tr>
 		<tr> 
-			<td> Somme du don : </td> 
-			<td> <input type="text" name="somme" value ="<?php echo ($leDon!=null) ? $leDon['somme']:""; ?>"></td>
+			<td> Montant du don : </td> 
+			<td> <input type="number" name="montant" value ="<?php echo ($leDon!=null) ? $leDon['montant']:""; ?>"></td>
 		</tr>
 		<tr> 
 			<td> Appréciation  : </td> 
@@ -44,7 +44,7 @@
 
 
 		
-		<?php echo ($leDon!=null) ? "<input type='hidden' name='idmembre' value ='".$leDon['idmembre']."'>" : "";?>
+	//	<?php echo ($leDon!=null) ? "<input type='hidden' name='idmembre' value ='".$leDon['idmembre']."'>" : "";?>
 
 			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
 			<td> <input type="submit" 
