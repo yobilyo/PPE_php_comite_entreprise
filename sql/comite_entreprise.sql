@@ -182,7 +182,14 @@ insert into participer values (1, 1, "2020-10-05"),
 #------------------------------------------------------------
 
 create view utilisateur_sponsor as (
-	select u.idutilisateur, u.username, u.email, s.societe, s.budget, s.tel, t.id_tresorerie
+	select 
+		u.username as "Utilisateur", 
+		u.email as "Email", 
+		s.societe as "Société", 
+		s.budget as "Budget", 
+		s.tel as "Téléphone", 
+		t.id_tresorerie as "ID trésorerie"
+		
 	from utilisateur u, sponsor s, tresorerie t
 	where u.idutilisateur = s.idutilisateur 
 );
@@ -193,7 +200,16 @@ create view utilisateur_sponsor as (
 #------------------------------------------------------------
 
 create view utilisateur_salarie as (
-	select u.idutilisateur, u.username, u.email, sa.nom, sa.prenom, sa.tel, sa.adresse, sa.quotient_fam, sa.service, sa.sexe
+	select  
+		u.username as "Utilisateur", 
+		u.email as "Email", 
+		sa.nom as "Nom", 
+		sa.prenom as "Prenom", 
+		sa.tel as "Téléphone", 
+		sa.adresse as "Adresse", 
+		sa.quotient_fam as "Quotient familial", 
+		sa.service as "Service", 
+		sa.sexe as "Sexe"
 	from utilisateur u, salarie sa
 	where u.idutilisateur = sa.idutilisateur
 );
@@ -203,7 +219,16 @@ create view utilisateur_salarie as (
 #------------------------------------------------------------
 
 create view utilisateur_salarie_admin as (
-	select u.idutilisateur, u.username, u.email, sa.nom, sa.prenom, sa.tel, sa.adresse, sa.quotient_fam, sa.service, sa.sexe
+	select  
+		u.username as "Utilisateur", 
+		u.email as "Email", 
+		sa.nom as "Nom", 
+		sa.prenom as "Prenom", 
+		sa.tel as "Telephone", 
+		sa.adresse as "Adresse", 
+		sa.quotient_fam as "Quotient familiale", 
+		sa.service as "Service", 
+		sa.sexe as "Sexe"
 	from utilisateur u, salarie sa, admin a
 	where a.idutilisateur = sa.idutilisateur
 	and sa.idutilisateur = u.idutilisateur
@@ -231,7 +256,6 @@ create view utilisateur_salarie_activite as (
 			p.date_inscription as "Date inscription"
 	
 	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t
-	
 	where u.idutilisateur = sa.idutilisateur 
 	and sa.idutilisateur = p.idutilisateur  
 	and p.id_activite = a.id_activite  
@@ -255,7 +279,6 @@ create view utilisateur_salarie_activite_commentaire as (
 			c.contenu as "Commentaire"
 	
 	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t, commentaire c
-	
 	where u.idutilisateur = sa.idutilisateur 
 	and sa.idutilisateur = p.idutilisateur  
 	and p.id_activite = a.id_activite  
