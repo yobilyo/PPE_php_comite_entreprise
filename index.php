@@ -15,27 +15,27 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
-    <script src="js/helpers.js"></script>
+    <script src="lib/js/helpers.js"></script>
 </head>
 <body>
     <center>
         <!-- <h1>Gestion des missions du Secours Populaire</h1> -->
         <?php
-            if ( ! isset($_SESSION['email']))
+            if ( ! isset($_SESSION['username']))
             {
                 require_once ("vue/vue_connexion.php");
                 
             }
             if (isset($_POST['seconnecter']))
             {
-                $unControleur->setTable ("membre");
-                $tab=array("email"=>$_POST['email'], "mdp"=>$_POST['mdp']); 
+                $unControleur->setTable ("utilisateur");
+                $tab=array("username"=>$_POST['username'], "password"=>$_POST['password']); 
                 $membreConnecte = $unControleur->selectWhere ($tab);
                 if ($membreConnecte == null || $membreConnecte == false )
                 {
                     echo "<br /> Erreur de connexion, Veuillez vérifier vos identifiants";
-                }else if (isset($membreConnecte['email'])){
-                    $_SESSION['email'] = $membreConnecte['email']; 
+                }else if (isset($membreConnecte['username'])){
+                    $_SESSION['username'] = $membreConnecte['username']; 
                     $_SESSION['droits'] = $membreConnecte['droits'];
                     $_SESSION['idmembre'] = $membreConnecte['idmembre'];
                     $_SESSION['nom'] = $membreConnecte['nom'];
@@ -124,7 +124,6 @@
                     case 10:
                         session_destroy();   
                         header("Location: index.php");             
-                    
                     }
             }
         
