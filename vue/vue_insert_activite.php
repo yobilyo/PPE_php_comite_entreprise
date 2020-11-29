@@ -41,7 +41,6 @@
 				
 		<?php echo ($uneActivite!=null) ? "<input type='hidden' name='id_activite' value ='".$uneActivite['id_activite']."'>" : ""; ?>
 
-		<?php echo ($uneActivite!=null) ? "<input type='hidden' name='id_tresorerie' value ='".$uneActivite['id_tresorerie']."'>" : ""; ?>
 
 		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
 		<td> <input type="submit" 
