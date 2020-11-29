@@ -36,10 +36,10 @@ CREATE TABLE activite(
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
 );
 
-insert into activite values (NULL, "Parc Asterix", "Plailly", 250, 1000, "Venez decouvrir Noel au sein d'Asterix", "2020-11-28", "2021-05-15", 25, 1),
+insert into activite values (NULL, "Parc Asterix", "Plailly", 250, 1000, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 1),
 	(NULL, "Disneyland Paris", "Marne-La-Vallee", 550, 500, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 1),
 	(NULL, "Voyage a NYC", "Etats Unis", 25, 25000, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 1),
-	(NULL, "Soins massage", "Paris", 350, 990, "Detendez-vous en optant pour un voyage exceptionnel", "2020-12-14", "2021-05-10", 32, 1);
+	(NULL, "Soins massages", "Paris", 350, 990, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 1);
 
 #------------------------------------------------------------
 # Table: utilisateur
@@ -122,10 +122,10 @@ CREATE TABLE commentaire(
 		FOREIGN KEY (idutilisateur) REFERENCES salarie(idutilisateur)
 );
 
-insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons tres prochainement, c'etais super !", 1, 1),
-	(NULL, "2020-11-29", "Assez satisfait, prix interessant", 2, 2),
+insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très prochainement, c'était super !", 1, 1),
+	(NULL, "2020-11-29", "Assez satisfait, prix intéressant", 2, 2),
 	(NULL, "2020-11-30", "Un voyage inoubliable !", 3, 3),
-	(NULL, "2020-12-02", "Mauvaise masseuse, prix bien trop eleve.", 4, 4);
+	(NULL, "2020-12-02", "Mauvaise masseuse, prix bien trop élevé.", 4, 4);
 
 
 
@@ -156,7 +156,7 @@ CREATE TABLE contact(
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 );
 
-insert into contact values (NULL, "Reservation", "Bonjour, je vous contact suite a l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
+insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
 						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
 
 #------------------------------------------------------------
@@ -176,6 +176,25 @@ insert into participer values (1, 1, "2020-10-05"),
 								(2, 2, "2020-08-20"),
 								(3, 3, "2020-10-12"),
 								(4, 4, "2020-04-17");
+
+
+
+#------------------------------------------------------------
+# Table: dons
+#------------------------------------------------------------
+
+CREATE TABLE don(
+		iddon int AUTO_INCREMENT not null ,
+		montant float ,
+		appreciation varchar(50),
+		idutilisateur int not null,
+		id_tresorerie int not null,
+		PRIMARY key (iddon),
+		FOREIGN key(idutilisateur) REFERENCES utilisateur(idutilisateur),
+		FOREIGN key (id_tresorerie) REFERENCES tresorerie(id_tresorerie)
+);
+
+INSERT INTO don VALUES (NULL, 5000, "Avec plaisir", 1,1);
 
 #------------------------------------------------------------
 # View : utilisateur_sponsor
@@ -284,6 +303,9 @@ create view utilisateur_salarie_activite_commentaire as (
 	and p.id_activite = a.id_activite  
 	and c.id_activite = a.id_activite 
 );
+
+
+
 
 # verification :
 select * from utilisateur_salarie;
