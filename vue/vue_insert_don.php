@@ -5,10 +5,10 @@
 		<td> Société donatrice : </td> 
 					
 				<td> 
-				<select name ="idsponsor">
+				<select name ="idutilisateur">
 						 <?php
 						 	foreach ($lesSponsors as $unSponsor) {
-								 echo "<option value ='".$unSponsor['idsponsor']."'>".$unSponsor['societe']."</option>";
+								 echo "<option value ='".$unSponsor['idutilisateur']."'>".$unSponsor['societe']."</option>";
 								
 						 	}
 						 ?>
@@ -17,10 +17,10 @@
 		</tr>
 		<tr>
     	<td>Budget </td> 
-		<td>		 <select name ="idsponsor">
+		<td>		 <select name ="idutilisateur">
 						 <?php
 						 	foreach ($lesSponsors as $unSponsor) {
-						 		echo "<option value ='".$unSponsor['idsponsor']."'>".$unSponsor['societe']."  "."</option>";
+						 		echo "<option value ='".$unSponsor['idutilisateur']."'>".$unSponsor['societe']."  "."</option>";
 						 	}
 						 ?>
 					</select>
@@ -44,7 +44,7 @@
 
 
 		
-	//	<?php echo ($leDon!=null) ? "<input type='hidden' name='idmembre' value ='".$leDon['idmembre']."'>" : "";?>
+		<?php echo ($leDon!=null) ? "<input type='hidden' name='idutilisateur' value ='".$leDon['idutilisateur']."'>" : "";?>
 
 			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
 			<td> <input type="submit" 
