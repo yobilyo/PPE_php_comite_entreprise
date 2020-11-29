@@ -1,15 +1,15 @@
 <?php
     $unCommentaire=null;
 	$unControleur->setTable ("commentaire");
-	$tab=array("id_commentaire", "datecomment", "contenu");
+	$tab=array("*");
 	$lesCommentaires = $unControleur->selectAll ($tab); 
 
-	$unControleur->setTable ("projet");
-	$tab=array("idprojet", "description");
+	$unControleur->setTable ("activite");
+	$tab=array("*");
     $lesProjets = $unControleur->selectAll ($tab); 
     
-    $unControleur->setTable ("membre");
-	$tab=array("idmembre", "nom ", "prenom");
+    $unControleur->setTable ("utilisateur");
+	$tab=array("*");
 	$lesMembres = $unControleur->selectAll ($tab); 
 
 	$unControleur->setTable ("commentaire");
@@ -36,22 +36,22 @@
 
     if (isset($_POST['modifier'])){
         $date = date("yy.m.d");
-        $tab=array("id_commentaire"=>$_POST['id_commentaire'],"datecomment"=>$date, "contenu" =>$_POST['contenu'],  "note"=>$_POST['note'], "idprojet"=>$_POST['idprojet'],"idmembre"=>$_POST['idmembre'], );
+        $tab=array("id_commentaire"=>$_POST['id_commentaire'],"datecomment"=>$date, "contenu" =>$_POST['contenu'], "id_activite"=>$_POST['id_activite'],"idutilisateur"=>$_POST['idutilisateur']);
         $where =array("id_commentaire"=>$id_commentaire);
 
         $unControleur->update($tab, $where);
-        header("Location: index.php?page=4");
+        header("Location: index.php?page=5");
     }
 
 
 	if (isset($_POST['valider'])){
         $date = date("yy.m.d");
-        $tab=array("datecomment"=>$date, "contenu" =>$_POST['contenu'],  "note"=>$_POST['note'],"idprojet"=>$_POST['idprojet'], "idmembre"=>$_POST['idmembre']    ); //modification de id projet et membre
+        $tab=array("datecomment"=>$date, "contenu" =>$_POST['contenu'], "id_activite"=>$_POST['id_activite'],"idutilisateur"=>$_POST['idutilisateur']);
         
 		$unControleur->insert($tab);
 	}
 
-	$unControleur->setTable ("commentaire_membre_projet");	//changement de table : prendre la vue 
+	$unControleur->setTable ("utilisateur_salarie_activite_commentaire");	//changement de table : prendre la vue 
     $tab=array("*");
     $lesCommentaires= $unControleur->selectAll ($tab); 
   
