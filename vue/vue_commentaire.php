@@ -7,6 +7,9 @@
 				<th> Id </th>
 				<th> Date du commentaire </th> 
                 <th> Contenu </th>
+				<th> Nom de l'utilisateur </th>
+				<th> Prenom de l'utilisateur </th>
+				<th> Nom de l'activité </th>
                 
 				<?php 
 				if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
@@ -24,7 +27,12 @@
 				echo "<tr> 
 						<td>".$unCommentaire['id_commentaire']." </td>
 						<td>".$unCommentaire['datecomment']." </td>
-						<td>".$unCommentaire['contenu']." </td>";
+						<td>".$unCommentaire['contenu']." </td>
+						<td>".$unCommentaire['nom']." </td>
+						<td>".$unCommentaire['prenom']." </td>
+						<td>".$unCommentaire['nom_activite']." </td>
+						
+						";
 
 						if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
 						{

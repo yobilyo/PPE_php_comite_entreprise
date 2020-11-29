@@ -25,12 +25,12 @@ CREATE TABLE activite(
         id_activite   Int  Auto_increment  NOT NULL ,
         nom           Varchar (50),
         lieu          Varchar (50),
-        nb_personnes  Int(5),
         budget        Float,
         description   Varchar (200),
         date_debut    Date,
         date_fin      Date,
         prix          Float,
+		nb_personnes  Int(5),
         id_tresorerie Int NOT NULL,
 		PRIMARY KEY (id_activite),
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
@@ -200,15 +200,17 @@ INSERT INTO don VALUES (NULL,"2020-11-15", 5000, "Avec plaisir", 1,1);
 #------------------------------------------------------------
 # View : utilisateur_sponsor
 #------------------------------------------------------------
- 
+
 create view utilisateur_sponsor as (
 	select 
-		u.username as "Utilisateur", 
-		u.email as "Email", 
-		s.societe as "Société", 
-		s.budget as "Budget", 
-		s.tel as "Téléphone", 
-		t.id_tresorerie as "ID trésorerie"
+		u.idutilisateur,
+		u.username, 
+		u.email, 
+		u.password,
+		s.societe, 
+		s.budget, 
+		s.tel, 
+		t.id_tresorerie
 		
 	from utilisateur u, sponsor s, tresorerie t
 	where u.idutilisateur = s.idutilisateur 
@@ -221,15 +223,17 @@ create view utilisateur_sponsor as (
 
 create view utilisateur_salarie as (
 	select  
-		u.username as "Utilisateur", 
-		u.email as "Email", 
-		sa.nom as "Nom", 
-		sa.prenom as "Prenom", 
-		sa.tel as "Téléphone", 
-		sa.adresse as "Adresse", 
-		sa.quotient_fam as "Quotient familial", 
-		sa.service as "Service", 
-		sa.sexe as "Sexe"
+		u.idutilisateur,
+		u.username, 
+		u.email,
+		u.password,
+		sa.nom, 
+		sa.prenom,
+		sa.sexe,
+		sa.tel, 
+		sa.adresse, 
+		sa.quotient_fam, 
+		sa.service
 	from utilisateur u, salarie sa
 	where u.idutilisateur = sa.idutilisateur
 );
@@ -240,15 +244,17 @@ create view utilisateur_salarie as (
 
 create view utilisateur_salarie_admin as (
 	select  
-		u.username as "Utilisateur", 
-		u.email as "Email", 
-		sa.nom as "Nom", 
-		sa.prenom as "Prenom", 
-		sa.tel as "Telephone", 
-		sa.adresse as "Adresse", 
-		sa.quotient_fam as "Quotient familiale", 
-		sa.service as "Service", 
-		sa.sexe as "Sexe"
+		u.idutilisateur,
+		u.username, 
+		u.email,
+		u.password, 
+		sa.nom, 
+		sa.prenom,
+		sa.sexe,
+		sa.tel, 
+		sa.adresse, 
+		sa.quotient_fam, 
+		sa.service
 	from utilisateur u, salarie sa, admin a
 	where a.idutilisateur = sa.idutilisateur
 	and sa.idutilisateur = u.idutilisateur
@@ -262,18 +268,23 @@ create view utilisateur_salarie_admin as (
 create view utilisateur_salarie_activite as (
 
 	select 	
-			sa.nom as "Nom", 
-			sa.prenom as "Prénom", 
-			sa.tel as "Téléphone", 
-			sa.adresse as "Adresse", 
-			sa.quotient_fam as "Quotient familial", 
-			sa.service as "Service", 
-			a.nom as "Nom activite", 
-			a.lieu as "Lieu", 
-			a.nb_personnes as "Nombre de personnes", 
-			a.description as "Desciption de l'activitée", 
-			sum(a.prix) as "Prix total", 
-			p.date_inscription as "Date inscription"
+		u.idutilisateur,
+		u.username, 
+		u.email,
+		u.password, 
+		sa.nom, 
+		sa.prenom,
+		sa.sexe,
+		sa.tel, 
+		sa.adresse, 
+		sa.quotient_fam, 
+		sa.service,
+		a.nom as "nom_activite", 
+		a.lieu, 
+		a.nb_personnes, 
+		a.description, 
+		sum(a.prix) as "prix_total", 
+		p.date_inscription
 	
 	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t
 	where u.idutilisateur = sa.idutilisateur 
@@ -288,15 +299,19 @@ create view utilisateur_salarie_activite as (
 create view utilisateur_salarie_activite_commentaire as (
 
 	select 	
-			sa.nom as "Nom", 
-			sa.prenom as "Prénom", 
-			sa.tel as "Téléphone", 
-			sa.adresse as "Adresse", 
-			sa.service as "Service", 
-			a.nom as "Nom activite",
-			a.lieu as "Lieu",
-			a.description as "Description de l'activitée",
-			c.contenu as "Commentaire"
+		u.idutilisateur,
+		u.username, 
+		u.email,
+		u.password, 
+		sa.nom, 
+		sa.prenom, 
+		sa.tel, 
+		sa.adresse, 
+		sa.service, 
+		a.nom as "nom_activite",
+		a.lieu,
+		a.description,
+		c.contenu
 	
 	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t, commentaire c
 	where u.idutilisateur = sa.idutilisateur 
@@ -316,6 +331,7 @@ select * from utilisateur_salarie_activite;
 select * from utilisateur_salarie_activite_commentaire;
 select * from activite;
 select * from commentaire;
+select * from don;
 select * from tresorerie;
 select * from contact;
 
