@@ -200,7 +200,7 @@ INSERT INTO don VALUES (NULL,"2020-11-15", 5000, "Avec plaisir", 1,1);
 #------------------------------------------------------------
 # View : utilisateur_sponsor
 #------------------------------------------------------------
-
+ 
 create view utilisateur_sponsor as (
 	select 
 		u.username as "Utilisateur", 
