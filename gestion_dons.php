@@ -50,11 +50,11 @@
             $unControleur->insert($tab);
         }
 
-        if ($_SESSION['droits'] =="admin") {
+        /*if ($_SESSION['droits'] =="admin") {*/
             $unControleur->setTable ("don_membre_projet");	//changement de table : prendre la vue 
             $tab=array("*");
             $lesDons= $unControleur->selectAll ($tab); 
             require_once("vue/vue_don.php");
-        }
-    }
+        //}
+    //}
 ?>

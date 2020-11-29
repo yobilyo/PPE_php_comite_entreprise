@@ -3,9 +3,12 @@
 	{
 		echo "ERREUR 404, page non identifiée ";
 	}else if (isset($_SESSION['username']) && $_SESSION['paswword'] )
-	{*/
-            $unControleur->setTable ("sponsor");
+    {*/
             $leSponsor = null; 
+            $unControleur->setTable ("sponsor");
+            $tab=array("*");
+            $lesSponsors = $unControleur->selectAll ($tab); 
+            
             
             if (isset($_GET['action']) && isset($_GET['idutilisateur']))
             {
@@ -46,7 +49,7 @@
             $lesProjets = $unControleur->selectAll ($tab); 
             require_once("vue/vue_sponsor.php"); 
 
-    } 
+    //} 
                 $unControleur->setTable ("utilisateur_sponsor_don");
                 $tab=array("*");
                 $lesProjets = $unControleur->selectAll ($tab); 

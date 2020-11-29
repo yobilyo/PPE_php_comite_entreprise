@@ -8,7 +8,7 @@
 						
 						
 						<?php 
-						if (isset($_SESSION['username']) && $_SESSION['password'])
+						/*if (isset($_SESSION['username']) && $_SESSION['password'])*/
 							{
 						echo "<th> Opérations </th>";
 						}
@@ -18,7 +18,7 @@
 
 		<tbody>
 			<?php 
-			foreach ($leSponsor as $leSponsor) {
+			foreach ($lesSponsors as $leSponsor) {
 				echo "<tr> 
 						<td>".$leSponsor['idsponsor']." </td>
 						<td>".$leSponsor['societe']." </td>
