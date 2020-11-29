@@ -209,10 +209,65 @@ create view utilisateur_salarie_admin as (
 	and sa.idutilisateur = u.idutilisateur
 );
 
+
+#------------------------------------------------------------
+# View : utilisateur_salarie_activite
+#------------------------------------------------------------
+
+create view utilisateur_salarie_activite as (
+
+	select 	
+			sa.nom as "Nom", 
+			sa.prenom as "Prénom", 
+			sa.tel as "Téléphone", 
+			sa.adresse as "Adresse", 
+			sa.quotient_fam as "Quotient familial", 
+			sa.service as "Service", 
+			a.nom as "Nom activite", 
+			a.lieu as "Lieu", 
+			a.nb_personnes as "Nombre de personnes", 
+			a.description as "Desciption de l'activitée", 
+			sum(a.prix) as "Prix total", 
+			p.date_inscription as "Date inscription"
+	
+	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t
+	
+	where u.idutilisateur = sa.idutilisateur 
+	and sa.idutilisateur = p.idutilisateur  
+	and p.id_activite = a.id_activite  
+);
+
+#------------------------------------------------------------
+# View : utilisateur_salarie_activite_commentaire
+#------------------------------------------------------------
+
+create view utilisateur_salarie_activite_commentaire as (
+
+	select 	
+			sa.nom as "Nom", 
+			sa.prenom as "Prénom", 
+			sa.tel as "Téléphone", 
+			sa.adresse as "Adresse", 
+			sa.service as "Service", 
+			a.nom as "Nom activite",
+			a.lieu as "Lieu",
+			a.description as "Description de l'activitée",
+			c.contenu as "Commentaire"
+	
+	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t, commentaire c
+	
+	where u.idutilisateur = sa.idutilisateur 
+	and sa.idutilisateur = p.idutilisateur  
+	and p.id_activite = a.id_activite  
+	and c.id_activite = a.id_activite 
+);
+
 # verification :
 select * from utilisateur_salarie;
 select * from utilisateur_salarie_admin;
 select * from utilisateur_sponsor;
+select * from utilisateur_salarie_activite;
+select * from utilisateur_salarie_activite_commentaire;
 select * from activite;
 select * from commentaire;
 select * from tresorerie;
