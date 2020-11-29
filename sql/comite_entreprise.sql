@@ -320,8 +320,22 @@ create view utilisateur_salarie_activite_commentaire as (
 	and c.id_activite = a.id_activite 
 );
 
+#------------------------------------------------------------
+# View : utilisateur_sponsor_don
+#------------------------------------------------------------
+create view utilisateur_sponsor_don as (
+    select 
+        u.username , 
+        u.email, 
+        s.societe , 
+        s.budget, 
+        s.tel , 
+        d.montant,
+        d.appreciation
 
-
+    from utilisateur u, sponsor s, don d
+    where u.idutilisateur = s.idutilisateur AND s.idutilisateur = d.idutilisateur
+);
 
 # verification :
 select * from utilisateur_salarie;
@@ -329,6 +343,7 @@ select * from utilisateur_salarie_admin;
 select * from utilisateur_sponsor;
 select * from utilisateur_salarie_activite;
 select * from utilisateur_salarie_activite_commentaire;
+select * from utilisateur_sponsor_don;
 select * from activite;
 select * from commentaire;
 select * from don;

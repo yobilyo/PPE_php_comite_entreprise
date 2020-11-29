@@ -1,9 +1,9 @@
 <?php
-	if ( ! isset($_SESSION['username']))
+	/*if ( ! isset($_SESSION['username']))
 	{
 		echo "ERREUR 404, page non identifiée ";
 	}else if (isset($_SESSION['username']) && $_SESSION['paswword'] )
-	{
+	{*/
             $unControleur->setTable ("sponsor");
             $leSponsor = null; 
             
