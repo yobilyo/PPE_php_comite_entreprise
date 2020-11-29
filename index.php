@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Secours</title>
+    <title>Comité d'entreprise</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -19,9 +19,9 @@
 </head>
 <body>
     <center>
-        <!-- <h1>Gestion des missions du Secours Populaire</h1> -->
+       
         <?php
-            if ( ! isset($_SESSION['username']))
+            /*if ( ! isset($_SESSION['username']))
             {
                 require_once ("vue/vue_connexion.php");
                 
@@ -42,13 +42,13 @@
                     $_SESSION['prenom'] = $membreConnecte['prenom'];
                     header("Location: index.php");
                 }
-            }
+            }*/
 
 
 
 
-            if (isset($_SESSION['droits']))
-            {
+           /*if (isset($_SESSION['droits']))
+            {*/
                     echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                     <a href='index.php?page=0' class='navbar-brand'><img src='images/secours-logo.png' width=50px/></a>
                     <button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbarCollapse'>
@@ -58,13 +58,13 @@
                     <div class='collapse navbar-collapse' id='navbarCollapse'>
                         <div class='navbar-nav'>
                             <a href='index.php?page=0' class='nav-item nav-link active'>Accueil</a>";
-                            if ($_SESSION['droits'] =="admin")
-                            {
+                            /*if ($_SESSION['droits'] =="admin")
+                            {*/
                                 echo'
                                 <a href="index.php?page=1" class="nav-item nav-link">Administrateurs</a>
                                 <a href="index.php?page=2" class="nav-item nav-link">Salariés</a>
                                 ';
-                            }
+                            //}
                             echo "
                             <a href='index.php?page=3' class='nav-item nav-link'>Participations</a>
                             <a href='index.php?page=4' class='nav-item nav-link'>Activités</a>
@@ -125,9 +125,10 @@
                         session_destroy();   
                         header("Location: index.php");             
                     }
-            }
+            //}
         
      ?>
     </center>
 </body>
 </html>
+

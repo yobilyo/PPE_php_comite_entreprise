@@ -47,7 +47,7 @@
 
 	</fieldset>
   </form>
-  <a href="vue_inscription.php">Nouveau membre ? Créez votre compte.</a>
+  <a href="vue/vue_inscription.php">Nouveau membre ? Créez votre compte.</a>
 </div>
 
 
