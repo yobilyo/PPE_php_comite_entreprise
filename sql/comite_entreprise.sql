@@ -185,6 +185,7 @@ insert into participer values (1, 1, "2020-10-05"),
 
 CREATE TABLE don(
 		iddon int AUTO_INCREMENT not null ,
+		datedon DATE,
 		montant float ,
 		appreciation varchar(50),
 		idutilisateur int not null,
@@ -194,7 +195,7 @@ CREATE TABLE don(
 		FOREIGN key (id_tresorerie) REFERENCES tresorerie(id_tresorerie)
 );
 
-INSERT INTO don VALUES (NULL, 5000, "Avec plaisir", 1,1);
+INSERT INTO don VALUES (NULL,"2020-11-15", 5000, "Avec plaisir", 1,1);
 
 #------------------------------------------------------------
 # View : utilisateur_sponsor
