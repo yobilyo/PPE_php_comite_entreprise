@@ -69,7 +69,7 @@ CREATE TABLE salarie(
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 );
 
-insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme");
+insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), (2, "Gerard", "DEPARD", "0658856244", "toulouse", 4, "commercial", "homme");
 #------------------------------------------------------------
 # Table: Sponsor
 #------------------------------------------------------------
@@ -142,3 +142,38 @@ CREATE TABLE participer(
 		FOREIGN KEY (idutilisateur) REFERENCES salarie(idutilisateur),
 		FOREIGN KEY (id_activite) REFERENCES activite(id_activite)
 );
+
+
+#------------------------------------------------------------
+# View : utilisateur_sponsor_tresorerie
+#------------------------------------------------------------
+
+create view utilisateur_sponsor_tresorerie as (
+	select u.idutilisateur, u.username, u.email, s.societe, s.budget, s.tel, t.id_tresorerie
+	from utilisateur u, sponsor s, tresorerie t
+	where u.idutilisateur = s.idutilisateur 
+	and s.id_tresorerie = t.id_tresorerie
+);
+
+
+#------------------------------------------------------------
+# View : utilisateur_salarie
+#------------------------------------------------------------
+
+create view utilisateur_salarie as (
+	select u.idutilisateur, u.username, u.email, sa.nom, sa.prenom, sa.tel, sa.adresse, sa.quotient_fam, sa.service, sa.sexe
+	from utilisateur u, salarie sa
+	where u.idutilisateur = sa.idutilisateur
+);
+
+#------------------------------------------------------------
+# View : utilisateur_salarie_admin
+#------------------------------------------------------------
+
+create view utilisateur_salarie_admin as (
+	select u.idutilisateur, u.username, u.email, sa.nom, sa.prenom, sa.tel, sa.adresse, sa.quotient_fam, sa.service, sa.sexe
+	from utilisateur u, salarie sa, admin a
+	where a.idutilisateur = sa.idutilisateur
+	and sa.idutilisateur = u.idutilisateur
+);
+
