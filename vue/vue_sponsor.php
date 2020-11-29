@@ -45,10 +45,10 @@
 						if (isset($_SESSION['username']) && $_SESSION['password'] )
 						{
 						echo "<td>
-						<a href='index.php?page=2&action=sup&idsponsor=".$leSponsor['idsponsor']."'>
+						<a href='index.php?page=7&action=sup&idsponsor=".$leSponsor['idsponsor']."'>
 						<img src ='images/sup.jpg' height='30' witdh='30'> </a>
 
-						<a href='index.php?page=2&action=edit&idsponsor=".$leSponsor['idsponsor']."'>
+						<a href='index.php?page=7&action=edit&idsponsor=".$leSponsor['idsponsor']."'>
 						<img src ='images/edit.png' height='30' witdh='30'> </a>
  
 						</td>";

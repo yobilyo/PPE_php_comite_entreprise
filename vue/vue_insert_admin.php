@@ -10,6 +10,18 @@
 			<td> Prenom admin : </td> 
 			<td> <input type="text" name="prenom" value ="<?php echo ($leAdmin!=null) ? $leAdmin['prenom']:""; ?>" ></td>
 		</tr>
+        <tr> 
+		<td> Service de l'admin : </td> 	
+				<td> 
+				<select name ="idutilisateur">
+						 <?php
+						 	foreach ($lesAdmins as $unAdmin) {
+								 echo "<option value ='".$unAdmin['idutilisateur']."'>".$unAdmin['service']."</option>";
+						 	}
+						 ?>
+					</select>
+				</td>
+		</tr>
 		<tr> 
 			<td>Adresse de l'admin: </td> 
 			<td> <input type="text" name="adresse" value ="<?php echo ($leAdmin!=null) ? $leAdmin['adresse']:""; ?>">  </td>
@@ -25,9 +37,28 @@
 		</tr>
 
         <tr> 
+		<td> Sexe : </td> 
+					
+				<td> 
+				<select name ="idutilisateur">
+						 <?php
+						 	foreach ($lesAdmins as $unAdmin) {
+								 echo "<option value ='".$unAdmin['idutilisateur']."'>".$unAdmin['sexe']."</option>";
+						 	}
+						 ?>
+					</select>
+				</td>
+		</tr>
+        
+        <tr> 
+			<td> Username de l'admin :</td> 
+			<td> <input type="txt" name="username"  value ="<?php echo ($leAdmin!=null) ? $leAdmin['username']:""; ?>">  </td>
+		</tr>
+        <tr> 
 			<td> Password de l'admin :</td> 
 			<td> <input type="password" name="password"  value ="<?php echo ($leAdmin!=null) ? $leAdmin['password']:""; ?>">  </td>
 		</tr>
+
 
 				
 		<?php echo ($leAdmin!=null) ? "<input type='hidden' name='idutilisateur' value ='".$leAdmin['idutilisateur']."'>" : ""; ?>
