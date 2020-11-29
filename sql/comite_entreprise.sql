@@ -16,7 +16,7 @@ CREATE TABLE Tresorerie(
 		PRIMARY KEY (id_tresorerie)
 );
 
-insert into tresorerie values (NULL, 15000);
+insert into tresorerie values (NULL, 895000);
 #------------------------------------------------------------
 # Table: activite
 #------------------------------------------------------------
@@ -36,7 +36,10 @@ CREATE TABLE activite(
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
 );
 
-insert into activite values (NULL, "Parc Asterix", "Pailly", 200, 500, "Prix casse", "2020-11-28", "2020-11-30", 25, 1);
+insert into activite values (NULL, "Parc Asterix", "Plailly", 250, 1000, "Venez decouvrir Noel au sein d'Asterix", "2020-11-28", "2021-05-15", 25, 1),
+							(NULL, "Disneyland Paris", "Marne-La-Vallee", 550, 500, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 1);
+							(NULL, "Voyage a NYC", "Etats Unis", 25, 25000, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 1);
+							(NULL, "Soins massage", "Paris", 350, 990, "Detendez-vous en optant pour un voyage exceptionnel", "2020-12-14", "2021-05-10", 32, 1);
 
 #------------------------------------------------------------
 # Table: utilisateur
@@ -52,7 +55,15 @@ CREATE TABLE utilisateur(
 
 
 
-insert into utilisateur values (NULL, "Melanie", "45D4E", "melanie@cfa.fr"), (NULL, "Julien", "885DE", "julien@cfa.fr"), (NULL, "Gerard", "8555ed", "Gerard@cfa.fr");
+insert into utilisateur values (NULL, "Melanie", "45D4E", "melanie@cfa-insta.fr"), 
+								(NULL, "Julien", "885DE", "julien@cfa-insta.fr"), 
+								(NULL, "Gerard", "8555ed", "Gerard@cfa-insta.fr"),
+								(NULL, "Franck", "445d4d", "Franck@cfa-insta.fr"),
+								(NULL, "Damiens", "23daeez", "damiens@cfa-insta.fr"),
+								(NULL, "Cedric", "c85d4ee", "cedric@cfa-insta.fr"),
+								(NULL, "Jessica", "jess744", "jessica@cfa-insta.fr"),
+								(NULL, "Michele", "m847cihe", "michele@cfa-insta.fr"),
+								(NULL, "Jeremie", "j885ee", "jeremie@cfa-insta.fr");
 #------------------------------------------------------------
 # Table: salarie
 #------------------------------------------------------------
@@ -69,7 +80,11 @@ CREATE TABLE salarie(
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 );
 
-insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), (2, "Gerard", "DEPARD", "0658856244", "toulouse", 4, "commercial", "homme");
+insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), 
+							(2, "Julien", "BARRETO", "0645749655", "toulouse", 1, "commercial", "homme"),
+							(3, "Gerard", "DEPARD", "0658856244", "bordeaux", 4, "comptabilite", "homme"),
+							(4, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
+							(5, "Damiens", "DENIS", "0646220322", "boissy-saint-leger", 1, "commercial", "homme");
 #------------------------------------------------------------
 # Table: Sponsor
 #------------------------------------------------------------
@@ -84,7 +99,10 @@ CREATE TABLE Sponsor(
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
 );
 
-insert into sponsor values (2, "IMACInfo", 8000, "0685549655", 1);
+insert into sponsor values (6, "IMACInfo", 8000, "0184452566", 1),
+							(7, "Techphone", 5000, "0925526358", 1),
+							(8, "ImatRepair", 9500, "0180300322", 1),
+							(9, "SpaceTech", 10000, "0144857852", 1);
 
 #------------------------------------------------------------
 # Table: commentaire
@@ -101,6 +119,12 @@ CREATE TABLE commentaire(
 		FOREIGN KEY (idutilisateur) REFERENCES salarie(idutilisateur)
 );
 
+insert into commentaire values (NULL, "2020-29-11", "Nous y retournerons tres prochainement, c'etais super !", 1, 1),
+								(NULL, "2020-29-11", "Assez satisfait, prix interessant", 2, 2),
+								(NULL, "2020-30-11", "Un voyage inoubliable !", 3, 3),
+								(NULL, "2020-02-12", "Mauvaise masseuse, prix bien trop eleve.", 4, 4);
+
+
 
 #------------------------------------------------------------
 # Table: admin
@@ -112,7 +136,7 @@ CREATE TABLE admin(
 );
 
 
-insert into admin values (1);
+insert into admin values (3), (4);
 
 
 #------------------------------------------------------------
@@ -129,6 +153,8 @@ CREATE TABLE contact(
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 );
 
+insert into contact values (NULL, "Reservation", "Bonjour, je vous contact suite a l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
+						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
 
 #------------------------------------------------------------
 # Table: participer
@@ -143,6 +169,10 @@ CREATE TABLE participer(
 		FOREIGN KEY (id_activite) REFERENCES activite(id_activite)
 );
 
+insert into participer values (1, 1, "2020-10-05"),
+								(2, 2, "2020-08-20"),
+								(3, 3, "2020-10-12"),
+								(4, 4, "2020-04-17");
 
 #------------------------------------------------------------
 # View : utilisateur_sponsor_tresorerie
