@@ -16,7 +16,7 @@
 			<td>Nom de l'activité :</td> 
 			<td> <select name ="id_activite">
 					 <?php
-					 	foreach ($lesActivites as $uneActivite) {
+					 	foreach ($lesActivités as $uneActivite) {
 					 		echo "<option value ='".$uneActivite['id_activite']."'>".$uneActivite['nom']."</option>";
 					 	}
 					 ?>

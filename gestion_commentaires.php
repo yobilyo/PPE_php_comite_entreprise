@@ -6,11 +6,11 @@
 
 	$unControleur->setTable ("activite");
 	$tab=array("*");
-    $lesProjets = $unControleur->selectAll ($tab); 
+    $lesActivités= $unControleur->selectAll ($tab); 
     
     $unControleur->setTable ("utilisateur");
 	$tab=array("*");
-	$lesMembres = $unControleur->selectAll ($tab); 
+	$lesUtilisateurs = $unControleur->selectAll ($tab); 
 
 	$unControleur->setTable ("commentaire");
     

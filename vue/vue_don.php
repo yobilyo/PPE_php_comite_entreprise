@@ -22,10 +22,10 @@
 					
 						<td>
 						<a href='index.php?page=8&action=sup&iddon=".$leDon['iddon']."'>
-						<img src ='images/sup.jpg' height='30' witdh='30'> </a>
+						<img src ='lib/images/sup.jpg' height='30' witdh='30'> </a>
 
 						<a href='index.php?page=8&action=edit&iddon=".$leDon['iddon']."'>
-						<img src ='images/edit.png' height='30' witdh='30'> </a>
+						<img src ='lib/images/edit.png' height='30' witdh='30'> </a>
 
 						</td>
 					</tr>";

@@ -38,10 +38,10 @@
 						{
 						echo "<td>
 						<a href='index.php?page=5&action=sup&id_commentaire=".$unCommentaire['id_commentaire']."'>
-						<img src ='images/sup.jpg' height='30' witdh='30'> </a>
+						<img src ='lib/images/sup.jpg' height='30' witdh='30'> </a>
 
 						<a href='index.php?page=5&action=edit&id_commentaire=".$unCommentaire['id_commentaire']."'>
-						<img src ='images/edit.png' height='30' witdh='30'> </a>
+						<img src ='lib/images/edit.png' height='30' witdh='30'> </a>
 
 						</td>";
 						}

@@ -2,7 +2,7 @@
 <form method ="post" action ="">
 	<table>
 		<tr> 
-		<td> Société donatrice : </td> 
+		<td> Utilisateur donateur : </td> 
 					
 				<td> 
 				<select name ="idutilisateur">

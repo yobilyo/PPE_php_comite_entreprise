@@ -27,10 +27,10 @@
                         <td>".$uneActivite['prix']."</td>
 						<td>
 							<a href='index.php?page=4&action=sup&id_activite=".$uneActivite['id_activite']."'>
-							<img src ='images/sup.jpg' height='30' witdh='30'> </a>
+							<img src ='lib/images/sup.jpg' height='30' witdh='30'> </a>
 
 							<a href='index.php?page=4&action=edit&id_activite=".$uneActivite['id_activite']."'>
-							<img src ='images/edit.png' height='30' witdh='30'> </a>
+							<img src ='lib/images/edit.png' height='30' witdh='30'> </a>
 
 							</td>
 					</tr>";
