@@ -91,7 +91,7 @@
                         require_once("gestion_administrateurs.php");
                         break;
                     case 2:
-                        require_once("gestion_salaries.php");
+                        require_once("gestion_salarie.php");
                         break;
                     
                     case 3:

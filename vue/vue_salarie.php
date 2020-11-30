@@ -9,6 +9,7 @@
                 <th> Utilisateur </th>
                 <th> Email </th>
                 <th> Mot de passe </th>
+				<th> Droits </th>
 				<th> Nom </th>
                 <th> Prénom</th>
                 <th> Sexe </th>
@@ -22,24 +23,25 @@
 
 		<tbody>
 			<?php 
-			foreach ($lesUtilisateurSalaries as $leSalarie) {
+			foreach ($lesUtilisateurSalaries as $unUtilisateurSalarie) {
 				echo "<tr> 
-                        <td>".$leSalarie['idutilisateur']." </td>
-                        <td>".$leSalarie['username']." </td>
-                        <td>".$leSalarie['email']." </td>
-                        <td>".$leSalarie['password']." </td>
-                        <td>".$leSalarie['nom']." </td>
-                        <td>".$leSalarie['prenom']." </td>
-                        <td>".$leSalarie['sexe']." </td>
-                        <td>".$leSalarie['tel']." </td>
-						<td width='300'>".$leSalarie['adresse']." </td>
-                        <td>".$leSalarie['quotient_fam']." </td>
-                        <td>".$leSalarie['service']." </td>
+                        <td>".$unUtilisateurSalarie['idutilisateur']." </td>
+                        <td>".$unUtilisateurSalarie['username']." </td>
+                        <td>".$unUtilisateurSalarie['email']." </td>
+						<td>".$unUtilisateurSalarie['password']." </td>
+						<td>".$unUtilisateurSalarie['droits']." </td>
+                        <td>".$unUtilisateurSalarie['nom']." </td>
+                        <td>".$unUtilisateurSalarie['prenom']." </td>
+                        <td>".$unUtilisateurSalarie['sexe']." </td>
+                        <td>".$unUtilisateurSalarie['tel']." </td>
+						<td width='300'>".$unUtilisateurSalarie['adresse']." </td>
+                        <td>".$unUtilisateurSalarie['quotient_fam']." </td>
+                        <td>".$unUtilisateurSalarie['service']." </td>
 						<td>
-							<a href='index.php?page=2&action=sup&idutilisateur=".$leSalarie['idutilisateur']."'>
-							<img src ='images/sup.jpg' height='30' witdh='30'> </a>
-							<a href='index.php?page=2&action=edit&idutilisateur=".$leSalarie['idutilisateur']."'>
-							<img src ='images/edit.png' height='30' witdh='30'> </a>
+							<a href='index.php?page=2&action=sup&idutilisateur=".$unUtilisateurSalarie['idutilisateur']."'>
+							<img src ='lib/images/sup.jpg' height='30' witdh='30'> </a>
+							<a href='index.php?page=2&action=edit&idutilisateur=".$unUtilisateurSalarie['idutilisateur']."'>
+							<img src ='lib/images/edit.png' height='30' witdh='30'> </a>
 							</td>
 					</tr>";
 			}
