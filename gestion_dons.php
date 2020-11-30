@@ -20,6 +20,10 @@
         $tab=array("*");
         $lesSociétés = $unControleur->selectAll ($tab); 
 
+        $uneTresorerie=null;
+        $unControleur->setTable ("tresorerie");
+        $tab=array("*");
+        $lesTresoreries = $unControleur->selectAll ($tab); 
      
 
         $unControleur->setTable ("don");
@@ -39,14 +43,20 @@
                         break; 
             }
         }
+        
 
+       
+        
 
         
 
         if (isset($_POST['modifier'])){
             
-            $tab=array("idutilisateur"=>$_POST['idutilisateur'],  "montant"=>$_POST['montant'],
-                        "appreciation"=>$_POST['appreciation'],"datedon"=>$_POST['datedon']);
+            $tab=array("datedon"=>$_POST['datedon'],  
+                        "montant"=>$_POST['montant'],
+                        "appreciation"=>$_POST['appreciation'],
+                        "idutilisateur"=>$_POST['idutilisateur'],
+                        "id_tresorerie"=>$_POST['id_tresorerie']);
             $where =array("iddon"=>$iddon);
 
             $unControleur->update($tab, $where);
@@ -56,8 +66,14 @@
         require_once("vue/vue_insert_don.php"); 
 
         if (isset($_POST['valider'])){
-            $tab=array("idutilisateur"=>$_POST['idutilisateur'],  "montant"=>$_POST['montant'],
-            "appreciation"=>$_POST['appreciation'],"datedon"=>$_POST['datedon']);
+    
+            $tab=array("datedon"=>$_POST['datedon'],  
+                        "montant"=>$_POST['montant'],
+                        "appreciation"=>$_POST['appreciation'],
+                        "idutilisateur"=>$_POST['idutilisateur'],
+                        "id_tresorerie"=>$_POST['id_tresorerie']);
+                        var_dump($_POST);
+            
             $unControleur->insert($tab);
         }
 

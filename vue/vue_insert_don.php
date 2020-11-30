@@ -1,6 +1,7 @@
 <h2> Ajout d'un Don </h2>
 <form method ="post" action ="">
 	<table> 
+		<tr>
 			<td> Société donatrice: </td> 
 			<td>		 <select name ="idutilisateur">
 						 <?php
@@ -25,9 +26,18 @@
 			<td> <input type="date" name="datedon" value ="<?php echo ($leDon!=null) ? $leDon['datedon']:""; ?>"></td>
 		</tr>
 
-		<tr> 
+		<tr>	
+		<td> Trésorerie: </td> 
+			<td>		 <select name ="id_tresorerie">
+						 <?php
+						 	foreach ($lesTresoreries as $uneTresorerie) {
+						 		echo "<option value ='".$uneTresorerie['id_tresorerie']."'>".$uneTresorerie['id_tresorerie']."  "."</option>";
+						 	}
+						 ?>
+					</select>
+				</td>
 
-
+		<tr>
 		
 		<?php echo ($leDon!=null) ? "<input type='hidden' name='idutilisateur' value ='".$leDon['idutilisateur']."'>" : "";?>
 
