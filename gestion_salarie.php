@@ -45,19 +45,21 @@
         require_once("vue/vue_insert_salarie.php");
 
         if (isset($_POST['modifier'])){
-            // insertion de l'utilisateur
-            $unControleur->setTable ("utilisateur");
-            $tab=array(
-                // idutilisateur?
+            // mise à jour de l'utilisateur
+            $tabUtilisateur=array(
+                // pas besoin de l'idutilisateur pour un INSERT (null par défaut)
+                // et pas besoin non plus pour l'update, car c'est un UPDATE username,email,... WHERE idutilisateur est stocké dans le $where
                 "username"=>$_POST['username'],
                 "email"=>$_POST['email'],
                 "password"=>$_POST['password'],
                 "droits"=>$_POST['droits']
             );
-            $unControleur->insert($tab);
-            // insertion de l'héritage utilisateur.salarie
-            $unControleur->setTable ("salarie");
-            $tab=array(
+            $unControleur->setTable ("utilisateur");
+            $unControleur->update($tabUtilisateur, $where);
+            $where =array("idutilisateur"=>$idutilisateur);
+
+            // mise à jour de l'héritage utilisateur.salarie
+            $tabSalarie=array(
                 "nom"=>$_POST['nom'],
                 "prenom"=>$_POST['prenom'],
                 "sexe"=>$_POST['sexe'],
@@ -65,30 +67,37 @@
                 "adresse"=>$_POST['adresse'],
                 "quotient_fam"=>$_POST['quotient_fam'],
                 "service"=>$_POST['service'],
-                // attention à bien rajouter la clé étrangère idutilisateur héritée
+                // attention à bien rajouter la clé étrangère idutilisateur héritée qui provient du FORMULAIRE
                 "idutilisateur"=>$_POST['idutilisateur']
             );
-            $unControleur->insert($tab);
-
-            // ?
+            $unControleur->setTable ("salarie");
+            $unControleur->update($tabSalarie, $where);
             $where =array("idutilisateur"=>$idutilisateur);
 
-            $unControleur->update($tab, $where);
             header("Location: index.php?page=2");
         }
 
         if (isset($_POST['valider'])){
             // insertion de l'utilisateur
-            $unControleur->setTable ("utilisateur");
-            $tab=array( // null?
+            $tabUtilisateur=array(
+                // pas besoin de l'idutilisateur pour un INSERT (null par défaut)
+                // et pas besoin non plus pour l'update, car c'est un UPDATE username,email,... WHERE idutilisateur est stocké dans le $where
                 "username"=>$_POST['username'],
                 "email"=>$_POST['email'],
-                "password"=>$_POST['password']
+                "password"=>$_POST['password'],
+                "droits"=>$_POST['droits']
             );
-            $unControleur->insert($tab);
+            $unControleur->setTable ("utilisateur");
+            $unControleur->insert($tabUtilisateur);
+
             // insertion de l'héritage utilisateur.salarie
-            $unControleur->setTable ("salarie");
-            $tab=array(
+            // attention à bien rajouter la clé étrangère idutilisateur héritée et pas null
+            // SELECT * from utilisateur WHERE username="Jean" and email="j.thomas@gmail.com"; 
+            $unControleur->setTable ("utilisateur");
+            $tab=array("username"=>$_POST['username'], "email"=>$_POST['email']); 
+            $lUtilisateurInsere = $unControleur->selectWhere ($tab);
+            // maintenant qu'on a l'idutilisateur réel de la database et pas null (exemple idutilisateur = 5 pour jean), on peut faire l'insertion
+            $tabSalarie=array(
                 "nom"=>$_POST['nom'],
                 "prenom"=>$_POST['prenom'],
                 "sexe"=>$_POST['sexe'],
@@ -96,26 +105,19 @@
                 "adresse"=>$_POST['adresse'],
                 "quotient_fam"=>$_POST['quotient_fam'],
                 "service"=>$_POST['service'],
-                // attention à bien rajouter la clé étrangère idutilisateur héritée
-                //"idutilisateur"=>$_POST['idutilisateur']
-                // pour cela on fait un selectWhere dans la table utilisateur correspondant au username et email
-                // ce resultat est l'utilisateur qui vient d'etre inséré
-                // puis, on prend ceResultat['idutilisateur']
+                // attention à bien rajouter la clé étrangère idutilisateur héritée qui provient de la DATABASE
+                "idutilisateur"=>$lUtilisateurInsere['idutilisateur']
             );
-            $unControleur->insert($tab);
-            
+            // l'insertion du tableau modifié à la fin
+            $unControleur->setTable ("salarie");
+            $unControleur->insert($tabSalarie);
         }
 
         // pour vue_salarie.php
-        // on utilise la view sql utilisateur_salarie pour obtenir $lesUtilisateurSalaries
+        // pour afficher tous les salariés, on prend la view sql utilisateur_salarie qui contient la classe mère utilisateur et sa classe fille salarie pour obtenir $lesUtilisateurSalaries
         $unControleur->setTable ("utilisateur_salarie");
         $tab=array("*");
         $lesUtilisateurSalaries = $unControleur->selectAll ($tab);
-
-        // pour afficher tous les salariés, on prend la vue utilisateur_salarie qui contient la classe mère utilisateur et sa classe fille salarie
-        $unControleur->setTable ("utilisateur_salarie"); // view
-        $tab=array("*");
-        $lesSalaries = $unControleur->selectAll ($tab);
 
         require_once("vue/vue_salarie.php");
     /* } */ 
