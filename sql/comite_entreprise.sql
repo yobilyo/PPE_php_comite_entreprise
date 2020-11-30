@@ -50,20 +50,21 @@ CREATE TABLE utilisateur(
         username      Varchar (20),
         password      Varchar (20),
         email         Varchar (20),
+		droits        Enum("salarie", "admin", "sponsor") NOT NULL,
 		PRIMARY KEY (idutilisateur)
 );
 
 
 
-insert into utilisateur values (NULL, "Melanie", "45D4E", "melanie@cfa-insta.fr"), 
-								(NULL, "Julien", "885DE", "julien@cfa-insta.fr"), 
-								(NULL, "Gerard", "8555ed", "Gerard@cfa-insta.fr"),
-								(NULL, "Franck", "445d4d", "Franck@cfa-insta.fr"),
-								(NULL, "Damiens", "23daeez", "damiens@cfa-insta.fr"),
-								(NULL, "Cedric", "c85d4ee", "cedric@cfa-insta.fr"),
-								(NULL, "Jessica", "jess744", "jessica@cfa-insta.fr"),
-								(NULL, "Michele", "m847cihe", "michele@cfa-insta.fr"),
-								(NULL, "Jeremie", "j885ee", "jeremie@cfa-insta.fr");
+insert into utilisateur values (NULL, "Melanie", "45D4E", "melanie@cfa-insta.fr", "salarie"), 
+	(NULL, "Julien", "885DE", "julien@cfa-insta.fr", "salarie"), 
+	(NULL, "Gerard", "8555ed", "Gerard@cfa-insta.fr", "admin"),
+	(NULL, "Franck", "445d4d", "Franck@cfa-insta.fr", "admin"),
+	(NULL, "Damiens", "23daeez", "damiens@cfa-insta.fr", "salarie"),
+	(NULL, "Cedric", "c85d4ee", "cedric@cfa-insta.fr", "sponsor"),
+	(NULL, "Jessica", "jess744", "jessica@cfa-insta.fr", "sponsor"),
+	(NULL, "Michele", "m847cihe", "michele@cfa-insta.fr", "sponsor"),
+	(NULL, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor");
 #------------------------------------------------------------
 # Table: salarie
 #------------------------------------------------------------
@@ -130,19 +131,6 @@ insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très p
 
 
 #------------------------------------------------------------
-# Table: admin
-#------------------------------------------------------------
-
-CREATE TABLE admin(
-        idutilisateur Int NOT NULL ,
-		FOREIGN KEY (idutilisateur) REFERENCES salarie(idutilisateur)
-);
-
-
-insert into admin values (3), (4);
-
-
-#------------------------------------------------------------
 # Table: contact
 #------------------------------------------------------------
 
@@ -180,7 +168,7 @@ insert into participer values (1, 1, "2020-10-05"),
 
 
 #------------------------------------------------------------
-# Table: dons
+# Table: don
 #------------------------------------------------------------
 
 CREATE TABLE don(
@@ -207,8 +195,9 @@ create view utilisateur_sponsor as (
 	select 
 		u.idutilisateur,
 		u.username, 
-		u.email, 
+		u.email,
 		u.password,
+		u.droits, 
 		s.societe, 
 		s.budget, 
 		s.tel, 
@@ -229,6 +218,7 @@ create view utilisateur_salarie as (
 		u.username, 
 		u.email,
 		u.password,
+		u.droits, 
 		sa.nom, 
 		sa.prenom,
 		sa.sexe,
@@ -238,28 +228,6 @@ create view utilisateur_salarie as (
 		sa.service
 	from utilisateur u, salarie sa
 	where u.idutilisateur = sa.idutilisateur
-);
-
-#------------------------------------------------------------
-# View : utilisateur_salarie_admin
-#------------------------------------------------------------
-
-create view utilisateur_salarie_admin as (
-	select  
-		u.idutilisateur,
-		u.username, 
-		u.email,
-		u.password, 
-		sa.nom, 
-		sa.prenom,
-		sa.sexe,
-		sa.tel, 
-		sa.adresse, 
-		sa.quotient_fam, 
-		sa.service
-	from utilisateur u, salarie sa, admin a
-	where a.idutilisateur = sa.idutilisateur
-	and sa.idutilisateur = u.idutilisateur
 );
 
 
@@ -273,7 +241,8 @@ create view utilisateur_salarie_activite as (
 		u.idutilisateur,
 		u.username, 
 		u.email,
-		u.password, 
+		u.password,
+		u.droits, 
 		sa.nom, 
 		sa.prenom,
 		sa.sexe,
@@ -304,7 +273,8 @@ create view utilisateur_salarie_activite_commentaire as (
 		u.idutilisateur,
 		u.username, 
 		u.email,
-		u.password, 
+		u.password,
+		u.droits, 
 		sa.nom, 
 		sa.prenom, 
 		sa.tel, 
@@ -342,11 +312,11 @@ create view utilisateur_sponsor_don as (
 
 # verification :
 select * from utilisateur_salarie;
-select * from utilisateur_salarie_admin;
 select * from utilisateur_sponsor;
 select * from utilisateur_salarie_activite;
 select * from utilisateur_salarie_activite_commentaire;
 select * from utilisateur_sponsor_don;
+select * from participer;
 select * from activite;
 select * from commentaire;
 select * from don;
