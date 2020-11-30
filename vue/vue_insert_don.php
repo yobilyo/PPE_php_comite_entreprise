@@ -1,26 +1,11 @@
 <h2> Ajout d'un Don </h2>
 <form method ="post" action ="">
-	<table>
-		<tr> 
-		<td> Utilisateur donateur : </td> 
-					
-				<td> 
-				<select name ="idutilisateur">
+	<table> 
+			<td> Société donatrice: </td> 
+			<td>		 <select name ="idutilisateur">
 						 <?php
-						 	foreach ($lesSponsors as $unSponsor) {
-								 echo "<option value ='".$unSponsor['idutilisateur']."'>".$unSponsor['societe']."</option>";
-								
-						 	}
-						 ?>
-					</select>
-				</td>
-		</tr>
-		<tr>
-    	<td>Budget </td> 
-		<td>		 <select name ="idutilisateur">
-						 <?php
-						 	foreach ($lesSponsors as $unSponsor) {
-						 		echo "<option value ='".$unSponsor['idutilisateur']."'>".$unSponsor['societe']."  "."</option>";
+						 	foreach ($lesSociétés as $uneSociété) {
+						 		echo "<option value ='".$uneSociété['societe']."'>".$uneSociété['societe']."  "."</option>";
 						 	}
 						 ?>
 					</select>

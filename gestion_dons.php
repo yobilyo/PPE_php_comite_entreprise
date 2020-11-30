@@ -6,8 +6,19 @@
 	{*/
         $leDon=null;
         $unControleur->setTable ("sponsor");
-        $tab=array("idutilisateur","montant" ,"societe", "appreciation");
-        $lesMembres = $unControleur->selectAll ($tab); 
+        $tab=array("*");
+        $lesDons = $unControleur->selectAll ($tab); 
+
+        $unSponsor=null;
+        $unControleur->setTable ("utilisateur");
+        $tab=array("*");
+        $lesSponsors = $unControleur->selectAll ($tab); 
+
+
+        $uneSociété=null;
+        $unControleur->setTable ("sponsor");
+        $tab=array("*");
+        $lesSociétés = $unControleur->selectAll ($tab); 
 
      
 
@@ -34,8 +45,8 @@
 
         if (isset($_POST['modifier'])){
             
-            $tab=array("idutilisateur"=>$_POST['idutilisateur'],  "datedon"=>$_POST['datedon'],
-                        "montant"=>$_POST['montant'],"appreciation"=>$_POST['appreciation'], "societe"=>$_POST['societe'] );
+            $tab=array("idutilisateur"=>$_POST['idutilisateur'],  "montant"=>$_POST['montant'],
+                        "appreciation"=>$_POST['appreciation'],"datedon"=>$_POST['datedon']);
             $where =array("iddon"=>$iddon);
 
             $unControleur->update($tab, $where);
@@ -45,13 +56,13 @@
         require_once("vue/vue_insert_don.php"); 
 
         if (isset($_POST['valider'])){
-            $tab=array("idutilisateur"=>$_POST['idutilisateur'],  "datedon"=>$_POST['datedon'],
-            "montant"=>$_POST['montant'],"appreciation"=>$_POST['appreciation'], "societe"=>$_POST['societe'] );
+            $tab=array("idutilisateur"=>$_POST['idutilisateur'],  "montant"=>$_POST['montant'],
+            "appreciation"=>$_POST['appreciation'],"datedon"=>$_POST['datedon']);
             $unControleur->insert($tab);
         }
 
         /*if ($_SESSION['droits'] =="admin") {*/
-            $unControleur->setTable ("don_membre_projet");	//changement de table : prendre la vue 
+            $unControleur->setTable ("utilisateur_sponsor_don");	//changement de table : prendre la vue 
             $tab=array("*");
             $lesDons= $unControleur->selectAll ($tab); 
             require_once("vue/vue_don.php");
