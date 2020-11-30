@@ -18,7 +18,7 @@
             switch ($action){
                 case "sup" : 
                     // on supprime la classe fille de plus bas degré
-                    // supprime dans sponsor
+                    // supprime dans salarie
                     $unControleur->setTable ("salarie");
                     $tab=array("idutilisateur"=>$idutilisateur); 
                     $unControleur->delete($tab);
@@ -46,17 +46,16 @@
 
         if (isset($_POST['modifier'])){
             // mise à jour de l'utilisateur
-            $tabUtilisateur=array(
-                // pas besoin de l'idutilisateur pour un INSERT (null par défaut)
-                // et pas besoin non plus pour l'update, car c'est un UPDATE username,email,... WHERE idutilisateur est stocké dans le $where
+            $tabUtilisateur=array( 
+                // pas besoin de l'idutilisateur pour un INSERT (null par défaut) et pas besoin non plus pour l'update, car c'est un UPDATE username,email,... WHERE idutilisateur est stocké dans le $where
                 "username"=>$_POST['username'],
                 "email"=>$_POST['email'],
                 "password"=>$_POST['password'],
                 "droits"=>$_POST['droits']
             );
             $unControleur->setTable ("utilisateur");
+            $where = array("idutilisateur"=>$idutilisateur);
             $unControleur->update($tabUtilisateur, $where);
-            $where =array("idutilisateur"=>$idutilisateur);
 
             // mise à jour de l'héritage utilisateur.salarie
             $tabSalarie=array(
@@ -74,7 +73,9 @@
             $unControleur->update($tabSalarie, $where);
             $where =array("idutilisateur"=>$idutilisateur);
 
-            header("Location: index.php?page=2");
+            // enlevé car Warning: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\PPE_php_comite_entreprise\vue\vue_insert_salarie.php:51)
+            // ça update bien la page sans le header donc on peut l'enlever
+            // header("Location: index.php?page=2");
         }
 
         if (isset($_POST['valider'])){
