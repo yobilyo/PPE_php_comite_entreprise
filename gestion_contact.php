@@ -4,8 +4,19 @@
 		echo "ERREUR 404, page non identifiée ";
 	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
 	{ */
-            $unControleur->setTable ("contact");
-            $unContact= null;
+        $unContact=null;
+        $unControleur->setTable ("contact");
+        $tab=array("*");
+        $lesContacts = $unControleur->selectAll ($tab); 
+    
+        $unUtilisateur=null;
+        $unControleur->setTable ("utilisateur");
+        $tab=array("*");
+        $lesUtilisateurs = $unControleur->selectAll ($tab); 
+
+    
+
+        $unControleur->setTable ("contact");
 
             if (isset($_GET['action']) && isset($_GET['id_contact'])) 
             {

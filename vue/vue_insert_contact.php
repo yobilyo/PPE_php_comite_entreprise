@@ -17,12 +17,12 @@
 		    <td> Utilisateur : </td> 
 		<td>		 <select name ="idutilisateur">
 						 <?php
-						 	foreach ($lesContacts as $unContact) {
-						 		echo "<option value ='".$unContact['idutilisateur']."'>".$unContact['username']."  "."</option>";
+						 	foreach ($lesUtilisateurs as $unUtilisateur) {
+						 		echo "<option value ='".$unUtilisateur['idutilisateur']."'>".$unUtilisateur['username']."  "."</option>";
 						 	}
 						 ?>
 					</select>
-				</td>
+			</td>
 		</tr>
 		
 		<?php echo ($unContact!=null) ? "<input type='hidden' name='idutilisateur' value ='".$unContact['idutilisateur']."'>" : ""; ?>
