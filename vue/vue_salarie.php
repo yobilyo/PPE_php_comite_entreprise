@@ -22,23 +22,23 @@
 
 		<tbody>
 			<?php 
-			foreach ($lesUtilisateurSalaries as $unUtilisateurSalarie) {
+			foreach ($lesUtilisateurSalaries as $leSalarie) {
 				echo "<tr> 
-                        <td>".$unSalarie['idutilisateur']." </td>
-                        <td>".$unSalarie['username']." </td>
-                        <td>".$unSalarie['email']." </td>
-                        <td>".$unSalarie['password']." </td>
-                        <td>".$unSalarie['nom']." </td>
-                        <td>".$unSalarie['prenom']." </td>
-                        <td>".$unSalarie['sexe']." </td>
-                        <td>".$unSalarie['tel']." </td>
-						<td width='300'>".$unSalarie['adresse']." </td>
-                        <td>".$unSalarie['quotient_fam']." </td>
-                        <td>".$unSalarie['service']." </td>
+                        <td>".$leSalarie['idutilisateur']." </td>
+                        <td>".$leSalarie['username']." </td>
+                        <td>".$leSalarie['email']." </td>
+                        <td>".$leSalarie['password']." </td>
+                        <td>".$leSalarie['nom']." </td>
+                        <td>".$leSalarie['prenom']." </td>
+                        <td>".$leSalarie['sexe']." </td>
+                        <td>".$leSalarie['tel']." </td>
+						<td width='300'>".$leSalarie['adresse']." </td>
+                        <td>".$leSalarie['quotient_fam']." </td>
+                        <td>".$leSalarie['service']." </td>
 						<td>
-							<a href='index.php?page=1&action=sup&idmembre=".$unMembre['idmembre']."'>
+							<a href='index.php?page=2&action=sup&idutilisateur=".$leSalarie['idutilisateur']."'>
 							<img src ='images/sup.jpg' height='30' witdh='30'> </a>
-							<a href='index.php?page=1&action=edit&idmembre=".$unMembre['idmembre']."'>
+							<a href='index.php?page=2&action=edit&idutilisateur=".$leSalarie['idutilisateur']."'>
 							<img src ='images/edit.png' height='30' witdh='30'> </a>
 							</td>
 					</tr>";

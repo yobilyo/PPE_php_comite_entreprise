@@ -46,6 +46,19 @@
 			<td> <input type="text" name="quotient_fam" value ="<?php echo ($leSalarie!=null) ? $leSalarie['quotient_fam']:""; ?>">  </td>
 		</tr>
 
+		<tr> 
+			<td> Service : </td> 
+			<td>
+                <select name='service'>
+                    <option value='comptabilite'>Comptabilité</option>
+                    <option value='developpeur'>Développeur</option>
+					<option value='commercial'>Commercial</option>
+					<option value='ressources_humaines'>Ressources humaines</option>
+                </select>
+            </td>
+		</tr>
+
+
 				
 
 		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  

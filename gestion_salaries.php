@@ -5,12 +5,9 @@
 	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
     { */
         $leSalarie = null;
-
-        //$lesUtilisateurSalaries = ....
-
-
         $unControleur->setTable ("salarie");
-
+        $tab=array("*");
+        $lesUtilisateurSalaries = $unControleur->selectAll ($tab);
 
             if (isset($_GET['action']) && isset($_GET['idutilisateur'])) 
             {
@@ -32,8 +29,14 @@
                             $unControleur->delete($tab);
                             break;
                     case "edit" : 
+                            $unControleur->setTable ("salarie");
                             $tab=array("idutilisateur"=>$idutilisateur); 
                             $leSalarie = $unControleur->selectWhere ($tab);
+
+                            $unControleur->setTable ("utilisateur");
+                            $tab=array("idutilisateur"=>$idutilisateur); 
+                            $leSalarie = $unControleur->selectWhere ($tab);
+
                             break; 
                 }
             }
@@ -96,6 +99,7 @@
                     "idutilisateur"=>$_POST['idutilisateur']
                 );
                 $unControleur->insert($tab);
+                
             }
 
             // pour afficher tous les salariés, on prend la vue utilisateur_salarie qui contient la classe mère utilisateur et sa classe fille salarie
