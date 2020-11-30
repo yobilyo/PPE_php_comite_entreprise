@@ -5,11 +5,9 @@
 	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
     { */
         $leSponsor = null;
-
-        //$lesUtilisateurSalaries = ....
-
-
         $unControleur->setTable ("sponsor");
+        $tab=array("*");
+        $lesSponsors = $unControleur->selectAll ($tab);
 
 
             if (isset($_GET['action']) && isset($_GET['idutilisateur'])) 
