@@ -18,10 +18,9 @@
             switch ($action){
                 case "sup" : 
                     // on supprime la classe fille de plus bas degré
-                    // supprime dans sponsor
+                    // supprime dans salarie
                     $unControleur->setTable ("salarie");
                     $tab=array("idutilisateur"=>$idutilisateur); 
-                    var_dump($tab);
                     $unControleur->delete($tab);
                     // ensuite, après la suppression dans la table fille,
                     // on remonte d'un cran et on supprime le reste des infos
