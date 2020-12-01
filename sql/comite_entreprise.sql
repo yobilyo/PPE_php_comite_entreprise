@@ -16,7 +16,7 @@ CREATE TABLE Tresorerie(
 		PRIMARY KEY (id_tresorerie)
 );
 
-insert into tresorerie values (NULL, 895000);
+insert into tresorerie values (NULL, 50);
 #------------------------------------------------------------
 # Table: activite
 #------------------------------------------------------------
@@ -36,10 +36,10 @@ CREATE TABLE activite(
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
 );
 
-insert into activite values (NULL, "Parc Asterix", "Plailly", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
-	(NULL, "Disneyland Paris", "Marne-La-Vallee", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
-	(NULL, "Voyage a NYC", "Etats Unis", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
-	(NULL, "Soins massages", "Paris", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
+insert into activite values (1, "Parc Asterix", "Plailly", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
+	(2, "Disneyland Paris", "Marne-La-Vallee", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
+	(3, "Voyage a NYC", "Etats Unis", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
+	(4, "Soins massages", "Paris", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
 
 #------------------------------------------------------------
 # Table: utilisateur
@@ -56,15 +56,15 @@ CREATE TABLE utilisateur(
 
 
 
-insert into utilisateur values (NULL, "Melanie", "45D4E", "melanie@cfa-insta.fr", "salarie"), 
-	(NULL, "Julien", "885DE", "julien@cfa-insta.fr", "salarie"), 
-	(NULL, "Gerard", "8555ed", "Gerard@cfa-insta.fr", "admin"),
-	(NULL, "Franck", "445d4d", "Franck@cfa-insta.fr", "admin"),
-	(NULL, "Damiens", "23daeez", "damiens@cfa-insta.fr", "salarie"),
-	(NULL, "Cedric", "c85d4ee", "cedric@cfa-insta.fr", "sponsor"),
-	(NULL, "Jessica", "jess744", "jessica@cfa-insta.fr", "sponsor"),
-	(NULL, "Michele", "m847cihe", "michele@cfa-insta.fr", "sponsor"),
-	(NULL, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor");
+insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "salarie"), 
+	(2, "Julien", "885DE", "julien@cfa-insta.fr", "salarie"), 
+	(3, "Gerard", "8555ed", "Gerard@cfa-insta.fr", "admin"),
+	(4, "Franck", "445d4d", "Franck@cfa-insta.fr", "admin"),
+	(5, "Damiens", "23daeez", "damiens@cfa-insta.fr", "salarie"),
+	(6, "Cedric", "c85d4ee", "cedric@cfa-insta.fr", "sponsor"),
+	(7, "Jessica", "jess744", "jessica@cfa-insta.fr", "sponsor"),
+	(8, "Michele", "m847cihe", "michele@cfa-insta.fr", "sponsor"),
+	(9, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor");
 #------------------------------------------------------------
 # Table: salarie
 #------------------------------------------------------------
@@ -183,9 +183,9 @@ CREATE TABLE don(
 		FOREIGN key (id_tresorerie) REFERENCES tresorerie(id_tresorerie)
 );
 
-INSERT INTO don VALUES (NULL,"2020-11-15", 5000, "Avec plaisir", 7,1),
-						(NULL,"2020-12-10", 4000, "Pour vous aidez", 6,1),
-						(NULL,"2020-12-10", 4000, "Etant riche, je me permet de vous donnez cette somme", 8,1);
+INSERT INTO don VALUES (NULL,"2020-11-15", 100, "Avec plaisir", 7,1),
+						(NULL,"2020-12-10", 50, "Pour vous aidez", 6,1),
+						(NULL,"2020-12-10", 150, "Etant riche, je me permet de vous donnez cette somme", 8,1);
 
 #------------------------------------------------------------
 # View : utilisateur_sponsor
@@ -345,7 +345,7 @@ create view utilisateur_administrateur as (
 );
 
 #------------------------------------------------------------
-# View : utilisateur_salarie_participer
+# View : utilisateur_salarie_activite_participer
 #------------------------------------------------------------
 
 
@@ -353,30 +353,72 @@ create view utilisateur_salarie_activite_participer as (
 
 	select 	
 		u.idutilisateur,
+		a.id_activite,
 		u.username, 
 		u.email,
-		u.password,
-		u.droits, 
 		sa.nom, 
 		sa.prenom, 
 		sa.tel, 
 		sa.adresse, 
 		sa.service, 
 		a.nom as "nom_activite",
+		p.date_inscription,
 		a.lieu,
-		a.description,
-		c.contenu,
-		c.datecomment,
-		c.id_commentaire
+		a.description
 		
 	
-	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t, commentaire c
+	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t
 	where u.idutilisateur = sa.idutilisateur 
 	and sa.idutilisateur = p.idutilisateur  
-	and p.id_activite = a.id_activite  
-	and c.id_activite = a.id_activite 
+	and p.id_activite = a.id_activite
 );
 
+
+#------------------------------------------------------------
+# Trigger : ajout_don_tresorerie
+#------------------------------------------------------------
+
+
+DROP trigger IF EXISTS ajout_don_tresorerie;
+DELIMITER $
+CREATE TRIGGER ajout_don_tresorerie
+AFTER INSERT ON don
+FOR EACH ROW
+BEGIN
+	UPDATE tresorerie SET fonds = fonds + new.montant
+	WHERE new.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
+#------------------------------------------------------------
+# Trigger : modifie_don_tresorerie
+#------------------------------------------------------------
+
+DROP trigger IF EXISTS modifie_don_tresorerie;
+DELIMITER $
+CREATE TRIGGER modifie_don_tresorerie
+AFTER UPDATE ON don
+FOR EACH ROW
+BEGIN
+	UPDATE tresorerie SET fonds = fonds - old.montant + new.montant
+	WHERE new.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
+#------------------------------------------------------------
+# Trigger : supprime_don_tresorerie
+#------------------------------------------------------------
+
+DROP trigger IF EXISTS supprime_don_tresorerie;
+DELIMITER $
+CREATE TRIGGER supprime_don_tresorerie
+AFTER DELETE ON don
+FOR EACH ROW
+BEGIN
+	UPDATE tresorerie SET fonds = fonds - old.montant
+	WHERE old.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
 
 
 # verification :
@@ -387,6 +429,7 @@ select * from utilisateur_salarie_activite_commentaire;
 select * from utilisateur_sponsor_don;
 select * from utilisateur_contact;
 select * from utilisateur_administrateur;
+select * from utilisateur_salarie_activite_participer;
 select * from participer;
 select * from activite;
 select * from commentaire;

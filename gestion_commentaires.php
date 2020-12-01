@@ -45,6 +45,7 @@
 
 
 	if (isset($_POST['valider'])){
+        var_dump($_POST);
         $date = date("yy.m.d");
         $tab=array("datecomment"=>$date, "contenu" =>$_POST['contenu'], "id_activite"=>$_POST['id_activite'],"idutilisateur"=>$_POST['idutilisateur']);
         
