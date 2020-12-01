@@ -40,7 +40,7 @@
         $where =array("id_commentaire"=>$id_commentaire);
 
         $unControleur->update($tab, $where);
-        header("Location: index.php?page=5");
+        //header("Location: index.php?page=5");
     }
 
 

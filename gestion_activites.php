@@ -7,10 +7,10 @@
             $uneActivite = null; 
             $unControleur->setTable ("activite");
             $tab=array("*");
-            $lesActivites= $unControleur->selectAll ($tab); 
+            $lesActivites = $unControleur->selectAll ($tab);
             
 
-            $uneTresorerie=null;
+            $uneTresorerie = null;
             $unControleur->setTable ("tresorerie");
             $tab=array("*");
             $lesTresoreries = $unControleur->selectAll ($tab); 
@@ -54,11 +54,10 @@
             }
 
 
-
         /*} else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="user")*/
             //{
+         
                 
-               
                 require_once("vue/vue_activite.php"); 
             //}
         

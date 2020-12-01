@@ -37,7 +37,7 @@
 
 
 		<tr> 
-		<?php echo ($unCommentaire!=null) ? "<input type='hidden' name='idcomment' value ='".$unCommentaire['idcomment']."'>" : ""; ?>
+		<?php echo ($unCommentaire!=null) ? "<input type='hidden' name='id_commentaire' value ='".$unCommentaire['id_commentaire']."'>" : ""; ?>
 
 		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
 		<td> <input type="submit" 
