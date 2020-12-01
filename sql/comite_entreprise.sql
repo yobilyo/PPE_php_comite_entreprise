@@ -95,15 +95,15 @@ CREATE TABLE Sponsor(
         societe       Varchar (20),
         budget        Float,
         tel           Varchar (15),
-        id_tresorerie Int NOT NULL,
-		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur),
-		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
+
+		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
+		
 );
 
-insert into sponsor values (6, "IMACInfo", 8000, "0184452566", 1),
-							(7, "Techphone", 5000, "0925526358", 1),
-							(8, "ImatRepair", 9500, "0180300322", 1),
-							(9, "SpaceTech", 10000, "0144857852", 1);
+insert into sponsor values (6, "IMACInfo", 8000, "0184452566"),
+							(7, "Techphone", 5000, "0925526358"),
+							(8, "ImatRepair", 9500, "0180300322"),
+							(9, "SpaceTech", 10000, "0144857852");
 
 # voir tous les utilisateurs:
 select * from utilisateur;
@@ -200,11 +200,10 @@ create view utilisateur_sponsor as (
 		u.droits, 
 		s.societe, 
 		s.budget, 
-		s.tel, 
-		t.id_tresorerie
+		s.tel
 		
-	from utilisateur u, sponsor s, tresorerie t
-	where u.idutilisateur = s.idutilisateur 
+		
+	from utilisateur u, sponsor s where u.idutilisateur = s.idutilisateur 
 );
 
 
