@@ -39,7 +39,7 @@
 
 		<tr>
 		
-		<?php echo ($leDon!=null) ? "<input type='hidden' name='idutilisateur' value ='".$leDon['idutilisateur']."'>" : "";?>
+		<?php echo ($leDon!=null) ? "<input type='hidden' name='iddon' value ='".$leDon['iddon']."'>" : "";?>
 
 			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
 			<td> <input type="submit" 

@@ -5,7 +5,7 @@
 	}else if (isset($_SESSION['username']))
 	{*/
         $leDon=null;
-        $unControleur->setTable ("sponsor");
+        $unControleur->setTable ("don");
         $tab=array("*");
         $lesDons = $unControleur->selectAll ($tab); 
 
@@ -26,7 +26,6 @@
         $lesTresoreries = $unControleur->selectAll ($tab); 
      
 
-        $unControleur->setTable ("don");
         
         if (isset($_GET['action']) && isset($_GET['iddon'])) {
             $iddon = $_GET['iddon']; 
@@ -44,11 +43,7 @@
             }
         }
         
-
-       
-        
-
-        
+        require_once("vue/vue_insert_don.php"); 
 
         if (isset($_POST['modifier'])){
             
@@ -63,10 +58,10 @@
             header("Location: index.php?page=8");
         }
 
-        require_once("vue/vue_insert_don.php"); 
-
+        
+        
         if (isset($_POST['valider'])){
-    
+           
             $tab=array("datedon"=>$_POST['datedon'],  
                         "montant"=>$_POST['montant'],
                         "appreciation"=>$_POST['appreciation'],

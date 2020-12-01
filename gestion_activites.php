@@ -3,10 +3,19 @@
 	{
 		echo "ERREUR 404, page non identifiée ";
 	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
-	{*/
-            $unControleur->setTable ("activite");
+    {*/
             $uneActivite = null; 
+            $unControleur->setTable ("activite");
+            $tab=array("*");
+            $lesActivites= $unControleur->selectAll ($tab); 
             
+
+            $uneTresorerie=null;
+            $unControleur->setTable ("tresorerie");
+            $tab=array("*");
+            $lesTresoreries = $unControleur->selectAll ($tab); 
+
+
             if (isset($_GET['action']) && isset($_GET['id_activite']))
             {
                 $id_activite = $_GET['id_activite']; 
@@ -29,7 +38,8 @@
 
             if (isset($_POST['modifier'])){
                 $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'],
-                            "nb_personnes"=>$_POST['nb_personnes'],"budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix']);
+                            "budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix'],"nb_personnes"=>$_POST['nb_personnes'],
+                            "id_tresorerie"=>$_POST['id_tresorerie']);
                 $where =array("id_activite"=>$id_activite);
 
                 $unControleur->update($tab, $where);
@@ -37,21 +47,19 @@
             }
 
             if (isset($_POST['valider'])){
-                $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'],"nb_personnes"=>$_POST['nb_personnes'],
-                            "budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix']);
+                $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'],
+                "budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix'],"nb_personnes"=>$_POST['nb_personnes'],
+                "id_tresorerie"=>$_POST['id_tresorerie']);
                 $unControleur->insert($tab);
             }
 
-            $tab=array("*");
-            $lesActivites = $unControleur->selectAll ($tab); 
-            require_once("vue/vue_activite.php"); 
+
 
         /*} else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="user")*/
-            {
-                $unControleur->setTable ("activite");
-                $tab=array("*");
-                $lesActivites = $unControleur->selectAll ($tab); 
+            //{
+                
+               
                 require_once("vue/vue_activite.php"); 
-            }
+            //}
         
 ?>
