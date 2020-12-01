@@ -37,11 +37,18 @@
                             $unControleur->setTable ("activite");
                             $tab=array("id_activite"=>$id_activite); 
                             $unControleur->delete($tab);
+
+                            // refresh de la page en PHP
+                            header("Refresh:0");
+                            
                             break;
                     case "edit" : 
                             $unControleur->setTable ("activite");
                             $tab=array("id_activite"=>$id_activite); 
                             $uneActivite = $unControleur->selectWhere ($tab);
+
+                            // refresh de la page en PHP
+                            header("Refresh:0");
                             break; 
                 }
             }
