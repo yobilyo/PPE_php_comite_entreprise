@@ -11,37 +11,43 @@
         $leSalarie = null;
 
         // gestion de la modification depuis vue_salarie.php insérée dans vue_insert_salarie.php
+
+        // initialiser ici $idutilisateur et $action pour qu'ils aient un scope global
+        $idutilisateur=NULL;
+        $action=NULL;
+
         if (isset($_GET['action']) && isset($_GET['idutilisateur']))  {
             $idutilisateur = $_GET['idutilisateur']; 
             $action = $_GET['action'];
-
-            switch ($action){
-                case "sup" : 
-                    // on supprime la classe fille de plus bas degré
-                    // supprime dans salarie
-                    $unControleur->setTable ("salarie");
-                    $tab=array("idutilisateur"=>$idutilisateur); 
-                    $unControleur->delete($tab);
-                    // ensuite, après la suppression dans la table fille,
-                    // on remonte d'un cran et on supprime le reste des infos
-                    // contenues dans la classe mère utilisateur
-                    $unControleur->setTable ("utilisateur");
-                    $tab=array("idutilisateur"=>$idutilisateur); 
-                    $unControleur->delete($tab);
-                    break;
-                case "edit" : 
-                    // $leSalarie
-                    $unControleur->setTable ("salarie");
-                    $tab=array("idutilisateur"=>$idutilisateur); 
-                    $leSalarie = $unControleur->selectWhere ($tab);
-
-                    // $lUtilisateur
-                    $unControleur->setTable ("utilisateur");
-                    $tab=array("idutilisateur"=>$idutilisateur); 
-                    $lUtilisateur = $unControleur->selectWhere ($tab);
-                    break; 
-            }
         }
+
+        switch ($action){
+            case "sup" : 
+                // on supprime la classe fille de plus bas degré
+                // supprime dans salarie
+                $unControleur->setTable ("salarie");
+                $tab=array("idutilisateur"=>$idutilisateur); 
+                $unControleur->delete($tab);
+                // ensuite, après la suppression dans la table fille,
+                // on remonte d'un cran et on supprime le reste des infos
+                // contenues dans la classe mère utilisateur
+                $unControleur->setTable ("utilisateur");
+                $tab=array("idutilisateur"=>$idutilisateur); 
+                $unControleur->delete($tab);
+                break;
+            case "edit" : 
+                // $leSalarie
+                $unControleur->setTable ("salarie");
+                $tab=array("idutilisateur"=>$idutilisateur); 
+                $leSalarie = $unControleur->selectWhere ($tab);
+
+                // $lUtilisateur
+                $unControleur->setTable ("utilisateur");
+                $tab=array("idutilisateur"=>$idutilisateur); 
+                $lUtilisateur = $unControleur->selectWhere ($tab);
+                break; 
+        }
+        
         require_once("vue/vue_insert_salarie.php");
 
         if (isset($_POST['modifier'])){

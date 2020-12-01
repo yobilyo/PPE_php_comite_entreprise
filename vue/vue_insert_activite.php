@@ -34,10 +34,8 @@
 			<td> <input type="text" name="prix"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['prix']:""; ?>">  </td>
 		</tr>
 
-		<tr> 
-			<td> Nombre de personnes : </td> 
-			<td> <input type="text" name="nb_personnes" value ="<?php echo ($uneActivite!=null) ? $uneActivite['nb_personnes']:""; ?>">  </td>
-		</tr>
+		<!-- nb_personnes est automatiquement update par le trigger -->
+		<input type="hidden" name="nb_personnes" value ="<?php echo ($uneActivite!=null) ? $uneActivite['nb_personnes']: "0"; ?>">
 
 		<tr>	
 		<td> Trésorerie: </td> 

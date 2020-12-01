@@ -16,21 +16,24 @@
             $lesTresoreries = $unControleur->selectAll ($tab); 
 
 
-            if (isset($_GET['action']) && isset($_GET['id_activite']))
-            {
-                $id_activite = $_GET['id_activite']; 
-                $action = $_GET['action'];
+            // initialiser ici $idutilisateur et $action pour qu'ils aient un scope global
+            $idutilisateur=NULL;
+            $action=NULL;
 
-                switch ($action){
-                    case "sup" : 
-                            $tab=array("id_activite"=>$id_activite); 
-                            $unControleur->delete($tab);
-                            break;
-                    case "edit" : 
-                            $tab=array("id_activite"=>$id_activite); 
-                            $uneActivite = $unControleur->selectWhere ($tab);
-                            break; 
-                }
+            if (isset($_GET['action']) && isset($_GET['idutilisateur']))  {
+                $idutilisateur = $_GET['idutilisateur']; 
+                $action = $_GET['action'];
+            }
+
+            switch ($action){
+                case "sup" : 
+                        $tab=array("id_activite"=>$id_activite); 
+                        $unControleur->delete($tab);
+                        break;
+                case "edit" : 
+                        $tab=array("id_activite"=>$id_activite); 
+                        $uneActivite = $unControleur->selectWhere ($tab);
+                        break; 
             }
 
             require_once("vue/vue_insert_activite.php"); 
