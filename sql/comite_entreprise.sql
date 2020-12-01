@@ -36,10 +36,10 @@ CREATE TABLE activite(
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
 );
 
-insert into activite values (NULL, "Parc Asterix", "Plailly", 250, 1000, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 1),
-	(NULL, "Disneyland Paris", "Marne-La-Vallee", 550, 500, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 1),
-	(NULL, "Voyage a NYC", "Etats Unis", 25, 25000, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 1),
-	(NULL, "Soins massages", "Paris", 350, 990, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 1);
+insert into activite values (NULL, "Parc Asterix", "Plailly", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
+	(NULL, "Disneyland Paris", "Marne-La-Vallee", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
+	(NULL, "Voyage a NYC", "Etats Unis", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
+	(NULL, "Soins massages", "Paris", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
 
 #------------------------------------------------------------
 # Table: utilisateur
