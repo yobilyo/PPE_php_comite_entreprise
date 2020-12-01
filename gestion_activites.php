@@ -39,7 +39,7 @@
                             $unControleur->delete($tab);
 
                             // refresh de la page en PHP
-                            header("Refresh:0");
+                            header("index.php?page=4");
                             
                             break;
                     case "edit" : 
@@ -48,7 +48,7 @@
                             $uneActivite = $unControleur->selectWhere ($tab);
 
                             // refresh de la page en PHP
-                            header("Refresh:0");
+                            header("index.php?page=4");
                             break; 
                 }
             }

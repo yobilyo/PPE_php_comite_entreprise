@@ -23,7 +23,20 @@
 
         switch ($action){
             case "sup" : 
-                // on supprime la classe fille de plus bas degré
+                // on supprime d'abord les entrées de ce salarié (clé étrangère id_utilisateur dans toutes les autres tables)
+                $unControleur->setTable ("contact");
+                $tab=array("idutilisateur"=>$idutilisateur); 
+                $unControleur->delete($tab);
+
+                $unControleur->setTable ("commentaire");
+                $tab=array("idutilisateur"=>$idutilisateur); 
+                $unControleur->delete($tab); 
+
+                $unControleur->setTable ("participer");
+                $tab=array("idutilisateur"=>$idutilisateur); 
+                $unControleur->delete($tab); 
+
+                // puis on supprime la classe fille de plus bas degré en premier (salarie)
                 // supprime dans salarie
                 $unControleur->setTable ("salarie");
                 $tab=array("idutilisateur"=>$idutilisateur); 
