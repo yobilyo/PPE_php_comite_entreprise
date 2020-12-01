@@ -19,7 +19,7 @@
 						<td>".$unContact['objet']." </td>
 						<td>".$unContact['contenu']." </td>
 						<td>".$unContact['date']." </td>
-						<td>".$unContact['idutilisateur']." </td>
+						<td>".$unContact['username']." </td>
 						<td>
 							<a href='index.php?page=6&action=sup&id_contact=".$unContact['id_contact']."'>
 							<img src ='lib/images/sup.jpg' height='30' witdh='30'> </a>

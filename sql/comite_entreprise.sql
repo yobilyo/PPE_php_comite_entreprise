@@ -283,7 +283,10 @@ create view utilisateur_salarie_activite_commentaire as (
 		a.nom as "nom_activite",
 		a.lieu,
 		a.description,
-		c.contenu
+		c.contenu,
+		c.datecomment,
+		c.id_commentaire
+		
 	
 	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t, commentaire c
 	where u.idutilisateur = sa.idutilisateur 
@@ -311,12 +314,32 @@ create view utilisateur_sponsor_don as (
 	AND s.idutilisateur = d.idutilisateur
 );
 
+
+#------------------------------------------------------------
+# View : utilisateur_contact
+#------------------------------------------------------------
+
+
+create view utilisateur_contact as (
+	SELECT
+		c.id_contact,
+		c.objet,
+		c.contenu,
+		c.date,
+		u.username
+	
+	from contact c, utilisateur u
+	where c.idutilisateur = u.idutilisateur
+);
+
+
 # verification :
 select * from utilisateur_salarie;
 select * from utilisateur_sponsor;
 select * from utilisateur_salarie_activite;
 select * from utilisateur_salarie_activite_commentaire;
 select * from utilisateur_sponsor_don;
+select * from utilisateur_contact;
 select * from participer;
 select * from activite;
 select * from commentaire;

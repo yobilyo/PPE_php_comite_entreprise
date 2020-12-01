@@ -3,15 +3,15 @@
 	<table>
 		<tr> 
 			<td> Objet : </td> 
-			<td> <input type="text" name="objet" value ="<?php echo ($unContact!=null) ? $unContact['objet']:""; ?>"></td>
+			<td> <input type="text" required="required" name="objet" value ="<?php echo ($unContact!=null) ? $unContact['objet']:""; ?>"></td>
 		</tr>
 		<tr> 
-			<td> Contenu : </td> 
-			<td> <input type="text" name="contenu" value ="<?php echo ($unContact!=null) ? $unContact['contenu']:""; ?>"></td>
+			<td > Contenu : </td > 
+			<td> <input type="text" required="required" name="contenu" value ="<?php echo ($unContact!=null) ? $unContact['contenu']:""; ?>" ></td>
 		</tr>
 		<tr> 
 			<td> Date : </td> 
-			<td> <input type="date" name="date" value ="<?php echo ($unContact!=null) ? $unContact['date']:""; ?>"></td>
+			<td> <?php echo date("yy.m.d"); ?> </td>
 		</tr>
 		<tr>
 		    <td> Utilisateur : </td> 

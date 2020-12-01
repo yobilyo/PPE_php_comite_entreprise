@@ -10,7 +10,7 @@
 		
 		<tr> 
 			<td> Montant du don : </td> 
-			<td> <input type="text" name="montant" value ="<?php echo ($leDon!=null) ? $leDon['montant']:""; ?>"></td>
+			<td> <input type="text" required="required" name="montant" value ="<?php echo ($leDon!=null) ? $leDon['montant']:""; ?>"></td>
 		</tr>
 
 		<tr> 
@@ -29,10 +29,6 @@
 					</select>
 				</td>
 		</tr>
-
-
-
-
 
 		
 		<?php echo ($leDon!=null) ? "<input type='hidden' name='idutilisateur' value ='".$leDon['idutilisateur']."'>" : "";?>

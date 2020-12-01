@@ -39,8 +39,11 @@
             require_once("vue/vue_insert_contact.php");
 
             if (isset($_POST['modifier'])){
+
+                $date = date("yy.m.d");
+
                 $tab=array("objet"=>$_POST['objet'], "contenu"=>$_POST['contenu'],
-                            "date"=>$_POST['date'],"idutilisateur"=>$_POST['idutilisateur']);
+                            "date"=>$date,"idutilisateur"=>$_POST['idutilisateur']);
                 $where =array("id_contact"=>$id_contact);
 
                 $unControleur->update($tab, $where);
@@ -48,14 +51,16 @@
             }
 
             if (isset($_POST['valider'])){
+
+                $date = date("yy.m.d");
+
                 $tab=array("objet"=>$_POST['objet'], "contenu"=>$_POST['contenu'],
-                            "date"=>$_POST['date'],"idutilisateur"=>$_POST['idutilisateur']);
+                            "date"=>$date,"idutilisateur"=>$_POST['idutilisateur']);
                 $unControleur->insert($tab);
             }
-
+            $unControleur->setTable ("utilisateur_contact");	//changement de table : prendre la vue 
             $tab=array("*");
             $lesContacts = $unControleur->selectAll ($tab);
-
             require_once("vue/vue_contact.php");
     //} 
 
