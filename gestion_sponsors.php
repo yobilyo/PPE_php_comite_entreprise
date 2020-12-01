@@ -4,11 +4,16 @@
 		echo "ERREUR 404, page non identifiée ";
 	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
     { */
+        $lUtilisateur = null;
+        $droits = "sponsor";
+        $idutilisateur=NULL;
         $leSponsor = null;
-        $unControleur->setTable ("sponsor");
+
+        
+       /* $unControleur->setTable ("sponsor");
         $tab=array("*");
         $lesSponsors = $unControleur->selectAll ($tab);
-
+        */
 
             if (isset($_GET['action']) && isset($_GET['idutilisateur'])) 
             {
@@ -30,8 +35,14 @@
                             $unControleur->delete($tab);
                             break;
                     case "edit" : 
+                        // ICI AUSSI
+                            $unControleur->setTable ("sponsor");
                             $tab=array("idutilisateur"=>$idutilisateur); 
                             $leSponsor = $unControleur->selectWhere ($tab);
+
+                            $unControleur->setTable ("utilisateur");
+                            $tab=array("idutilisateur"=>$idutilisateur); 
+                            $lUtilisateur = $unControleur->selectWhere ($tab);
                             break; 
                 }
             }
@@ -42,14 +53,17 @@
             if (isset($_POST['modifier'])){
                 // insertion de l'utilisateur
                 $unControleur->setTable ("utilisateur");
+               
                 $tab=array(
                     // idutilisateur?
                     "username"=>$_POST['username'],
+                    "password"=>$_POST['password'],
                     "email"=>$_POST['email'],
-                    "password"=>$_POST['password']
+                    "droits"=>$droits
                 );
                 $unControleur->insert($tab);
-                // insertion de l'héritage utilisateur.sponsor
+
+                // insertion de sponsor
                 $unControleur->setTable ("sponsor");
                 $tab=array(
                     "societe"=>$_POST['societe'],
@@ -72,26 +86,33 @@
                 $unControleur->setTable ("utilisateur");
                 $tab=array( // null?
                     "username"=>$_POST['username'],
+                    "password"=>$_POST['password'],
                     "email"=>$_POST['email'],
-                    "password"=>$_POST['password']
+                    "droits"=>$droits
                 );
                 $unControleur->insert($tab);
                 // insertion de l'héritage utilisateur.sponsor
-                $unControleur->setTable ("sponsor");
+                $unControleur->setTable ("utilisateur");
+                $tab2=array("username"=>$_POST['username'], "email"=>$_POST['email']); 
+                $sponsorInsere = $unControleur->selectWhere ($tab2);
+
                 $tab=array(
+                     // attention à bien rajouter la clé étrangère idutilisateur héritée
+                    // "idutilisateur"=>$_POST['idutilisateur'],
                     "societe"=>$_POST['societe'],
                     "budget"=>$_POST['budget'],
                     "tel"=>$_POST['tel'],
-                    // attention à bien rajouter la clé étrangère idutilisateur héritée
-                    "idutilisateur"=>$_POST['idutilisateur']
+
+                    "idutilisateur"=>$sponsorInsere['idutilisateur']    
                 );
+                $unControleur->setTable ("sponsor");
                 $unControleur->insert($tab);
             }
 
             // pour afficher tous les salariés, on prend la vue utilisateur_sponsor_don qui contient la classe mère utilisateur et sa classe fille salarie
-            $unControleur->setTable ("utilisateur_sponsor_don"); // view
+            $unControleur->setTable ("utilisateur_sponsor"); // view
             $tab=array("*");
-            $lesSponsors = $unControleur->selectAll ($tab);
+            $lesUtilisateurSponsors = $unControleur->selectAll ($tab);
 
             require_once("vue/vue_sponsor.php");
     /* } */ 
