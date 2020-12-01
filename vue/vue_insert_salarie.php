@@ -44,6 +44,8 @@
 				</select>
 			</td>
 		</tr>
+
+
 		<!-- maintenant on passe à la table salarié -->
 		<tr> 
 			<td> Nom : </td> 
@@ -143,6 +145,39 @@
 		</tr>
 	</table>
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php  /*
 //nouvelle version avec bootstrap mais qui ne modifie pas correctement
