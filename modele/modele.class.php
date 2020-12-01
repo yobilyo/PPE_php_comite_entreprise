@@ -8,14 +8,14 @@
 			$this->unPdo =null; 
 			try {
 				$this->unPdo = new PDO ("mysql:host=".$serveur.";dbname=".$bdd, $user, $mdp);
-
-				// support des messages d'erreur SQL dans nos pages PHP
-				// https://stackoverflow.com/questions/3999850/pdo-error-message
-				$this->unPdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
 			}
 			catch (PDOException $exp){
 				echo "Erreur de connexion au serveur : ".$serveur."/".$bdd ;
 			}
+
+			// support des messages d'erreur SQL dans nos pages PHP
+			// https://stackoverflow.com/questions/3999850/pdo-error-message
+			$this->unPdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
 		}
 		public function getTable (){
 			return $this->uneTable ;
