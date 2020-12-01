@@ -9,7 +9,7 @@
 		</tr>
 		<tr> 
 			<td> Contenu : </td> 
-			<td> <input type="text" name="contenu" value= <?php echo ($unCommentaire != null ? $unCommentaire['contenu'] : "") ?> ></td>
+			<td> <input type="text" required="required" name="contenu" value= <?php echo ($unCommentaire != null ? $unCommentaire['contenu'] : "") ?> ></td>
 		</tr>
 
 		<tr> 

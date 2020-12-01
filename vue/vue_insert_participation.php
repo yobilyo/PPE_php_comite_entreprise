@@ -18,7 +18,7 @@
 		<td>		 <select name ="id_activite">
 						 <?php
 						 	foreach ($lesActivités as $uneActivité) {
-						 		echo "<option value ='".$uneActivité['id_activité']."'>".$uneActivité['nom']."  "."</option>";
+						 		echo "<option value ='".$uneActivité['id_activite']."'>".$uneActivité['nom']."  "."</option>";
 						 	}
 						 ?>
 					</select>
@@ -31,8 +31,6 @@
 		
 		
 		<tr> 
-		<?php echo ($uneParticipation!=null) ? "<input type='hidden' name='idutilisateur' value ='".$uneParticipation['idutilisateur']."'>" : ""; ?>
-        <?php echo ($uneParticipation!=null) ? "<input type='hidden' name='id_activite' value ='".$uneParticipation['id_activite']."'>" : ""; ?>
 
 		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
 		<td> <input type="submit" 

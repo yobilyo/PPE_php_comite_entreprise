@@ -344,6 +344,39 @@ create view utilisateur_administrateur as (
 	where utilisateur.droits="admin"
 );
 
+#------------------------------------------------------------
+# View : utilisateur_salarie_participer
+#------------------------------------------------------------
+
+
+create view utilisateur_salarie_activite_participer as (
+
+	select 	
+		u.idutilisateur,
+		u.username, 
+		u.email,
+		u.password,
+		u.droits, 
+		sa.nom, 
+		sa.prenom, 
+		sa.tel, 
+		sa.adresse, 
+		sa.service, 
+		a.nom as "nom_activite",
+		a.lieu,
+		a.description,
+		c.contenu,
+		c.datecomment,
+		c.id_commentaire
+		
+	
+	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t, commentaire c
+	where u.idutilisateur = sa.idutilisateur 
+	and sa.idutilisateur = p.idutilisateur  
+	and p.id_activite = a.id_activite  
+	and c.id_activite = a.id_activite 
+);
+
 
 
 # verification :

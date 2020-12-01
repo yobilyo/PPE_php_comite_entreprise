@@ -2,14 +2,27 @@
 <div class='container'>
 	<h2> Liste des participations </h2>
 	<table class="table table-striped">
+	
 		<thead>
 			<tr > 
 				<th> Id utilisateur </th>
-				<th> id activité </th> <th> Date inscription</th>
+				<th> Id activité </th>
+				<th> Utilisateur </th>
+				<th> Email </th>
+				<th> Nom </th> 
+				<th> Prénom </th>
+				<th> Téléphone </th>
+				<th> Adresse </th>
+				<th> Service </th>
+				<th> Activité </th>
+				<th> Date d'inscription </th>
+				<th> Lieu </th>
+				<th> Description </th>
 				
 				<th>Operations</th>
 			</tr>
 		</thead>
+
 
 		<tbody>
 			<?php 
@@ -17,10 +30,38 @@
 				echo "<tr> 
 						<td>".$uneParticipation['idutilisateur']." </td>
 						<td>".$uneParticipation['id_activite']." </td>
+						<td>".$uneParticipation['username']." </td>
+						<td>".$uneParticipation['email']." </td>
+						<td>".$uneParticipation['nom']." </td>
+						<td>".$uneParticipation['prenom']." </td>
+						<td>".$uneParticipation['tel']." </td>
+						<td>".$uneParticipation['adresse']." </td>
+						<td>".$uneParticipation['service']." </td>
+						<td>".$uneParticipation['nom_activite']." </td>
 						<td>".$uneParticipation['date_inscription']." </td>
-					</tr>";
+						<td>".$uneParticipation['lieu']." </td>
+						<td>".$uneParticipation['description']." </td>
+
+						
+						";
+
+						/*if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
+						{*/
+						echo "<td>
+						<a href='index.php?page=3&action=sup&idutilisateur=".$uneParticipation['idutilisateur']."'
+							href='index.php?page=3&action=sup&id_activite=".$uneParticipation['id_activite']."'>
+						<img src ='lib/images/sup.jpg' height='30' witdh='30'> </a>
+
+						<a href='index.php?page=3&action=edit&idutilisateur=".$uneParticipation['idutilisateur']."'
+							href='index.php?page=3&action=edit&id_activite=".$uneParticipation['id_activite']."'>
+						<img src ='lib/images/edit.png' height='30' witdh='30'> </a>
+
+						</td>";
+						//}
+				echo "</tr>";
 			}
 			?>
 		</tbody>
+		
 	</table>
 </form>
