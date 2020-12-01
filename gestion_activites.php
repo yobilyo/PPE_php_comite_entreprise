@@ -15,27 +15,35 @@
             $tab=array("*");
             $lesTresoreries = $unControleur->selectAll ($tab); 
 
-
-            // initialiser ici $id_activite et $action pour qu'ils aient un scope global
-            $id_activite=NULL;
-            $action=NULL;
-
             if (isset($_GET['action']) && isset($_GET['id_activite']))  {
                 $id_activite = $_GET['id_activite']; 
                 $action = $_GET['action'];
-            }
 
-            switch ($action){
-                case "sup" : 
-                        $unControleur->setTable ("activite");
-                        $tab=array("id_activite"=>$id_activite); 
-                        $unControleur->delete($tab);
-                        break;
-                case "edit" : 
-                        $unControleur->setTable ("activite");
-                        $tab=array("id_activite"=>$id_activite); 
-                        $uneActivite = $unControleur->selectWhere ($tab);
-                        break; 
+                switch ($action){
+                    case "sup" : 
+                            // avant de pouvoir supprimer une activite, il faut supprimer toutes les participants à cette activite
+                            // les clés étrangères id_activite dans la table participer ne peuvent pas devenir orphelines ce qui bloque la suppression d'une activite
+                            // DELETE from participer WHERE id_activite = $id_activite
+                            $unControleur->setTable ("participer");
+                            $tab=array("id_activite"=>$id_activite); 
+                            $unControleur->delete($tab);
+
+                            // id_activite est aussi stockée dans la table commentaire
+                            $unControleur->setTable ("commentaire");
+                            $tab=array("id_activite"=>$id_activite); 
+                            $unControleur->delete($tab);
+
+                            // puis on peut supprimer l'activite
+                            $unControleur->setTable ("activite");
+                            $tab=array("id_activite"=>$id_activite); 
+                            $unControleur->delete($tab);
+                            break;
+                    case "edit" : 
+                            $unControleur->setTable ("activite");
+                            $tab=array("id_activite"=>$id_activite); 
+                            $uneActivite = $unControleur->selectWhere ($tab);
+                            break; 
+                }
             }
 
             require_once("vue/vue_insert_activite.php"); 
