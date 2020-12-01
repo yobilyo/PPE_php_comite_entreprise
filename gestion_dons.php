@@ -5,26 +5,19 @@
 	}else if (isset($_SESSION['username']))
 	{*/
         $leDon=null;
-        $unControleur->setTable ("don");
-        $tab=array("*");
-        $lesDons = $unControleur->selectAll ($tab); 
 
-        $unSponsor=null;
-        $unControleur->setTable ("utilisateur");
+        $unControleur->setTable ("sponsor");
         $tab=array("*");
         $lesSponsors = $unControleur->selectAll ($tab); 
 
 
-        $uneSociété=null;
-        $unControleur->setTable ("sponsor");
-        $tab=array("*");
-        $lesSociétés = $unControleur->selectAll ($tab); 
-
-        $uneTresorerie=null;
         $unControleur->setTable ("tresorerie");
         $tab=array("*");
         $lesTresoreries = $unControleur->selectAll ($tab); 
-     
+
+        
+        $unControleur->setTable ("don");
+        $tab=array("*");
 
         
         if (isset($_GET['action']) && isset($_GET['iddon'])) {
@@ -46,12 +39,12 @@
         require_once("vue/vue_insert_don.php"); 
 
         if (isset($_POST['modifier'])){
-            
+            $idtresorerie =1;
             $tab=array("datedon"=>$_POST['datedon'],  
                         "montant"=>$_POST['montant'],
                         "appreciation"=>$_POST['appreciation'],
                         "idutilisateur"=>$_POST['idutilisateur'],
-                        "id_tresorerie"=>$_POST['id_tresorerie']);
+                        "id_tresorerie"=>$idtresorerie);
             $where =array("iddon"=>$iddon);
 
             $unControleur->update($tab, $where);
@@ -61,12 +54,12 @@
         
         
         if (isset($_POST['valider'])){
-           
+            $idtresorerie =1;
             $tab=array("datedon"=>$_POST['datedon'],  
                         "montant"=>$_POST['montant'],
                         "appreciation"=>$_POST['appreciation'],
                         "idutilisateur"=>$_POST['idutilisateur'],
-                        "id_tresorerie"=>$_POST['id_tresorerie']);
+                        "id_tresorerie"=>$idtresorerie);
                         var_dump($_POST);
             
             $unControleur->insert($tab);

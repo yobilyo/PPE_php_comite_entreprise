@@ -3,6 +3,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
+			<th> ID DON </th>
 				<th> Email </th>
 				<th> Société</th> 
 				<th> Budget </th> 	
@@ -16,6 +17,7 @@
 			<?php 
 			foreach ($lesDons as $leDon) {
 				echo "<tr> 
+						<td>".$leDon['iddon']." </td>
 						<td>".$leDon['email']." </td>
 						<td>".$leDon['societe']." </td>
 						<td>".$leDon['budget']." </td>
