@@ -332,6 +332,19 @@ create view utilisateur_contact as (
 	where c.idutilisateur = u.idutilisateur
 );
 
+#------------------------------------------------------------
+# View : utilisateur_administrateur 
+#------------------------------------------------------------
+
+
+create view utilisateur_administrateur as (
+	SELECT
+		*
+	from utilisateur
+	where utilisateur.droits="admin"
+);
+
+
 
 # verification :
 select * from utilisateur_salarie;
@@ -340,6 +353,7 @@ select * from utilisateur_salarie_activite;
 select * from utilisateur_salarie_activite_commentaire;
 select * from utilisateur_sponsor_don;
 select * from utilisateur_contact;
+select * from utilisateur_administrateur;
 select * from participer;
 select * from activite;
 select * from commentaire;

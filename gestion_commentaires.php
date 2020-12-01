@@ -2,7 +2,7 @@
     $unCommentaire=null;
 	$unControleur->setTable ("commentaire");
 	$tab=array("*");
-	$lesCommentaires = $unControleur->selectAll ($tab); 
+
 
 	$unControleur->setTable ("activite");
 	$tab=array("*");
