@@ -11,23 +11,23 @@
         <tr> 
 			<td> Nom d'utilisateur : </td> 
 			<!-- $lUtilisateur -->
-			<td> <input type="text" name="username" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['username']:""; ?>" ></td>
+			<td> <input type="text" required="required" name="username" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['username']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Email : </td> 
 			<!-- $lUtilisateur -->
-			<td> <input type="text" name="email" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['email']:""; ?>" ></td>
+			<td> <input type="text" required="required" name="email" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['email']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Mot de passe : </td> 
 			<!-- $lUtilisateur -->
-			<td> <input type="text" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
+			<td> <input type="text" required="required" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
 		</tr>
 		<tr> 
 			<td> Droits : </td> 
 			<!-- $lUtilisateur -->
 			<td>
-				<select name='droits'>
+				<select name='droits' >
 					<!-- choix de la valeur sélectionnée en cours avec le mot clé HTML selected https://www.geeksforgeeks.org/how-to-set-the-default-value-for-an-html-select-element/-->
 					<?php
 						if ($lUtilisateur == null) {
@@ -46,14 +46,14 @@
 		</tr>
 		<!-- maintenant on passe à la table salarié -->
 		<tr> 
-			<td> Nom Salarié : </td> 
+			<td> Nom : </td> 
 			<!-- $leSalarie -->
-			<td> <input type="text" name="nom" value ="<?php echo ($leSalarie!=null) ? $leSalarie['nom']:""; ?>" ></td>
+			<td> <input type="text" required="required" name="nom" value ="<?php echo ($leSalarie!=null) ? $leSalarie['nom']:""; ?>" ></td>
 		</tr>
         <tr> 
-			<td> Prenom Salarié: </td>
+			<td> Prenom : </td>
 			<!-- $leSalarie -->
-			<td> <input type="text" name="prenom" value ="<?php echo ($leSalarie!=null) ? $leSalarie['prenom']:""; ?>" ></td>
+			<td> <input type="text" required="required" name="prenom" value ="<?php echo ($leSalarie!=null) ? $leSalarie['prenom']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Sexe: </td>
@@ -77,19 +77,19 @@
             </td>
 		</tr>
         <tr> 
-			<td> Téléphone du Salarié</td> 
+			<td> Téléphone :</td> 
 			<!-- $leSalarie -->
-			<td> <input type="text" name="tel"  value ="<?php echo ($leSalarie!=null) ? $leSalarie['tel']:""; ?>">  </td>
+			<td> <input type="text" required="required" name="tel"  value ="<?php echo ($leSalarie!=null) ? $leSalarie['tel']:""; ?>">  </td>
 		</tr>
 		<tr> 
-			<td>Adresse du salarié: </td>
+			<td>Adresse postale : </td>
 			<!-- $leSalarie -->
-			<td> <input type="text" name="adresse" value ="<?php echo ($leSalarie!=null) ? $leSalarie['adresse']:""; ?>">  </td>
+			<td> <input type="text" required="required" name="adresse" value ="<?php echo ($leSalarie!=null) ? $leSalarie['adresse']:""; ?>">  </td>
 		</tr>
         <tr> 
-			<td>Quotient familial: </td>
+			<td>Quotient familial : </td>
 			<!-- $leSalarie -->
-			<td> <input type="text" name="quotient_fam" value ="<?php echo ($leSalarie!=null) ? $leSalarie['quotient_fam']:""; ?>">  </td>
+			<td> <input type="text" required="required" name="quotient_fam" value ="<?php echo ($leSalarie!=null) ? $leSalarie['quotient_fam']:""; ?>">  </td>
 		</tr>
 
 		<tr> 

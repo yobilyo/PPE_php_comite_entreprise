@@ -63,6 +63,7 @@
                 "id_tresorerie"=>$_POST['id_tresorerie']);
                 $unControleur->setTable ("activite");
                 $unControleur->insert($tab);
+                //header("Location: index.php?page=4");
             }
 
 

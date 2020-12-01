@@ -37,18 +37,9 @@
 		<!-- nb_personnes est automatiquement update par le trigger -->
 		<input type="hidden" name="nb_personnes" value ="<?php echo ($uneActivite!=null) ? $uneActivite['nb_personnes']: "0"; ?>">
 
-		<tr>	
-		<td> Trésorerie: </td> 
-			<td>		 <select name ="id_tresorerie">
-						 <?php
-						 	foreach ($lesTresoreries as $uneTresorerie) {
-						 		echo "<option value ='".$uneTresorerie['id_tresorerie']."'>".$uneTresorerie['id_tresorerie']."  "."</option>";
-						 	}
-						 ?>
-					</select>
-				</td>
+		<!-- id_tresorerie est 1 -->
+		<input type="hidden" name="id_tresorerie" value ="<?php echo ($uneTresorerie!=null) ? $uneTresorerie['id_tresorerie']: "1"; ?>">
 
-		<tr>
 
 		<?php echo ($uneActivite!=null) ? "<input type='hidden' name='id_activite' value ='".$uneActivite['id_activite']."'>" : ""; ?>
 
