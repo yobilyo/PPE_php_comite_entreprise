@@ -22,6 +22,10 @@
 			<td> Mot de passe : </td> 
 			<td> <input type="password" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
 		</tr>
+
+		
+
+
 		<tr> 
 			<td> Société : </td> 
 			<td> <input type="text" name="societe" value ="<?php echo ($leSponsor!=null) ? $leSponsor['societe']:""; ?>"></td>
@@ -44,7 +48,7 @@
 		<tr> 
 			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
 			<td> <input type="submit" 
-			<?php echo ($lUtilisateur!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' "; ?> 
+			<?php echo ($leSponsor!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' "; ?> 
 				></td>
 		</tr>
 	</table>

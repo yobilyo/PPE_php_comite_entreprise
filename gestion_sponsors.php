@@ -5,9 +5,11 @@
 	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
     { */
         $lUtilisateur = null;
-        $droits = "sponsor";
+        
         $idutilisateur=NULL;
         $leSponsor = null;
+        $droits = "sponsor";
+        $action=NULL;
 
         
        /* $unControleur->setTable ("sponsor");
@@ -22,6 +24,23 @@
 
                 switch ($action){
                     case "sup" : 
+
+                            // on supprime d'abord les entrées de ce salarié (clé étrangère id_utilisateur dans toutes les autres tables)
+                            $unControleur->setTable ("don");
+                            $tab=array("idutilisateur"=>$idutilisateur); 
+                            $unControleur->delete($tab);
+
+                            $unControleur->setTable ("contact");
+                            $tab=array("idutilisateur"=>$idutilisateur); 
+                            $unControleur->delete($tab);
+
+                            $unControleur->setTable ("commentaire");
+                            $tab=array("idutilisateur"=>$idutilisateur); 
+                            $unControleur->delete($tab); 
+
+                            $unControleur->setTable ("participer");
+                            $tab=array("idutilisateur"=>$idutilisateur); 
+                            $unControleur->delete($tab); 
                             // on supprime la classe fille de plus bas degré
                             // supprime dans sponsor
                             $unControleur->setTable ("sponsor");
@@ -52,52 +71,52 @@
 
             if (isset($_POST['modifier'])){
                 // insertion de l'utilisateur
-                $unControleur->setTable ("utilisateur");
                
-                $tab=array(
+                $tabUtilisateur=array(
                     // idutilisateur?
                     "username"=>$_POST['username'],
                     "password"=>$_POST['password'],
                     "email"=>$_POST['email'],
                     "droits"=>$droits
                 );
-                $unControleur->insert($tab);
+                $unControleur->setTable ("utilisateur");
+                $where = array("idutilisateur"=>$idutilisateur);
+                $unControleur->update($tabUtilisateur, $where);
 
-                // insertion de sponsor
-                $unControleur->setTable ("sponsor");
-                $tab=array(
+                // mise à jour de l'héritage utilisateur.sponsor
+                
+                $tabSponsor=array(
                     "societe"=>$_POST['societe'],
                     "budget"=>$_POST['budget'],
                     "tel"=>$_POST['tel'],
                     // attention à bien rajouter la clé étrangère idutilisateur héritée
                     "idutilisateur"=>$_POST['idutilisateur']
                 );
-                $unControleur->insert($tab);
-
-                
+                $unControleur->setTable ("sponsor");
+                $unControleur->update($tabSponsor, $where);
                 $where =array("idutilisateur"=>$idutilisateur);
 
-                $unControleur->update($tab, $where);
-                header("Location: index.php?page=7");
+ 
             }
 
             if (isset($_POST['valider'])){
                 // insertion de l'utilisateur
-                $unControleur->setTable ("utilisateur");
-                $tab=array( // null?
+                //$unControleur->setTable ("utilisateur");
+                
+                $tabUtilisateur=array( // null?
                     "username"=>$_POST['username'],
                     "password"=>$_POST['password'],
                     "email"=>$_POST['email'],
                     "droits"=>$droits
                 );
                 $unControleur->setTable ("utilisateur");
-                $unControleur->insert($tab);
+                $unControleur->insert($tabUtilisateur);
                 // insertion de l'héritage utilisateur.sponsor
                 $unControleur->setTable ("utilisateur");
-                $tab2=array("username"=>$_POST['username'], "email"=>$_POST['email']); 
-                $sponsorInsere = $unControleur->selectWhere ($tab2);
+                $tab=array("username"=>$_POST['username'], "email"=>$_POST['email']); 
+                $sponsorInsere = $unControleur->selectWhere ($tab);
 
-                $tab=array(
+                $tabSponsor=array(
                      // attention à bien rajouter la clé étrangère idutilisateur héritée
                     // "idutilisateur"=>$_POST['idutilisateur'],
                     "societe"=>$_POST['societe'],
@@ -107,7 +126,7 @@
                     "idutilisateur"=>$sponsorInsere['idutilisateur']    
                 );
                 $unControleur->setTable ("sponsor");
-                $unControleur->insert($tab);
+                $unControleur->insert($tabSponsor);
             }
 
             // pour afficher tous les salariés, on prend la vue utilisateur_sponsor_don qui contient la classe mère utilisateur et sa classe fille salarie
