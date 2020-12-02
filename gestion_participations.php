@@ -24,15 +24,17 @@
 
         switch ($action){
             case "sup" : 
-                    $tab=array("idutilisateur"=>$idutilisateur); 
-                    $tab=array("id_activite"=>$id_activite); 
-                    $unControleur->delete($tab);
-                    break;
+                // participer est une association n/n, donc il y'a une double clé primaire qui est la combinaison des clés étrangères
+                // DELETE FROM participer WHERE idutilisateur = 5 and id_activite = 3;
+                $unControleur->setTable ("participer");
+                $tab=array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite); 
+                $unControleur->delete($tab);
+                break;
             case "edit" : 
-                $tab=array("idutilisateur"=>$idutilisateur); 
-                $tab=array("id_activite"=>$id_activite); 
-                    $uneActivité = $unControleur->selectWhere ($tab);  
-                    break; 
+                $unControleur->setTable ("participer");
+                $tab=array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite); 
+                $uneActivité = $unControleur->selectWhere ($tab);  
+                break; 
         }
     }
 
