@@ -90,6 +90,7 @@
                     "email"=>$_POST['email'],
                     "droits"=>$droits
                 );
+                $unControleur->setTable ("utilisateur");
                 $unControleur->insert($tab);
                 // insertion de l'héritage utilisateur.sponsor
                 $unControleur->setTable ("utilisateur");
