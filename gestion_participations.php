@@ -24,46 +24,17 @@
 
         switch ($action){
             case "sup" : 
-                            // on supprime d'abord les entrées de ce salarié (clé étrangère id_utilisateur dans toutes les autres tables)
-
-                            
-                            $unControleur->setTable ("contact");
-                            $tab=array("idutilisateur"=>$idutilisateur); 
-                            $unControleur->delete($tab);
-
-                            $unControleur->setTable ("commentaire");
-                            $tab=array("idutilisateur"=>$idutilisateur); 
-                            $unControleur->delete($tab); 
-                            
-                            $unControleur->setTable ("salarie");
-                            $tab=array("idutilisateur"=>$idutilisateur); 
-                            $unControleur->delete($tab);
-                            // on supprime la classe fille de plus bas degré
-                            // supprime dans sponsor
-
-                            $unControleur->setTable ("participer");
-                            $tab=array("id_activite"=>$id_activite); 
-                            $unControleur->delete($tab);
-
-                            $unControleur->setTable ("participer");
-                            $tab=array("idutilisateur"=>$idutilisateur); 
-                            $unControleur->delete($tab);
-                            // ensuite, après la suppression dans la table fille,
-                            // on remonte d'un cran et on supprime le reste des infos
-                            // contenues dans la classe mère utilisateur
-                            $unControleur->setTable ("utilisateur");
-                            $tab=array("idutilisateur"=>$idutilisateur); 
-                            $unControleur->delete($tab);
-                            break;
-
-
-
-
+                // participer est une association n/n, donc il y'a une double clé primaire qui est la combinaison des clés étrangères
+                // DELETE FROM participer WHERE idutilisateur = 5 and id_activite = 3;
+                $unControleur->setTable ("participer");
+                $tab=array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite); 
+                $unControleur->delete($tab);
+                break;
             case "edit" : 
-                $tab=array("idutilisateur"=>$idutilisateur); 
-                $tab=array("id_activite"=>$id_activite); 
-                    $uneActivité = $unControleur->selectWhere ($tab);  
-                    break; 
+                $unControleur->setTable ("participer");
+                $tab=array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite); 
+                $uneActivité = $unControleur->selectWhere ($tab);  
+                break; 
         }
     }
 
