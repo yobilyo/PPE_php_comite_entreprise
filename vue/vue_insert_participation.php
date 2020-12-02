@@ -5,7 +5,7 @@
 		    <td> Utilisateur : </td> 
 		<td>		 <select name ="idutilisateur">
 						 <?php
-						 	foreach ($lesUtilisateurs as $unUtilisateur) {
+						 	foreach ($lesUtilisateursSalariés as $unUtilisateur) {
 						 		echo "<option value ='".$unUtilisateur['idutilisateur']."'>".$unUtilisateur['username']."  "."</option>";
 						 	}
 						 ?>

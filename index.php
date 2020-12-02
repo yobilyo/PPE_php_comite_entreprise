@@ -62,7 +62,7 @@
                             /*if ($_SESSION['droits'] =="admin")
                             {*/
                                 echo'
-                                <a href="index.php?page=1" class="nav-item nav-link">Administrateurs</a>
+                                <a href="index.php?page=1" class="nav-item nav-link">Mon espace</a>
                                 <a href="index.php?page=2" class="nav-item nav-link">Salariés</a>
                                 ';
                             //}
@@ -73,10 +73,9 @@
                             <a href='index.php?page=6' class='nav-item nav-link'>Contact</a>
                             <a href='index.php?page=7' class='nav-item nav-link'>Sponsors</a>
                             <a href='index.php?page=8' class='nav-item nav-link'>Dons</a>
-                            <a href='index.php?page=9' class='nav-item nav-link'>Ma page</a>
                         </div>
                         <div class='navbar-nav ml-auto'>
-                            <a href='index.php?page=10' class='nav-item nav-link'>Déconnexion</a>
+                            <a href='index.php?page=9' class='nav-item nav-link'>Déconnexion</a>
                         </div>
                     </div>
                 </nav>";
@@ -89,7 +88,7 @@
                         require_once("accueil.php");
                         break;
                     case 1:
-                        require_once("gestion_administrateurs.php");
+                        require_once("gestion_mon_espace.php");
                         break;
                     case 2:
                         require_once("gestion_salarie.php");
@@ -118,11 +117,6 @@
                         break;
 
                     case 9:
-                        require_once("gestion_ma_page.php");
-                        break;
-
-
-                    case 10:
                         session_destroy();   
                         header("Location: index.php");             
                     }

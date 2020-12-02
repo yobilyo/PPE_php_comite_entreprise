@@ -40,6 +40,9 @@
 				return null; 
 			}
 		}
+
+
+
 		public function insert ($tab){
 			//$tab est le $_POST du formulaire 
 			if ($this->unPdo != null){

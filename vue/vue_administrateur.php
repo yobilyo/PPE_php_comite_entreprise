@@ -3,7 +3,6 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-			<th> ID utilisateur </th>
 				<th> Utilisateur </th>
 				<th> Mot de passe</th> 
 				<th> E-mail </th> 	
@@ -15,7 +14,6 @@
 			<?php 
 			foreach ($lesUtilisateurs as $unUtilisateur) {
 				echo "<tr> 
-						<td>".$unUtilisateur['idutilisateur']." </td>
 						<td>".$unUtilisateur['username']." </td>
 						<td>".$unUtilisateur['password']." </td>
 						<td>".$unUtilisateur['email']." </td>
