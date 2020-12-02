@@ -39,9 +39,9 @@
                         <td>".$unUtilisateurSalarie['service']." </td>
 						<td>
 							<a href='index.php?page=2&action=sup&idutilisateur=".$unUtilisateurSalarie['idutilisateur']."'>
-							<img src ='lib/images/sup.jpg' height='30' witdh='30'> </a>
+							<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
 							<a href='index.php?page=2&action=edit&idutilisateur=".$unUtilisateurSalarie['idutilisateur']."'>
-							<img src ='lib/images/edit.png' height='30' witdh='30'> </a>
+							<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
 							</td>
 					</tr>";
 			}

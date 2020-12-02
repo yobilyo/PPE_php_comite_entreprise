@@ -21,7 +21,7 @@
         <tr> 
 			<td> Mot de passe : </td> 
 			<!-- $lUtilisateur -->
-			<td> <input type="text" required="required" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
+			<td> <input type="password" required="required" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
 		</tr>
 		<tr> 
 			<td> Droits : </td> 
