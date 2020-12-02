@@ -89,9 +89,52 @@
 			<td> <input type="text" required="required" name="adresse" value ="<?php echo ($leSalarie!=null) ? $leSalarie['adresse']:""; ?>">  </td>
 		</tr>
         <tr> 
-			<td>Quotient familial : </td>
+			<td> Quotient familiale : </td>
 			<!-- $leSalarie -->
-			<td> <input type="text" required="required" name="quotient_fam" value ="<?php echo ($leSalarie!=null) ? $leSalarie['quotient_fam']:""; ?>">  </td>
+			<td>
+                <select name='quotient_fam'>
+					<!-- choix de la valeur sélectionnée en cours avec le mot clé HTML selected https://www.geeksforgeeks.org/how-to-set-the-default-value-for-an-html-select-element/-->
+					<?php
+						if ($leSalarie == null) {
+							echo "<option value='1'>1</option>
+								  <option value='2'>2</option>
+								  <option value='3'>3</option>
+								  <option value='4'>4</option>
+								  <option value='5'>5</option>";
+						} else if ($leSalarie['quotient_fam'] == 1) {
+							echo "<option value='1' selected>1</option>
+								  <option value='2'>2</option>
+								  <option value='3'>3</option>
+								  <option value='4'>4</option>
+								  <option value='5'>5</option>";
+						} else if ($leSalarie['quotient_fam'] == 2) {
+							echo "<option value='1'>1</option>
+								  <option value='2' selected>2</option>
+								  <option value='3'>3</option>
+								  <option value='4'>4</option>
+								  <option value='5'>5</option>";
+						} else if ($leSalarie['quotient_fam'] == 3) {
+							echo "<option value='1'>1</option>
+								  <option value='2'>2</option>
+								  <option value='3' selected>3</option>
+								  <option value='4'>4</option>
+								  <option value='5'>5</option>";
+						} else if ($leSalarie['quotient_fam'] == 4) {
+							echo "<option value='1'>1</option>
+								  <option value='2'>2</option>
+								  <option value='3'>3</option>
+								  <option value='4' selected>4</option>
+								  <option value='5'>5</option>";
+						} else if ($leSalarie['quotient_fam'] == 5) {
+							echo "<option value='1'>1</option>
+								  <option value='2'>2</option>
+								  <option value='3'>3</option>
+								  <option value='4'>4</option>
+								  <option value='5' selected>5</option>";
+						}
+					?>
+			    </select>
+        </td>
 		</tr>
 
 		<tr> 

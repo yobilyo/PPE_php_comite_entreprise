@@ -75,7 +75,7 @@ CREATE TABLE salarie(
         prenom        Varchar (20),
         tel           Varchar (15),
         adresse       Varchar (50),
-        quotient_fam  Int,
+        quotient_fam  Enum ("1","2","3","4","5"),
         service       Enum ("comptabilite","developpeur","commercial","ressources_humaines"),
         sexe          Enum ("homme","femme"),
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
