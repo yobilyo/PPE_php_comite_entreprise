@@ -7,7 +7,8 @@
 				<th> Nom de l'activité</th> <th> Lieu</th>
 				<th> Budget</th> 
 				<th> Description </th> <th> Date de début </th> <th> Date de fin </th>
-                <th> Prix </th><th> Nombre d'inscrits </th>
+                <th> Prix </th><th> Nombre d'inscrits </th> 
+				<th> En savoir plus ...</th> 
 			</tr>
 		</thead>
 
@@ -25,6 +26,8 @@
 						<td>".$uneActivite['prix']."</td>
 						<td>".$uneActivite['nb_personnes']."</td>
 					</tr>";
+					
+
 			}
 			?>
 		</tbody>

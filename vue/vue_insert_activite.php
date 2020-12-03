@@ -33,6 +33,12 @@
 			<td> Prix :</td> 
 			<td> <input type="text" name="prix"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['prix']:""; ?>">  </td>
 		</tr>
+		<!-- Ici, on pourrais également rajouter un champs "liens" dans notre SQL et ICI afin de pouvoir completer la colonne "En savoir plus...." depuis la vue vue_activite_client et rediriger l'utilisateur vers le site disney par exemple 
+		
+		Une autre idée serait d'inserer un champs ou l'on peux joindre une photo de l'activités afin quelle puisse se mettre automatique dans la vue "vue_activite_client" 
+		-->
+
+
 
 		<!-- nb_personnes est automatiquement update par le trigger -->
 		<input type="hidden" name="nb_personnes" value ="<?php echo ($uneActivite!=null) ? $uneActivite['nb_personnes']: "0"; ?>">
