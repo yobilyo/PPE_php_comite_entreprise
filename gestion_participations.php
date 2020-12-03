@@ -46,12 +46,12 @@
     require_once("vue/vue_insert_participation.php"); 
 
     if (isset($_POST['modifier'])){
-        $unControleur->setTable ("participer");
-        $tab=array("*");
-        $tab=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
-        $where =array("idutilisateur"=>$idutilisateur,"id_activite"=>$id_activite);
+        
+      
+        $tabParticipation=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
+        $where = array("idutilisateur"=>$idutilisateur,"id_activite"=>$id_activite);
 
-        $unControleur->update($tab, $where);
+        $unControleur->update($tabParticipation, $where);
         
         //header("Location: index.php?page=5");
     }
