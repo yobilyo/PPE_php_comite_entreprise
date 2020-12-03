@@ -420,6 +420,22 @@ END $
 DELIMITER ;
 
 
+#------------------------------------------------------------
+# Trigger : update_budjet_activite_fond_tresorerie
+#Apres une insertion dans participation, mettre a jour le budget de l activité ainsi que les fonds de la trésorerie
+#------------------------------------------------------------
+
+#DROP trigger IF EXISTS maj_budjet_activite;
+#DELIMITER $
+#CREATE TRIGGER maj_budjet_activite
+#AFTER INSERT ON participer
+#FOR EACH ROW
+#BEGIN
+#	UPDATE activite SET budget = budget + new.???
+#	WHERE new.id_activite = id_activite;
+#END $
+
+
 # verification :
 select * from utilisateur_salarie;
 select * from utilisateur_sponsor;
