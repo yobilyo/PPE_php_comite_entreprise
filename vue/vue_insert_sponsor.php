@@ -12,15 +12,15 @@
 	<!-- on commence par les champs de la table utilisateur -->
 		<tr> 
 			<td> Nom d'utilisateur : </td> 
-			<td> <input type="text" name="username" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['username']:""; ?>" ></td>
+			<td> <input type="text" class="form-control" name="username" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['username']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Email : </td> 
-			<td> <input type="email" name="email" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['email']:""; ?>" ></td>
+			<td> <input type="email" class="form-control" name="email" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['email']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Mot de passe : </td> 
-			<td> <input type="password" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
+			<td> <input type="password" class="form-control" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
 		</tr>
 
 		
@@ -28,15 +28,15 @@
 
 		<tr> 
 			<td> Société : </td> 
-			<td> <input type="text" name="societe" value ="<?php echo ($leSponsor!=null) ? $leSponsor['societe']:""; ?>"></td>
+			<td> <input type="text" class="form-control" name="societe" value ="<?php echo ($leSponsor!=null) ? $leSponsor['societe']:""; ?>"></td>
 		</tr>
 		<tr> 
 			<td> Budget: </td> 
-			<td> <input type="text" name="budget" value ="<?php echo ($leSponsor!=null) ? $leSponsor['budget']:""; ?>"></td>
+			<td> <input type="text" class="form-control" name="budget" value ="<?php echo ($leSponsor!=null) ? $leSponsor['budget']:""; ?>"></td>
 		</tr>
 		<tr> 
 			<td> Tel : </td> 
-			<td> <input type="tel" name="tel" value ="<?php echo ($leSponsor!=null) ? $leSponsor['tel']:""; ?>"></td>
+			<td> <input type="tel" class="form-control" name="tel" value ="<?php echo ($leSponsor!=null) ? $leSponsor['tel']:""; ?>"></td>
 		</tr>
 		
         

@@ -4,7 +4,7 @@
 		<tr>
 		    <td> Utilisateur :</td> 
 				<td>		 
-					<select name ="idutilisateur">
+					<select name ="idutilisateur" class="form-control form-control-sm">
 						 <?php
 						 	foreach ($lesUtilisateursSalariés as $unUtilisateur) {
 						 		echo "<option value ='".$unUtilisateur['idutilisateur']."'>".$unUtilisateur['username']."  "."</option>";
@@ -17,7 +17,7 @@
         <tr>
 		    <td> Activité : </td> 
 				<td>		 
-					<select name ="id_activite">
+					<select name ="id_activite" class="form-control form-control-sm">
 						 <?php
 						 	foreach ($lesActivités as $uneActivité) {
 						 		echo "<option value ='".$uneActivité['id_activite']."'>".$uneActivité['nom']."  "."</option>";
@@ -29,7 +29,7 @@
         <tr> 
 			<td> Date d'inscription  : </td> 
 				<td> 
-					<input type="date" name="date_inscription" value ="<?php echo ($uneParticipation!=null) ? $uneParticipation['date_inscription']:""; ?>">
+					<input type="date" class="form-control" name="date_inscription" value ="<?php echo ($uneParticipation!=null) ? $uneParticipation['date_inscription']:""; ?>">
 				</td>
 		</tr>
 		

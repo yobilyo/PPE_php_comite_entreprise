@@ -4,23 +4,23 @@
 
 		<tr> 
 			<td> Date don  : </td> 
-			<td> <input type="date" name="datedon" value ="<?php echo ($leDon!=null) ? $leDon['datedon']:""; ?>"></td>
+			<td> <input class="form-control" type="date" name="datedon" value ="<?php echo ($leDon!=null) ? $leDon['datedon']:""; ?>"></td>
 		</tr>
 
 		
 		<tr> 
 			<td> Montant du don : </td> 
-			<td> <input type="text" required="required" name="montant" value ="<?php echo ($leDon!=null) ? $leDon['montant']:""; ?>"></td>
+			<td> <input class="form-control" type="text" required="required" name="montant" value ="<?php echo ($leDon!=null) ? $leDon['montant']:""; ?>"></td>
 		</tr>
 
 		<tr> 
 			<td> Appréciation  : </td> 
-			<td> <input type="text" name="appreciation" value ="<?php echo ($leDon!=null) ? $leDon['appreciation']:""; ?>"></td>
+			<td> <input class="form-control" type="text" name="appreciation" value ="<?php echo ($leDon!=null) ? $leDon['appreciation']:""; ?>"></td>
 		</tr>
 
 		<tr> 
 			<td> Société/Utilisateur donateur: </td> 
-			<td>		 <select name ="idutilisateur">
+			<td>		 <select name ="idutilisateur" class="form-control form-control-sm">
 						 <?php
 						 	foreach ($lesSponsors as $unSponsor) {
 						 		echo "<option value ='".$unSponsor['idutilisateur']."'>".$unSponsor['societe']."  "."</option>";

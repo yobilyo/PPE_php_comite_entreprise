@@ -11,23 +11,23 @@
         <tr> 
 			<td> Nom d'utilisateur : </td> 
 			<!-- $lUtilisateur -->
-			<td> <input type="text" required="required" name="username" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['username']:""; ?>" ></td>
+			<td> <input type="text" class="form-control" required="required" name="username" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['username']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Email : </td> 
 			<!-- $lUtilisateur -->
-			<td> <input type="text" required="required" name="email" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['email']:""; ?>" ></td>
+			<td> <input type="text" class="form-control" required="required" name="email" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['email']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Mot de passe : </td> 
 			<!-- $lUtilisateur -->
-			<td> <input type="password" required="required" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
+			<td> <input type="password" class="form-control" required="required" name="password" value ="<?php echo ($lUtilisateur!=null) ? $lUtilisateur['password']:""; ?>" ></td>
 		</tr>
 		<tr> 
 			<td> Droits : </td> 
 			<!-- $lUtilisateur -->
 			<td>
-				<select name='droits' >
+				<select name='droits' class="form-control form-control-sm">
 					<!-- choix de la valeur sélectionnée en cours avec le mot clé HTML selected https://www.geeksforgeeks.org/how-to-set-the-default-value-for-an-html-select-element/-->
 					<?php
 						if ($lUtilisateur == null) {
@@ -50,18 +50,18 @@
 		<tr> 
 			<td> Nom : </td> 
 			<!-- $leSalarie -->
-			<td> <input type="text" required="required" name="nom" value ="<?php echo ($leSalarie!=null) ? $leSalarie['nom']:""; ?>" ></td>
+			<td> <input type="text" class="form-control" required="required" name="nom" value ="<?php echo ($leSalarie!=null) ? $leSalarie['nom']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Prenom : </td>
 			<!-- $leSalarie -->
-			<td> <input type="text" required="required" name="prenom" value ="<?php echo ($leSalarie!=null) ? $leSalarie['prenom']:""; ?>" ></td>
+			<td> <input type="text" class="form-control" required="required" name="prenom" value ="<?php echo ($leSalarie!=null) ? $leSalarie['prenom']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Sexe: </td>
 			<!-- $leSalarie -->
 			<td>
-                <select name='sexe'>
+                <select name='sexe' class="form-control form-control-sm">
 					<!-- choix de la valeur sélectionnée en cours avec le mot clé HTML selected https://www.geeksforgeeks.org/how-to-set-the-default-value-for-an-html-select-element/-->
 					<?php
 						if ($leSalarie == null) {
@@ -81,18 +81,18 @@
         <tr> 
 			<td> Téléphone :</td> 
 			<!-- $leSalarie -->
-			<td> <input type="text" required="required" name="tel"  value ="<?php echo ($leSalarie!=null) ? $leSalarie['tel']:""; ?>">  </td>
+			<td> <input type="text" class="form-control" required="required" name="tel"  value ="<?php echo ($leSalarie!=null) ? $leSalarie['tel']:""; ?>">  </td>
 		</tr>
 		<tr> 
 			<td>Adresse postale : </td>
 			<!-- $leSalarie -->
-			<td> <input type="text" required="required" name="adresse" value ="<?php echo ($leSalarie!=null) ? $leSalarie['adresse']:""; ?>">  </td>
+			<td> <input type="text" class="form-control" required="required" name="adresse" value ="<?php echo ($leSalarie!=null) ? $leSalarie['adresse']:""; ?>">  </td>
 		</tr>
         <tr> 
 			<td> Quotient familiale : </td>
 			<!-- $leSalarie -->
 			<td>
-                <select name='quotient_fam'>
+                <select name='quotient_fam' class="form-control form-control-sm">
 					<!-- choix de la valeur sélectionnée en cours avec le mot clé HTML selected https://www.geeksforgeeks.org/how-to-set-the-default-value-for-an-html-select-element/-->
 					<?php
 						if ($leSalarie == null) {
@@ -141,7 +141,7 @@
 			<td> Service : </td> 
 			<!-- $leSalarie -->
 			<td>
-				<select name='service'>
+				<select name='service' class="form-control form-control-sm">
 						<!-- choix de la valeur sélectionnée en cours avec le mot clé HTML selected https://www.geeksforgeeks.org/how-to-set-the-default-value-for-an-html-select-element/-->
 						<?php
 							if ($leSalarie == null) {

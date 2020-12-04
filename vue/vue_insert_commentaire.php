@@ -9,12 +9,12 @@
 		</tr>
 		<tr> 
 			<td> Contenu : </td> 
-			<td> <input type="text" required="required" name="contenu" value= <?php echo ($unCommentaire != null ? $unCommentaire['contenu'] : "") ?> ></td>
+			<td> <input type="text" class="form-control" required="required" name="contenu" value= <?php echo ($unCommentaire != null ? $unCommentaire['contenu'] : "") ?> ></td>
 		</tr>
 
 		<tr> 
 			<td>Nom de l'activité :</td> 
-			<td> <select name ="id_activite">
+			<td> <select name ="id_activite" class="form-control form-control-sm">
 					 <?php
 					 	foreach ($lesActivités as $uneActivite) {
 					 		echo "<option value ='".$uneActivite['id_activite']."'>".$uneActivite['nom']."</option>";
@@ -26,7 +26,7 @@
 
 		<tr> 
 		<td> Nom de l'utilisateur : </td> 	
-			<td> <select name ="idutilisateur">
+			<td> <select name ="idutilisateur" class="form-control form-control-sm">
 					 <?php
 					 	foreach ($lesUtilisateurs as $unUtilisateur) {
 					 		echo "<option value ='".$unUtilisateur['idutilisateur']."'>".$unUtilisateur['username']."</option>";

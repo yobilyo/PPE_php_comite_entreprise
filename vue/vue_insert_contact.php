@@ -3,11 +3,11 @@
 	<table>
 		<tr> 
 			<td> Objet : </td> 
-			<td> <input type="text" required="required" name="objet" value ="<?php echo ($unContact!=null) ? $unContact['objet']:""; ?>"></td>
+			<td> <input type="text" class="form-control" required="required" name="objet" value ="<?php echo ($unContact!=null) ? $unContact['objet']:""; ?>"></td>
 		</tr>
 		<tr> 
 			<td > Contenu : </td > 
-			<td> <input type="text" required="required" name="contenu" value ="<?php echo ($unContact!=null) ? $unContact['contenu']:""; ?>" ></td>
+			<td> <input type="text" class="form-control" required="required" name="contenu" value ="<?php echo ($unContact!=null) ? $unContact['contenu']:""; ?>" ></td>
 		</tr>
 		<tr> 
 			<td> Date : </td> 
@@ -15,7 +15,7 @@
 		</tr>
 		<tr>
 		    <td> Utilisateur : </td> 
-		<td>		 <select name ="idutilisateur">
+		<td>		 <select name ="idutilisateur" class="form-control form-control-sm">
 						 <?php
 						 	foreach ($lesUtilisateurs as $unUtilisateur) {
 						 		echo "<option value ='".$unUtilisateur['idutilisateur']."'>".$unUtilisateur['username']."  "."</option>";

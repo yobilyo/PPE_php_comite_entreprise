@@ -3,35 +3,35 @@
 	<table>
 		<tr> 
 			<td>  Nom de l'activité : </td> 
-			<td> <input type="text" name="nom" value ="<?php echo ($uneActivite!=null) ? $uneActivite['nom']:""; ?>" ></td>
+			<td> <input type="text" class="form-control" name="nom" value ="<?php echo ($uneActivite!=null) ? $uneActivite['nom']:""; ?>" ></td>
 		</tr>
         <tr> 
 			<td> Lieu : </td> 
-			<td> <input type="text" name="lieu" value ="<?php echo ($uneActivite!=null) ? $uneActivite['lieu']:""; ?>" ></td>
+			<td> <input type="text" class="form-control" name="lieu" value ="<?php echo ($uneActivite!=null) ? $uneActivite['lieu']:""; ?>" ></td>
 		</tr>
 		<tr> 
 			<td> Budget : </td> 
-			<td> <input type="text" name="budget"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['budget']:""; ?>">  </td>
+			<td> <input type="text" class="form-control" name="budget"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['budget']:""; ?>">  </td>
 		</tr>
 
 		<tr> 
 			<td> Description :</td> 
-			<td> <input type="text" name="description"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['description']:""; ?>">  </td>
+			<td> <input type="text" class="form-control" name="description"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['description']:""; ?>">  </td>
 		</tr>
 
         <tr> 
 			<td> Date de début :</td> 
-			<td> <input type="date" name="date_debut"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['date_debut']:""; ?>">  </td>
+			<td> <input type="date" class="form-control" name="date_debut"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['date_debut']:""; ?>">  </td>
 		</tr>
 
         <tr> 
 			<td> Date de fin :</td> 
-			<td> <input type="date" name="date_fin"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['date_fin']:""; ?>">  </td>
+			<td> <input type="date" class="form-control" name="date_fin"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['date_fin']:""; ?>">  </td>
 		</tr>
 
         <tr> 
 			<td> Prix :</td> 
-			<td> <input type="text" name="prix"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['prix']:""; ?>">  </td>
+			<td> <input type="text" class="form-control" name="prix"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['prix']:""; ?>">  </td>
 		</tr>
 		<!-- Ici, on pourrais également rajouter un champs "liens" dans notre SQL et ICI afin de pouvoir completer la colonne "En savoir plus...." depuis la vue vue_activite_client et rediriger l'utilisateur vers le site disney par exemple 
 		
