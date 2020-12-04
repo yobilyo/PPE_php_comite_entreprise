@@ -33,12 +33,12 @@
             case "edit" : 
                 $unControleur->setTable ("participer");
                 $tab=array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite); 
-                $uneActivité = $unControleur->selectWhere ($tab);  
+                $uneParticipation = $unControleur->selectWhere ($tab);  
                 break; 
         }
     }
 
-    $unControleur->setTable ("utilisateur_salarie");	//changement de table : prendre la vue 
+    $unControleur->setTable ("utilisateur_salarie");	//changement de table : prendre la vue pour afficher uniquement les utilisateurs SALARIES
     $tab=array("*");
     $lesUtilisateursSalariés= $unControleur->selectAll ($tab); 
 
@@ -46,7 +46,6 @@
     require_once("vue/vue_insert_participation.php"); 
 
     if (isset($_POST['modifier'])){
-        
       
         $tabParticipation=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
         $where = array("idutilisateur"=>$idutilisateur,"id_activite"=>$id_activite);
@@ -61,7 +60,7 @@
         $tab=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
         
         $unControleur->insert($tab);
-        var_dump($_POST);
+        
     }
     
 
