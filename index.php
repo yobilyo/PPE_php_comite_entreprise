@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta charset="utf-8">
     <title>Comité d'entreprise</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -73,8 +74,8 @@
                       
                             <div class='row'>
                               <div class='dropdown'>
-                                <a class='nav-link dropdown-toggle' href='#' role='button' id='deroulanta' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Activités</a>
-                                <div class='dropdown-menu' aria-labelledby='deroulanta'>
+                                <a class='nav-link dropdown-toggle' href='#' role='button' id='deroulant' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Activités</a>
+                                <div class='dropdown-menu' aria-labelledby='deroulant'>
                                   <a class='dropdown-item' href='index.php?page=4&action2=vue_activite&menuactivite'>Les activités</a>
                                   <a class='dropdown-item' href='index.php?page=4&action2=vue_insert_activite&menuactivite'>Ajout d'une activité</a>
 
@@ -88,8 +89,8 @@
                             <a href='index.php?page=8' class='nav-item nav-link'>Dons</a>
                         </div>
                         <div class='navbar-nav ml-auto'>
-                            <a href='index.php?page=9' class='nav-item nav-link'>Déconnexion</a>
-                        </div>
+                                <a href='index.php?page=9' class='nav-item nav-link'>Déconnexion</a>
+                         </div>
                     </div>
                 </nav>";
 
