@@ -37,9 +37,9 @@
 		<tr>
 
 
-		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
+		<td>  <input type="reset" class='btn btn-dark' name="annnuler" value ="Annuler"></td>  
 		<td> <input type="submit" 
-			<?php echo ($uneParticipation!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' "; ?> 
+			<?php echo ($uneParticipation!=null) ? " class='btn btn-dark' name='modifier' value='Modifier' " : " class='btn btn-dark' name='valider' value='Valider' "; ?> 
 			>
 
 

@@ -39,9 +39,9 @@
 		<tr> 
 		<?php echo ($unCommentaire!=null) ? "<input type='hidden' name='id_commentaire' value ='".$unCommentaire['id_commentaire']."'>" : ""; ?>
 
-		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
+		<td>  <input type="reset" class='btn btn-dark' name="annnuler" value ="Annuler"></td>  
 		<td> <input type="submit" 
-			<?php echo ($unCommentaire!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' "; ?> 
+			<?php echo ($unCommentaire!=null) ? " class='btn btn-dark' name='modifier' value='Modifier' " : " class='btn btn-dark' name='valider' value='Valider' "; ?> 
 			>
 
 

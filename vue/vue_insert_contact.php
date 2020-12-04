@@ -28,9 +28,9 @@
 		<?php echo ($unContact!=null) ? "<input type='hidden' name='idutilisateur' value ='".$unContact['idutilisateur']."'>" : ""; ?>
 
 		<tr> 
-			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
+			<td>  <input type="reset" class='btn btn-dark' name="annnuler" value ="Annuler"></td>  
 			<td> <input type="submit" 
-			<?php echo ($unContact!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' "; ?> 
+			<?php echo ($unContact!=null) ? "class='btn btn-dark' name='modifier' value='Modifier' " : "class='btn btn-dark' name='valider' value='Valider' "; ?> 
 				></td>
 		</tr>
 	</table>

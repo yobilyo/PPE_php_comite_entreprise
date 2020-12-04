@@ -33,9 +33,9 @@
 		
 		<?php echo ($leDon!=null) ? "<input type='hidden' name='idutilisateur' value ='".$leDon['idutilisateur']."'>" : "";?>
 
-			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
+			<td>  <input class='btn btn-dark' type="reset" name="annnuler" value ="Annuler"></td>  
 			<td> <input type="submit" 
-				<?php echo ($leDon!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' ";?> 
+				<?php echo ($leDon!=null) ? " class='btn btn-dark' name='modifier' value='Modifier' " : " class='btn btn-dark' name='valider' value='Valider' ";?> 
 				>
 				
 		</tr>

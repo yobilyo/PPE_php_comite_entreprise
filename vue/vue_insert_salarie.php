@@ -178,9 +178,9 @@
 		<!-- pour la clé étrangère idutilisateur, elle fait partie de la table salarie, on l'ajoutera dans la gestion_salarie -->
 				
 
-		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
+		<td>  <input type="reset" class='btn btn-dark' name="annnuler" value ="Annuler"></td>  
 		<td> <input type="submit" 
-			<?php echo ($leSalarie!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' "; ?> 
+			<?php echo ($leSalarie!=null) ? " class='btn btn-dark' name='modifier' value='Modifier' " : " class='btn btn-dark' name='valider' value='Valider' "; ?> 
 			>
 
 

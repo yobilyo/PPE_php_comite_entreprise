@@ -50,9 +50,9 @@
 		<?php echo ($uneActivite!=null) ? "<input type='hidden' name='id_activite' value ='".$uneActivite['id_activite']."'>" : ""; ?>
 
 
-		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
+		<td>  <input type="reset" class='btn btn-dark' name="annnuler" value ="Annuler"></td>  
 		<td> <input type="submit" 
-			<?php echo ($uneActivite!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' "; ?> 
+			<?php echo ($uneActivite!=null) ? " class='btn btn-dark' name='modifier' value='Modifier' " : " class='btn btn-dark' name='valider' value='Valider' "; ?> 
 			>
 
 
