@@ -19,17 +19,26 @@
       <div class='carousel-item'>
         <img class='d-block w-100' src='lib/images/parc_asterix.jpg' alt='Second slide'>
           <div class='desc_img'>
-            <h1> Venez découvrir notre offre tout comprise au Parc Astérix ! </h2>
+            <h2> Venez découvrir notre offre tout comprise au Parc Astérix ! </h2>
           </div>
       </div>
       <div class='carousel-item'>
-        <img class='d-block w-100' src='images/secours-slider-local.jpg' alt='Third slide'>
+        <img class='d-block w-100' src='lib/images/disneyland.jpg' alt='Third slide'>
+        <div class='desc_img'>
+            <h2>Noël approche, faites plaisir à votre famille, vos amis !</h2>
+          </div>
       </div>
       <div class='carousel-item'>
-        <img class='d-block w-100' src='images/secours-slider-solidarite.jpg' alt='Fourth slide'>
+        <img class='d-block w-100' src='lib/images/futuroscope.jpg' alt='Fourth slide'>
+        <div class='desc_img'>
+            <h2>Objectif Mars, la nouvelle attraction pour les petits comme pour les grands...</h2>
+          </div>
       </div>
       <div class='carousel-item'>
-        <img class='d-block w-100' src='images/secours-slider-refus-misere.jpg' alt='Fifth slide'>
+        <img class='d-block w-100' src='lib/images/massage.jpg' alt='Fifth slide'>
+        <div class='desc_img'>
+            <h2>Envie d'un moment détente ? Offrez-vous un soin complet !</h2>
+          </div>    
       </div>
     </div>
     <a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>
