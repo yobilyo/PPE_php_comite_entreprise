@@ -9,7 +9,8 @@
 		</tr>
 		<tr> 
 			<td> Contenu : </td> 
-			<td> <input type="text" class="form-control" required="required" name="contenu" value= <?php echo ($unCommentaire != null ? $unCommentaire['contenu'] : "") ?> ></td>
+			<td> <textarea rows="3" cols="30" spellcheck="true" class="form-control" required="required" name="contenu" value= <?php echo ($unCommentaire != null ? $unCommentaire['contenu'] : "") ?> ></textarea>
+			</td>
 		</tr>
 
 		<tr> 
