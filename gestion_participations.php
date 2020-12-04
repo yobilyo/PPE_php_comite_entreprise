@@ -48,9 +48,9 @@
     if (isset($_POST['modifier'])){
       
         $tabParticipation=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
-        $where = array("idutilisateur"=>$idutilisateur,"id_activite"=>$id_activite);
+        $where1 = array("idutilisateur"=>$idutilisateur,"id_activite"=>$id_activite);
 
-        $unControleur->update($tabParticipation, $where);
+        $unControleur->update($tabParticipation, $where1);
         
         //header("Location: index.php?page=5");
     }

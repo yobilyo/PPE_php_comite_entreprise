@@ -85,7 +85,7 @@ if (isset($_GET['action2']) && isset($_GET['menuactivite']))  {
 
                 $unControleur->update($tab, $where);
                 // erreur, ligne non nécessaire
-                //header("Location: index.php?page=4");
+                header("Location: index.php?page=4");
             }
 
             if (isset($_POST['valider'])){

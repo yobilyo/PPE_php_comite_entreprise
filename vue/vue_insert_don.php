@@ -14,8 +14,8 @@
 		</tr>
 
 		<tr> 
-			<td> Appréciation  : </td> 
-			<td> <input class="form-control" type="text" name="appreciation" value ="<?php echo ($leDon!=null) ? $leDon['appreciation']:""; ?>"></td>
+			<td> Appréciation : </td> 
+			<td> <input type="text" class="form-control" name="appreciation" value ="<?php echo ($leDon!=null) ? $leDon['appreciation']:""; ?>"></td>
 		</tr>
 
 		<tr> 
