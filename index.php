@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta charset="utf-8">
     <title>Comité d'entreprise</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -62,22 +63,30 @@
                             /*if ($_SESSION['droits'] =="admin")
                             {*/
                                 echo'
-                                <a href="index.php?page=1" class="nav-item nav-link">Administrateurs</a>
+                                <a href="index.php?page=1" class="nav-item nav-link">Mon espace</a>
                                 <a href="index.php?page=2" class="nav-item nav-link">Salariés</a>
                                 ';
                             //}
                             echo "
                             <a href='index.php?page=3' class='nav-item nav-link'>Participations</a>
-                            <a href='index.php?page=4' class='nav-item nav-link'>Activités</a>
+                           
+                              <div class='dropdown'>
+                                <a class='nav-link dropdown-toggle' href='#' role='button' id='deroulant' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Activités</a>
+                                <div class='dropdown-menu' aria-labelledby='deroulant'>
+                                  <a class='dropdown-item' href='index.php?page=4&action2=vue_activite&menuactivite'>Les activités</a>
+                                  <a class='dropdown-item' href='index.php?page=4&action2=vue_insert_activite&menuactivite'>Ajout/modification d'une activité</a>
+                                </div>
+                              </div>
+
+
                             <a href='index.php?page=5' class='nav-item nav-link'>Commentaires</a>
                             <a href='index.php?page=6' class='nav-item nav-link'>Contact</a>
                             <a href='index.php?page=7' class='nav-item nav-link'>Sponsors</a>
                             <a href='index.php?page=8' class='nav-item nav-link'>Dons</a>
-                            <a href='index.php?page=9' class='nav-item nav-link'>Ma page</a>
                         </div>
                         <div class='navbar-nav ml-auto'>
-                            <a href='index.php?page=10' class='nav-item nav-link'>Déconnexion</a>
-                        </div>
+                                <a href='index.php?page=9' class='nav-item nav-link'>Déconnexion</a>
+                         </div>
                     </div>
                 </nav>";
 
@@ -89,7 +98,7 @@
                         require_once("accueil.php");
                         break;
                     case 1:
-                        require_once("gestion_administrateurs.php");
+                        require_once("gestion_mon_espace.php");
                         break;
                     case 2:
                         require_once("gestion_salarie.php");
@@ -118,11 +127,6 @@
                         break;
 
                     case 9:
-                        require_once("gestion_ma_page.php");
-                        break;
-
-
-                    case 10:
                         session_destroy();   
                         header("Location: index.php");             
                     }

@@ -30,7 +30,7 @@
                             break;
                     case "edit" : 
                             $tab=array("id_contact"=>$id_contact); 
-                            $leMembre = $unControleur->selectWhere ($tab);
+                            $unContact = $unControleur->selectWhere ($tab);
                             break; 
                 }
             }

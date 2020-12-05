@@ -1,14 +1,14 @@
 <div class='container'>
-	<h2> Modification des activités</h2>
+	<h2> Liste des activités du comité entreprise </h2>
 	<table class="table table-striped">
 		<thead>
-			<tr > 
-				<th> Id </th>
+			<tr> 
+
 				<th> Nom de l'activité</th> <th> Lieu</th>
 				<th> Budget</th> 
 				<th> Description </th> <th> Date de début </th> <th> Date de fin </th>
-                <th> Prix </th><th> Nombre d'inscrits </th><th> Trésorerie </th>
-				<th>Operations</th>
+                <th> Prix </th><th> Nombre d'inscrits </th> 
+				<th> En savoir plus ...</th> 
 			</tr>
 		</thead>
 
@@ -16,7 +16,7 @@
 			<?php 
 			foreach ($lesActivites as $uneActivite) {
 				echo "<tr> 
-						<td>".$uneActivite['id_activite']." </td>
+				
 						<td>".$uneActivite['nom']." </td>
 						<td>".$uneActivite['lieu']." </td>
 						<td>".$uneActivite['budget']." </td>
@@ -25,16 +25,9 @@
                         <td>".$uneActivite['date_fin']."</td>
 						<td>".$uneActivite['prix']."</td>
 						<td>".$uneActivite['nb_personnes']."</td>
-						<td>".$uneActivite['id_tresorerie']."</td>
-						<td>
-							<a href='index.php?page=4&action2=vue_insert_activite&menuactivite&action=sup&id_activite=".$uneActivite['id_activite']."'>
-							<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
-
-							<a href='index.php?page=4&action2=vue_insert_activite&menuactivite&action=edit&id_activite=".$uneActivite['id_activite']."'>
-							<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
-
-							</td>
 					</tr>";
+					
+
 			}
 			?>
 		</tbody>

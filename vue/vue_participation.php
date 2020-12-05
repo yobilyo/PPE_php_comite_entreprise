@@ -40,14 +40,13 @@
 						<td>".$uneParticipation['date_inscription']." </td>
 						<td>".$uneParticipation['lieu']." </td>
 						<td>".$uneParticipation['description']." </td>
-							<td>
-								<a href='index.php?page=3&action=sup&idutilisateur=".$uneParticipation['idutilisateur']."'
-									href='index.php?page=3&action=sup&id_activite=".$uneParticipation['id_activite']."'>
-								<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
+						<td>
+							<a href='index.php?page=3&action=sup&idutilisateur=".$uneParticipation['idutilisateur']."&action=sup&id_activite=".$uneParticipation['id_activite']."'>
+							<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
 
-								<a href='index.php?page=3&action=edit&idutilisateur=".$uneParticipation['idutilisateur']."'
-									href='index.php?page=3&action=edit&id_activite=".$uneParticipation['id_activite']."'>
-								<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
+							<a href='index.php?page=3&action=edit&idutilisateur=".$uneParticipation['idutilisateur']."&action=edit&id_activite=".$uneParticipation['id_activite']."'>
+
+							<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
 							</td>
 						</tr>";
 			}

@@ -4,23 +4,23 @@
 
 		<tr> 
 			<td> Date don  : </td> 
-			<td> <input type="date" name="datedon" value ="<?php echo ($leDon!=null) ? $leDon['datedon']:""; ?>"></td>
+			<td> <input class="form-control" type="date" name="datedon" value ="<?php echo ($leDon!=null) ? $leDon['datedon']:""; ?>"></td>
 		</tr>
 
 		
 		<tr> 
 			<td> Montant du don : </td> 
-			<td> <input type="text" required="required" name="montant" value ="<?php echo ($leDon!=null) ? $leDon['montant']:""; ?>"></td>
+			<td> <input class="form-control" type="text" required="required" name="montant" value ="<?php echo ($leDon!=null) ? $leDon['montant']:""; ?>"></td>
 		</tr>
 
 		<tr> 
-			<td> Appréciation  : </td> 
-			<td> <input type="text" name="appreciation" value ="<?php echo ($leDon!=null) ? $leDon['appreciation']:""; ?>"></td>
+			<td> Appréciation : </td> 
+			<td> <input type="text" class="form-control" name="appreciation" value ="<?php echo ($leDon!=null) ? $leDon['appreciation']:""; ?>"></td>
 		</tr>
 
 		<tr> 
 			<td> Société/Utilisateur donateur: </td> 
-			<td>		 <select name ="idutilisateur">
+			<td>		 <select name ="idutilisateur" class="form-control form-control-sm">
 						 <?php
 						 	foreach ($lesSponsors as $unSponsor) {
 						 		echo "<option value ='".$unSponsor['idutilisateur']."'>".$unSponsor['societe']."  "."</option>";
@@ -33,9 +33,9 @@
 		
 		<?php echo ($leDon!=null) ? "<input type='hidden' name='idutilisateur' value ='".$leDon['idutilisateur']."'>" : "";?>
 
-			<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
+			<td>  <input class='btn btn-dark' type="reset" name="annnuler" value ="Annuler"></td>  
 			<td> <input type="submit" 
-				<?php echo ($leDon!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' ";?> 
+				<?php echo ($leDon!=null) ? " class='btn btn-dark' name='modifier' value='Modifier' " : " class='btn btn-dark' name='valider' value='Valider' ";?> 
 				>
 				
 		</tr>

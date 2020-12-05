@@ -75,7 +75,7 @@ CREATE TABLE salarie(
         prenom        Varchar (20),
         tel           Varchar (15),
         adresse       Varchar (50),
-        quotient_fam  Int,
+        quotient_fam  Enum ("1","2","3","4","5"),
         service       Enum ("comptabilite","developpeur","commercial","ressources_humaines"),
         sexe          Enum ("homme","femme"),
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
@@ -147,6 +147,11 @@ CREATE TABLE contact(
 insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
 						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
 
+
+
+
+
+
 #------------------------------------------------------------
 # Table: participer
 #------------------------------------------------------------
@@ -160,10 +165,12 @@ CREATE TABLE participer(
 		FOREIGN KEY (id_activite) REFERENCES activite(id_activite)
 );
 
-insert into participer values (1, 1, "2020-10-05"),
-								(2, 2, "2020-08-20"),
-								(3, 3, "2020-10-12"),
-								(4, 4, "2020-04-17");
+#Je met en commentaire ses insertions afin de tester les triggers
+#insert into participer values (1, 1, "2020-10-05"),
+#								(2, 2, "2020-08-20"),
+#								(3, 3, "2020-10-12"),
+#								(4, 4, "2020-04-17");
+
 
 
 
@@ -416,6 +423,55 @@ FOR EACH ROW
 BEGIN
 	UPDATE tresorerie SET fonds = fonds - old.montant
 	WHERE old.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
+
+#------------------------------------------------------------
+# Trigger : update_budjet_activite_fond_tresorerie
+#Apres une insertion dans participation, mettre a jour le budget de l activité ainsi que les fonds de la trésorerie
+#------------------------------------------------------------
+
+#DROP trigger IF EXISTS maj_budjet_activite;
+#DELIMITER $
+#CREATE TRIGGER maj_budjet_activite
+#AFTER INSERT ON participer
+#FOR EACH ROW
+#BEGIN
+#	UPDATE activite SET budget = budget + new.???
+#	WHERE new.id_activite = id_activite;
+#END $
+#DELIMITER ;
+
+#------------------------------------------------------------
+# Trigger : ajout_participation_activite 
+#Le nombre de personne inscrit va être actualisé à chaque insertion d une participation
+#------------------------------------------------------------
+
+DROP TRIGGER IF EXISTS ajout_participation_activite;
+DELIMITER $
+CREATE TRIGGER ajout_participation_activite
+AFTER INSERT ON participer
+FOR EACH ROW
+BEGIN
+	UPDATE activite SET nb_personnes = nb_personnes + 1
+	WHERE new.id_activite = id_activite;
+END $
+DELIMITER ;
+
+#------------------------------------------------------------
+# Trigger : modifie_participation_activite
+#Le nombre de personne inscrit va être actualisé à chaque suppression d une participation
+#------------------------------------------------------------
+
+DROP TRIGGER IF EXISTS supprime_participation_activite;
+DELIMITER $
+CREATE TRIGGER supprime_participation_activite
+AFTER DELETE ON participer
+FOR EACH ROW
+BEGIN
+	UPDATE activite SET nb_personnes = nb_personnes - 1
+	WHERE old.id_activite = id_activite;
 END $
 DELIMITER ;
 

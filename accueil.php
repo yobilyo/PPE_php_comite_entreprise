@@ -14,19 +14,31 @@
     </ol>
     <div class='carousel-inner'>
       <div class='carousel-item active'>
-        <img class='d-block w-100' src='images/secours-slider-rue.jpg' alt='First slide'>
+        <img class='d-block w-100' src='lib/images/pres_3dsoft.jpg' alt='First slide' >
       </div>
       <div class='carousel-item'>
-        <img class='d-block w-100' src='images/secours-slider-bebe.jpg' alt='Third slide'>
+        <img class='d-block w-100' src='lib/images/parc_asterix.jpg' alt='Second slide'>
+          <div class='desc_img'>
+            <h2> Venez découvrir notre offre tout comprise au Parc Astérix ! </h2>
+          </div>
       </div>
       <div class='carousel-item'>
-        <img class='d-block w-100' src='images/secours-slider-local.jpg' alt='Third slide'>
+        <img class='d-block w-100' src='lib/images/disneyland.jpg' alt='Third slide'>
+        <div class='desc_img'>
+            <h2>Noël approche, faites plaisir à votre famille, vos amis !</h2>
+          </div>
       </div>
       <div class='carousel-item'>
-        <img class='d-block w-100' src='images/secours-slider-solidarite.jpg' alt='Fourth slide'>
+        <img class='d-block w-100' src='lib/images/futuroscope.jpg' alt='Fourth slide'>
+        <div class='desc_img'>
+            <h2>Objectif Mars, la nouvelle attraction pour les petits comme pour les grands...</h2>
+          </div>
       </div>
       <div class='carousel-item'>
-        <img class='d-block w-100' src='images/secours-slider-refus-misere.jpg' alt='Fourth slide'>
+        <img class='d-block w-100' src='lib/images/massage.jpg' alt='Fifth slide'>
+        <div class='desc_img'>
+            <h2>Envie d'un moment détente ? Offrez-vous un soin complet !</h2>
+          </div>    
       </div>
     </div>
     <a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>
@@ -49,7 +61,7 @@
 	$nbSalarie = $unControleur->nbTuples("salarie"); 
     $nbSponsor = $unControleur->nbTuples("sponsor"); 
     $nbCommentaire = $unControleur->nbTuples("commentaire");
-    $nbAdmin = $unControleur->nbTuples("admin");
+   // $nbAdmin = $unControleur->nbTuples("admin");
     //$nbContact = $unControleur->nbTuples("contact");
     $nbParticipation = $unControleur->nbTuples("participer");
     $nbDon = $unControleur->nbTuples("don");
@@ -65,7 +77,7 @@
                 <th>Salariés</th>
                 <th>Sponsors</th>
                 <th>Commentaires</th>
-                <th>Administrateurs</th>
+            <!--    <th>Administrateurs</th> -->
                 <th>Participations</th>
                 <th>Dons</th>
 			</tr>
@@ -78,7 +90,7 @@
         <td>".$nbSalarie."</td>
         <td>".$nbSponsor."</td>
         <td>".$nbCommentaire."</td>
-        <td>".$nbAdmin."</td>
+     <!--   <td>"./*.$nbAdmin.*/"</td>   -->
         <td>".$nbParticipation."</td>
         <td>".$nbDon."</td>
 

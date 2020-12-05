@@ -9,12 +9,13 @@
 		</tr>
 		<tr> 
 			<td> Contenu : </td> 
-			<td> <input type="text" required="required" name="contenu" value= <?php echo ($unCommentaire != null ? $unCommentaire['contenu'] : "") ?> ></td>
+			<td> <textarea rows="3" cols="30" spellcheck="true" class="form-control" required="required" name="contenu" value= <?php echo ($unCommentaire != null ? $unCommentaire['contenu'] : "") ?> ></textarea>
+			</td>
 		</tr>
 
 		<tr> 
 			<td>Nom de l'activité :</td> 
-			<td> <select name ="id_activite">
+			<td> <select name ="id_activite" class="form-control form-control-sm">
 					 <?php
 					 	foreach ($lesActivités as $uneActivite) {
 					 		echo "<option value ='".$uneActivite['id_activite']."'>".$uneActivite['nom']."</option>";
@@ -26,7 +27,7 @@
 
 		<tr> 
 		<td> Nom de l'utilisateur : </td> 	
-			<td> <select name ="idutilisateur">
+			<td> <select name ="idutilisateur" class="form-control form-control-sm">
 					 <?php
 					 	foreach ($lesUtilisateurs as $unUtilisateur) {
 					 		echo "<option value ='".$unUtilisateur['idutilisateur']."'>".$unUtilisateur['username']."</option>";
@@ -39,9 +40,9 @@
 		<tr> 
 		<?php echo ($unCommentaire!=null) ? "<input type='hidden' name='id_commentaire' value ='".$unCommentaire['id_commentaire']."'>" : ""; ?>
 
-		<td>  <input type="reset" name="annnuler" value ="Annuler"></td>  
+		<td>  <input type="reset" class='btn btn-dark' name="annnuler" value ="Annuler"></td>  
 		<td> <input type="submit" 
-			<?php echo ($unCommentaire!=null) ? " name='modifier' value='Modifier' " : " name='valider' value='Valider' "; ?> 
+			<?php echo ($unCommentaire!=null) ? " class='btn btn-dark' name='modifier' value='Modifier' " : " class='btn btn-dark' name='valider' value='Valider' "; ?> 
 			>
 
 

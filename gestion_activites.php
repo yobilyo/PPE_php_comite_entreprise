@@ -1,14 +1,32 @@
 <?php
-	/*if ( ! isset($_SESSION['email']))
-	{
-		echo "ERREUR 404, page non identifiée ";
-	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
-    {*/
+
+if (isset($_GET['action2']) && isset($_GET['menuactivite']))  {
+    $menuactivite = $_GET['menuactivite']; 
+    $action2 = $_GET['action2'];
+
+    switch ($action2){
+        case "vue_activite" :
             $uneActivite = null; 
             $unControleur->setTable ("activite");
             $tab=array("*");
             $lesActivites = $unControleur->selectAll ($tab);
+
+
+            $uneTresorerie = null;
+            $unControleur->setTable ("tresorerie");
+            $tab=array("*");
+            $lesTresoreries = $unControleur->selectAll ($tab); 
             
+ 
+                require_once("vue/vue_activite_client.php"); 
+            break;
+##################################################################################################################################################################
+        case "vue_insert_activite" :
+            $uneActivite = null; 
+            $unControleur->setTable ("activite");
+            $tab=array("*");
+            $lesActivites = $unControleur->selectAll ($tab);
+
 
             $uneTresorerie = null;
             $unControleur->setTable ("tresorerie");
@@ -54,7 +72,7 @@
             }
 
             require_once("vue/vue_insert_activite.php"); 
-            
+
 
             if (isset($_POST['modifier'])){
                 //var_dump($_POST);
@@ -67,7 +85,7 @@
 
                 $unControleur->update($tab, $where);
                 // erreur, ligne non nécessaire
-                //header("Location: index.php?page=4");
+                header("Location: index.php?page=4");
             }
 
             if (isset($_POST['valider'])){
@@ -82,11 +100,31 @@
             }
 
 
-        /*} else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="user")*/
+            /*} else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="user")*/
             //{
-         
                 
                 require_once("vue/vue_activite.php"); 
             //}
-        
+            break;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
+

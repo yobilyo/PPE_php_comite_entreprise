@@ -45,13 +45,12 @@
                         "appreciation"=>$_POST['appreciation'],
                         "idutilisateur"=>$_POST['idutilisateur'],
                         "id_tresorerie"=>$idtresorerie);
-            $where =array("iddon"=>$iddon);
 
+            $where =array("iddon"=>$iddon);
             $unControleur->update($tab, $where);
             header("Location: index.php?page=8");
         }
 
-        
         
         if (isset($_POST['valider'])){
             $idtresorerie =1;
@@ -60,8 +59,6 @@
                         "appreciation"=>$_POST['appreciation'],
                         "idutilisateur"=>$_POST['idutilisateur'],
                         "id_tresorerie"=>$idtresorerie);
-                        var_dump($_POST);
-            
             $unControleur->insert($tab);
         }
 
@@ -70,6 +67,4 @@
             $tab=array("*");
             $lesDons= $unControleur->selectAll ($tab); 
             require_once("vue/vue_don.php");
-        //}
-    //}
 ?>

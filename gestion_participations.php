@@ -13,7 +13,7 @@
 
     $unUtilisateur=null;
     $unControleur->setTable ("utilisateur");
-    $lesUtilisateurs = $unControleur->selectAll ($tab); 
+    $tab=array("*");
    
     $unControleur->setTable ("activite");
     
@@ -33,23 +33,24 @@
             case "edit" : 
                 $unControleur->setTable ("participer");
                 $tab=array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite); 
-                $uneActivité = $unControleur->selectWhere ($tab);  
+                $uneParticipation = $unControleur->selectWhere ($tab);  
                 break; 
         }
     }
 
-
+    $unControleur->setTable ("utilisateur_salarie");	//changement de table : prendre la vue pour afficher uniquement les utilisateurs SALARIES
+    $tab=array("*");
+    $lesUtilisateursSalariés= $unControleur->selectAll ($tab); 
 
 
     require_once("vue/vue_insert_participation.php"); 
 
     if (isset($_POST['modifier'])){
-        $unControleur->setTable ("participer");
-        $tab=array("*");
-        $tab=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
-        $where =array("idutilisateur"=>$idutilisateur,"id_activite"=>$id_activite);
+      
+        $tabParticipation=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
+        $where1 = array("idutilisateur"=>$idutilisateur,"id_activite"=>$id_activite);
 
-        $unControleur->update($tab, $where);
+        $unControleur->update($tabParticipation, $where1);
         
         //header("Location: index.php?page=5");
     }
@@ -59,7 +60,7 @@
         $tab=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
         
         $unControleur->insert($tab);
-        var_dump($_POST);
+        
     }
     
 
