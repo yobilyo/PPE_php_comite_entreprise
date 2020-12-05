@@ -164,8 +164,8 @@
 				}
 				$chaineValeurs = implode(", ", $listeValeurs);
 				$requete = " update  ".$this->uneTable." set ".$chaineValeurs."  where  ".$chaineChamps.";"; 
-				var_dump($donnees);
-				var_dump($requete);
+				//var_dump($donnees);
+				//var_dump($requete);
 				
 				$update = $this->unPdo->prepare ($requete); 
 				$update->execute ($donnees); 
