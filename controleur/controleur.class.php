@@ -57,6 +57,10 @@
 		public function update($tab, $where){
 			$this->unModele->update($tab, $where);
 		}
+
+		public function updateSetWhere($tab, $where){
+			$this->unModele->updateSetWhere($tab, $where);
+		}
 		
 	}
 

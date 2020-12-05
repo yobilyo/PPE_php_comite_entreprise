@@ -116,7 +116,7 @@
 				return null; 
 			}
 		}
-		public function update($tab, $where)
+		/*public function update($tab, $where)
 		{
 			if ($this->unPdo != null){
 				//construction du where 
@@ -136,11 +136,42 @@
 				}
 				$chaineValeurs = implode(", ", $listeValeurs);
 				$requete = " update  ".$this->uneTable." set ".$chaineValeurs."  where  ".$chaineChamps.";"; 
+				var_dump($requete);
+				
+				$update = $this->unPdo->prepare ($requete); 
+				$update->execute ($donnees); 
+			}
+		}*/
+
+		public function update($set, $where)
+		{
+			if ($this->unPdo != null){
+				//construction du where 
+				$listeChamps = array();
+				// $donnees est commun aux données set et au where
+				$donnees =array();
+				foreach ($where as $cle => $valeur) {
+					$listeChamps[] = $cle." = ".":where".$cle ;
+					$donnees[":where".$cle] = $valeur;
+				}
+				$chaineChamps = implode(" and ", $listeChamps); 
+
+				//construction des valeurs 
+				$listeValeurs = array ();
+				foreach ($set as $cle => $valeur) {
+					$listeValeurs[] = $cle." = ".":set".$cle ;
+					$donnees[":set".$cle] = $valeur;
+				}
+				$chaineValeurs = implode(", ", $listeValeurs);
+				$requete = " update  ".$this->uneTable." set ".$chaineValeurs."  where  ".$chaineChamps.";"; 
+				var_dump($donnees);
+				var_dump($requete);
 				
 				$update = $this->unPdo->prepare ($requete); 
 				$update->execute ($donnees); 
 			}
 		}
+
 	}
 ?>
 
