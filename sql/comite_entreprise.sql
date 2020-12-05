@@ -166,12 +166,6 @@ CREATE TABLE participer(
 		FOREIGN KEY (id_activite) REFERENCES activite(id_activite)
 );
 
-#Je met en commentaire ses insertions afin de tester les triggers
-#insert into participer values (1, 1, "2020-10-05"),
-#								(2, 2, "2020-08-20"),
-#								(3, 3, "2020-10-12"),
-#								(4, 4, "2020-04-17");
-
 
 
 
@@ -479,6 +473,11 @@ BEGIN
 END $
 DELIMITER ;
 
+#On insère ces valeurs après le trigger pour que ce soit pris en compte
+insert into participer values (1, 1, "2020-10-05"),
+								(2, 2, "2020-08-20"),
+								(3, 3, "2020-10-12"),
+								(4, 4, "2020-04-17");
 
 # verification :
 select * from utilisateur_salarie;
