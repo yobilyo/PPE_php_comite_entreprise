@@ -48,7 +48,8 @@
 
             $where =array("iddon"=>$iddon);
             $unControleur->update($tab, $where);
-            header("Location: index.php?page=8");
+            // marche mieux sans le header
+            // header("Location: index.php?page=8");
         }
 
         
