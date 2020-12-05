@@ -20,7 +20,7 @@ if (isset($_GET['action2']) && isset($_GET['menuactivite']))  {
  
                 require_once("vue/vue_activite_client.php"); 
             break;
-##################################################################################################################################################################
+        
         case "vue_insert_activite" :
             $uneActivite = null; 
             $unControleur->setTable ("activite");

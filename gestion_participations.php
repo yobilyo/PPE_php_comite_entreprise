@@ -41,7 +41,11 @@
     require_once("vue/vue_insert_participation.php"); 
 
     if (isset($_POST['modifier'])){
-        // UPDATE participer SET date_inscription = $_POST['date_inscription] WHERE idutilisateur = $_GET['idutilisateur'] and id_activite = $_GET['id_activite'];
+        // UPDATE participer
+        // SET idutilisateur = $_POST['idutilisateur'], id_activite = $_POST['id_activite'], date_inscription = $_POST['date_inscription]
+        // WHERE idutilisateur = $_GET['idutilisateur'] and id_activite = $_GET['id_activite'];
+        $unControleur->setTable ("participer");
+        //var_dump($_POST);
         $tab = array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
         $where=array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite); 
         $unControleur->update($tab, $where);
