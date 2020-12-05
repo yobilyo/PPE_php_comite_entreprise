@@ -1,38 +1,26 @@
 <?php
 
+$uneActivite = null; 
+$unControleur->setTable ("activite");
+$tab=array("*");
+$lesActivites = $unControleur->selectAll ($tab);
+
+
+$uneTresorerie = null;
+$unControleur->setTable ("tresorerie");
+$tab=array("*");
+$lesTresoreries = $unControleur->selectAll ($tab);
+
 if (isset($_GET['action2']) && isset($_GET['menuactivite']))  {
     $menuactivite = $_GET['menuactivite']; 
     $action2 = $_GET['action2'];
 
     switch ($action2){
-        case "vue_activite" :
-            $uneActivite = null; 
-            $unControleur->setTable ("activite");
-            $tab=array("*");
-            $lesActivites = $unControleur->selectAll ($tab);
-
-
-            $uneTresorerie = null;
-            $unControleur->setTable ("tresorerie");
-            $tab=array("*");
-            $lesTresoreries = $unControleur->selectAll ($tab); 
-            
- 
-                require_once("vue/vue_activite_client.php"); 
+        case "vue_activite_client" :
+            require_once("vue/vue_activite_client.php"); 
             break;
         
-        case "vue_insert_activite" :
-            $uneActivite = null; 
-            $unControleur->setTable ("activite");
-            $tab=array("*");
-            $lesActivites = $unControleur->selectAll ($tab);
-
-
-            $uneTresorerie = null;
-            $unControleur->setTable ("tresorerie");
-            $tab=array("*");
-            $lesTresoreries = $unControleur->selectAll ($tab); 
-
+        case "vue_activite_admin" :
             if (isset($_GET['action']) && isset($_GET['id_activite']))  {
                 $id_activite = $_GET['id_activite']; 
                 $action = $_GET['action'];
