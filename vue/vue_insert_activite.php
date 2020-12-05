@@ -9,6 +9,10 @@
 			<td> Lieu : </td> 
 			<td> <input type="text" class="form-control" name="lieu" value ="<?php echo ($uneActivite!=null) ? $uneActivite['lieu']:""; ?>" ></td>
 		</tr>
+        <tr> 
+			<td> Image (URL) : </td> 
+			<td> <input type="text" class="form-control" name="image_url" value ="<?php echo ($uneActivite!=null) ? $uneActivite['image_url']:"lib/images/nom_image.jpg"; ?>" ></td>
+		</tr>
 		<tr> 
 			<td> Budget : </td> 
 			<td> <input type="text" class="form-control" name="budget"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['budget']:""; ?>">  </td>
