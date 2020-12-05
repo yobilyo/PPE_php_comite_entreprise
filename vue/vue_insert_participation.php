@@ -5,11 +5,17 @@
 		    <td> Utilisateur :</td> 
 				<td>		 
 					<select name ="idutilisateur" class="form-control form-control-sm">
-						 <?php
-						 	foreach ($lesUtilisateursSalariés as $unUtilisateur) {
-						 		echo "<option value ='".$unUtilisateur['idutilisateur']."'>".$unUtilisateur['username']."  "."</option>";
-						 	}
-						 ?>
+						<?php
+							foreach ($lesUtilisateursSalaries as $lUtilisateurSalarie) {
+								echo "<option value ='".$lUtilisateurSalarie['idutilisateur']."'";
+								if (isset($_GET['idutilisateur']) && $lUtilisateurSalarie['idutilisateur'] == $_GET['idutilisateur']) {
+									echo " selected>";
+								} else {
+									echo " >";
+								}
+								echo $lUtilisateurSalarie['username']."  "."</option>";
+							}
+						?>
 					</select>
 				</td>
 		</tr>
@@ -19,9 +25,15 @@
 				<td>		 
 					<select name ="id_activite" class="form-control form-control-sm">
 						 <?php
-						 	foreach ($lesActivités as $uneActivité) {
-						 		echo "<option value ='".$uneActivité['id_activite']."'>".$uneActivité['nom']."  "."</option>";
-						 	}
+							foreach ($lesActivites as $lActivite) {
+								echo "<option value ='".$lActivite['id_activite']."'";
+								if (isset($_GET['id_activite']) && $lActivite['id_activite'] == $_GET['id_activite']) {
+									echo " selected>";
+								} else {
+									echo " >";
+								}
+								echo $lActivite['nom']."  "."</option>";
+							}
 						 ?>
 					</select>
 			</td>
