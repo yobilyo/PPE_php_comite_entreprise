@@ -1,39 +1,24 @@
+<h2> Liste des activités du comité entreprise </h2>
 <div class='container'>
-	<h2> Liste des activités du comité entreprise </h2>
-	<table class="table table-striped">
-		<thead>
-			<tr> 
-
-				<th> Nom de l'activité</th> <th> Lieu</th>
-				<th> Budget</th> 
-				<th> Description </th> <th> Date de début </th> <th> Date de fin </th>
-                <th> Prix </th><th> Nombre d'inscrits </th> 
-				<th> En savoir plus ...</th> 
-			</tr>
-		</thead>
-
-		<tbody>
-			<?php 
+	<div class="row">
+		<?php 
 			foreach ($lesActivites as $uneActivite) {
-				echo "<tr> 
 				
-						<td>".$uneActivite['nom']." </td>
-						<td>".$uneActivite['lieu']." </td>
-						<td>".$uneActivite['budget']." </td>
-						<td>".$uneActivite['description']." </td>
-                        <td>".$uneActivite['date_debut']."</td>
-                        <td>".$uneActivite['date_fin']."</td>
-						<td>".$uneActivite['prix']."</td>
-						<td>".$uneActivite['nb_personnes']."</td>
-					</tr>";
-					
-
+					echo "<div class='col-sm-4'>
+						<img src='".$uneActivite['image_url']."' width='200' />
+						<div>Nom: ".$uneActivite['nom']." </div>
+						<div>Lieu: ".$uneActivite['lieu']." </div>
+						<div>Budget: ".$uneActivite['budget']." </div>
+						<div>En bref: ".$uneActivite['description']." </div>
+						<div>Début: ".$uneActivite['date_debut']."</div>
+						<div>Fin: ".$uneActivite['date_fin']."</div>
+						<div>Prix: ".$uneActivite['prix']."</div>
+						<div>Participants: ".$uneActivite['nb_personnes']."</div>
+					</div>";
 			}
-			?>
-		</tbody>
-
-	</table>
-</div>
+		?>
+	</div>
+</h2>
 
 
 

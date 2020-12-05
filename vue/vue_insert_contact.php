@@ -6,10 +6,11 @@
 			<td> <input type="text" class="form-control" required="required" name="objet" value ="<?php echo ($unContact!=null) ? $unContact['objet']:""; ?>"></td>
 		</tr>
 		<tr> 
-			<td > Contenu : </td > 
-			<td> <textarea rows="3" cols="30" spellcheck="true" class="form-control" required="required" name="contenu" value ="<?php echo ($unContact!=null) ? $unContact['contenu']:""; ?>" >
-			</textarea> </td> </tr>
-		<tr> 
+			<td> Contenu : </td> 
+			<td>
+				<textarea rows="3" cols="30" spellcheck="true" class="form-control" required="required" name="contenu"><?php echo ($unContact != null ? trim($unContact['contenu']) : '') ?></textarea>
+			</td>
+		</tr> 
 			<td> Date : </td> 
 			<td> <?php echo date("yy.m.d"); ?> </td>
 		</tr>

@@ -47,7 +47,8 @@
                 $where =array("id_contact"=>$id_contact);
 
                 $unControleur->update($tab, $where);
-                header("Location: index.php?page=6");
+                // marche mieux sans le header
+                // header("Location: index.php?page=6");
             }
 
             if (isset($_POST['valider'])){

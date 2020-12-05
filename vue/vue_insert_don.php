@@ -2,9 +2,9 @@
 <form method ="post" action ="">
 	<table> 
 
-		<tr> 
-			<td> Date don  : </td> 
-			<td> <input class="form-control" type="date" name="datedon" value ="<?php echo ($leDon!=null) ? $leDon['datedon']:""; ?>"></td>
+	<tr> 
+			<td> Date du don :  </td> 
+			<td>  <?php echo date("yy.m.d"); ?>  </td>
 		</tr>
 
 		

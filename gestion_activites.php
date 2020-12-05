@@ -1,38 +1,26 @@
 <?php
 
+$uneActivite = null; 
+$unControleur->setTable ("activite");
+$tab=array("*");
+$lesActivites = $unControleur->selectAll ($tab);
+
+
+$uneTresorerie = null;
+$unControleur->setTable ("tresorerie");
+$tab=array("*");
+$lesTresoreries = $unControleur->selectAll ($tab);
+
 if (isset($_GET['action2']) && isset($_GET['menuactivite']))  {
     $menuactivite = $_GET['menuactivite']; 
     $action2 = $_GET['action2'];
 
     switch ($action2){
-        case "vue_activite" :
-            $uneActivite = null; 
-            $unControleur->setTable ("activite");
-            $tab=array("*");
-            $lesActivites = $unControleur->selectAll ($tab);
-
-
-            $uneTresorerie = null;
-            $unControleur->setTable ("tresorerie");
-            $tab=array("*");
-            $lesTresoreries = $unControleur->selectAll ($tab); 
-            
- 
-                require_once("vue/vue_activite_client.php"); 
+        case "vue_activite_client" :
+            require_once("vue/vue_activite_client.php"); 
             break;
-##################################################################################################################################################################
-        case "vue_insert_activite" :
-            $uneActivite = null; 
-            $unControleur->setTable ("activite");
-            $tab=array("*");
-            $lesActivites = $unControleur->selectAll ($tab);
-
-
-            $uneTresorerie = null;
-            $unControleur->setTable ("tresorerie");
-            $tab=array("*");
-            $lesTresoreries = $unControleur->selectAll ($tab); 
-
+        
+        case "vue_activite_admin" :
             if (isset($_GET['action']) && isset($_GET['id_activite']))  {
                 $id_activite = $_GET['id_activite']; 
                 $action = $_GET['action'];
@@ -77,7 +65,7 @@ if (isset($_GET['action2']) && isset($_GET['menuactivite']))  {
             if (isset($_POST['modifier'])){
                 //var_dump($_POST);
 
-                $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'],
+                $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'], "image_url"=>$_POST['image_url'],
                             "budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix'],"nb_personnes"=>$_POST['nb_personnes'],
                             "id_tresorerie"=>$_POST['id_tresorerie']);
                 $unControleur->setTable ("activite");
@@ -85,16 +73,15 @@ if (isset($_GET['action2']) && isset($_GET['menuactivite']))  {
 
                 $unControleur->update($tab, $where);
                 // erreur, ligne non nécessaire
-                header("Location: index.php?page=4");
+                //header("Location: index.php?page=4");
             }
 
             if (isset($_POST['valider'])){
                 //var_dump($_POST);
-
-                $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'],
+                $unControleur->setTable ("activite");
+                $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'], "image_url"=>$_POST['image_url'],
                 "budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix'],"nb_personnes"=>$_POST['nb_personnes'],
                 "id_tresorerie"=>$_POST['id_tresorerie']);
-                $unControleur->setTable ("activite");
                 $unControleur->insert($tab);
                 //header("Location: index.php?page=4");
             }

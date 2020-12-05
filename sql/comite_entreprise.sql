@@ -25,6 +25,7 @@ CREATE TABLE activite(
         id_activite   Int  Auto_increment  NOT NULL ,
         nom           Varchar (50),
         lieu          Varchar (50),
+		image_url	  Varchar (100),
         budget        Float,
         description   Varchar (200),
         date_debut    Date,
@@ -36,10 +37,10 @@ CREATE TABLE activite(
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
 );
 
-insert into activite values (1, "Parc Asterix", "Plailly", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
-	(2, "Disneyland Paris", "Marne-La-Vallee", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
-	(3, "Voyage a NYC", "Etats Unis", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
-	(4, "Soins massages", "Paris", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
+insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
+	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
+	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
+	(4, "Soins massages", "Paris", "lib/images/massage.jpg", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
 
 #------------------------------------------------------------
 # Table: utilisateur
@@ -165,12 +166,6 @@ CREATE TABLE participer(
 		FOREIGN KEY (id_activite) REFERENCES activite(id_activite)
 );
 
-#Je met en commentaire ses insertions afin de tester les triggers
-#insert into participer values (1, 1, "2020-10-05"),
-#								(2, 2, "2020-08-20"),
-#								(3, 3, "2020-10-12"),
-#								(4, 4, "2020-04-17");
-
 
 
 
@@ -258,6 +253,7 @@ create view utilisateur_salarie_activite as (
 		sa.service,
 		a.nom as "nom_activite", 
 		a.lieu, 
+		a.image_url,
 		a.nb_personnes, 
 		a.description, 
 		sum(a.prix) as "prix_total", 
@@ -286,18 +282,18 @@ create view utilisateur_salarie_activite_commentaire as (
 		sa.tel, 
 		sa.adresse, 
 		sa.service, 
+		a.id_activite,
 		a.nom as "nom_activite",
 		a.lieu,
-		a.description,
+		a.image_url,
+		c.id_commentaire,
 		c.contenu,
-		c.datecomment,
-		c.id_commentaire
-		
+		c.datecomment
 	
-	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t, commentaire c
+	
+	from  utilisateur u, salarie sa, activite a, tresorerie t, commentaire c
 	where u.idutilisateur = sa.idutilisateur 
-	and sa.idutilisateur = p.idutilisateur  
-	and p.id_activite = a.id_activite  
+	and c.idutilisateur = sa.idutilisateur
 	and c.id_activite = a.id_activite 
 );
 
@@ -370,6 +366,7 @@ create view utilisateur_salarie_activite_participer as (
 		a.nom as "nom_activite",
 		p.date_inscription,
 		a.lieu,
+		a.image_url,
 		a.description
 		
 	
@@ -428,13 +425,13 @@ DELIMITER ;
 
 
 #------------------------------------------------------------
-# Trigger : update_budjet_activite_fond_tresorerie
+# Trigger : update_budget_activite_fond_tresorerie
 #Apres une insertion dans participation, mettre a jour le budget de l activité ainsi que les fonds de la trésorerie
 #------------------------------------------------------------
 
-#DROP trigger IF EXISTS maj_budjet_activite;
+#DROP trigger IF EXISTS maj_budget_activite;
 #DELIMITER $
-#CREATE TRIGGER maj_budjet_activite
+#CREATE TRIGGER maj_budget_activite
 #AFTER INSERT ON participer
 #FOR EACH ROW
 #BEGIN
@@ -475,6 +472,57 @@ BEGIN
 END $
 DELIMITER ;
 
+#------------------------------------------------------------
+# Trigger : ajout_activite_tresorerie
+#------------------------------------------------------------
+
+
+DROP trigger IF EXISTS ajout_activite_tresorerie;
+DELIMITER $
+CREATE TRIGGER ajout_activite_tresorerie
+AFTER INSERT ON activite
+FOR EACH ROW
+BEGIN
+    UPDATE tresorerie SET fonds = fonds - new.budget
+    WHERE new.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
+#------------------------------------------------------------
+# Trigger : modifie_activite_tresorerie
+#------------------------------------------------------------
+
+DROP trigger IF EXISTS modifie_activite_tresorerie;
+DELIMITER $
+CREATE TRIGGER modifie_activite_tresorerie
+AFTER UPDATE ON activite
+FOR EACH ROW
+BEGIN
+    UPDATE tresorerie SET fonds = fonds + old.budget - new.budget
+    WHERE new.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
+#------------------------------------------------------------
+# Trigger : supprime_activite_tresorerie
+#------------------------------------------------------------
+
+DROP trigger IF EXISTS supprime_activite_tresorerie;
+DELIMITER $
+CREATE TRIGGER supprime_activite_tresorerie
+AFTER DELETE ON activite
+FOR EACH ROW
+BEGIN
+    UPDATE tresorerie SET fonds = fonds + old.budget
+    WHERE old.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
+#On insère ces valeurs après le trigger pour que ce soit pris en compte
+insert into participer values (1, 1, "2020-10-05"),
+								(2, 2, "2020-08-20"),
+								(3, 3, "2020-10-12"),
+								(4, 4, "2020-04-17");
 
 # verification :
 select * from utilisateur_salarie;

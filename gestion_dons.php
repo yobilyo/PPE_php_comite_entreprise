@@ -39,8 +39,9 @@
         require_once("vue/vue_insert_don.php"); 
 
         if (isset($_POST['modifier'])){
+            $date = date("yy.m.d");
             $idtresorerie =1;
-            $tab=array("datedon"=>$_POST['datedon'],  
+            $tab=array("datedon"=>$date,  
                         "montant"=>$_POST['montant'],
                         "appreciation"=>$_POST['appreciation'],
                         "idutilisateur"=>$_POST['idutilisateur'],
@@ -48,13 +49,15 @@
 
             $where =array("iddon"=>$iddon);
             $unControleur->update($tab, $where);
-            header("Location: index.php?page=8");
+            // marche mieux sans le header
+            // header("Location: index.php?page=8");
         }
 
         
         if (isset($_POST['valider'])){
             $idtresorerie =1;
-            $tab=array("datedon"=>$_POST['datedon'],  
+            $date = date("yy.m.d");
+            $tab=array("datedon"=>$date,  
                         "montant"=>$_POST['montant'],
                         "appreciation"=>$_POST['appreciation'],
                         "idutilisateur"=>$_POST['idutilisateur'],
