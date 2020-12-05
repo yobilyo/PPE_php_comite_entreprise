@@ -25,6 +25,7 @@ CREATE TABLE activite(
         id_activite   Int  Auto_increment  NOT NULL ,
         nom           Varchar (50),
         lieu          Varchar (50),
+		image_url	  Varchar (100),
         budget        Float,
         description   Varchar (200),
         date_debut    Date,
@@ -36,10 +37,10 @@ CREATE TABLE activite(
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
 );
 
-insert into activite values (1, "Parc Asterix", "Plailly", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
-	(2, "Disneyland Paris", "Marne-La-Vallee", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
-	(3, "Voyage a NYC", "Etats Unis", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
-	(4, "Soins massages", "Paris", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
+insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
+	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
+	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
+	(4, "Soins massages", "Paris", "lib/images/massage.jpg", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
 
 #------------------------------------------------------------
 # Table: utilisateur
@@ -258,6 +259,7 @@ create view utilisateur_salarie_activite as (
 		sa.service,
 		a.nom as "nom_activite", 
 		a.lieu, 
+		a.image_url,
 		a.nb_personnes, 
 		a.description, 
 		sum(a.prix) as "prix_total", 
@@ -288,6 +290,7 @@ create view utilisateur_salarie_activite_commentaire as (
 		sa.service, 
 		a.nom as "nom_activite",
 		a.lieu,
+		a.image_url,
 		a.description,
 		c.contenu,
 		c.datecomment,
@@ -370,6 +373,7 @@ create view utilisateur_salarie_activite_participer as (
 		a.nom as "nom_activite",
 		p.date_inscription,
 		a.lieu,
+		a.image_url,
 		a.description
 		
 	

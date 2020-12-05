@@ -5,7 +5,7 @@
 			<tr > 
 				<th> Id </th>
 				<th> Nom de l'activité</th> <th> Lieu</th>
-				<th> Budget</th> 
+				<th> Image</th> <th> Budget</th> 
 				<th> Description </th> <th> Date de début </th> <th> Date de fin </th>
                 <th> Prix </th><th> Nombre d'inscrits </th><th> Trésorerie </th>
 				<th>Operations</th>
@@ -19,6 +19,7 @@
 						<td>".$uneActivite['id_activite']." </td>
 						<td>".$uneActivite['nom']." </td>
 						<td>".$uneActivite['lieu']." </td>
+						<td><img src='".$uneActivite['image_url']."' width='50' /> </td>
 						<td>".$uneActivite['budget']." </td>
 						<td>".$uneActivite['description']." </td>
                         <td>".$uneActivite['date_debut']."</td>
