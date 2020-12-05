@@ -16,7 +16,6 @@ CREATE TABLE Tresorerie(
 		PRIMARY KEY (id_tresorerie)
 );
 
-insert into tresorerie values (NULL, 50);
 #------------------------------------------------------------
 # Table: activite
 #------------------------------------------------------------
@@ -36,12 +35,6 @@ CREATE TABLE activite(
 		PRIMARY KEY (id_activite),
 		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
 );
-
-insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
-	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
-	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
-	(4, "Soins massages", "Paris", "lib/images/massage.jpg", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
-
 #------------------------------------------------------------
 # Table: utilisateur
 #------------------------------------------------------------
@@ -54,18 +47,6 @@ CREATE TABLE utilisateur(
 		droits        Enum("salarie", "admin", "sponsor") NOT NULL,
 		PRIMARY KEY (idutilisateur)
 );
-
-
-
-insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "salarie"), 
-	(2, "Julien", "885DE", "julien@cfa-insta.fr", "salarie"), 
-	(3, "Gerard", "8555ed", "Gerard@cfa-insta.fr", "admin"),
-	(4, "Franck", "445d4d", "Franck@cfa-insta.fr", "admin"),
-	(5, "Damiens", "23daeez", "damiens@cfa-insta.fr", "salarie"),
-	(6, "Cedric", "c85d4ee", "cedric@cfa-insta.fr", "sponsor"),
-	(7, "Jessica", "jess744", "jessica@cfa-insta.fr", "sponsor"),
-	(8, "Michele", "m847cihe", "michele@cfa-insta.fr", "sponsor"),
-	(9, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor");
 #------------------------------------------------------------
 # Table: salarie
 #------------------------------------------------------------
@@ -81,12 +62,6 @@ CREATE TABLE salarie(
         sexe          Enum ("homme","femme"),
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 );
-
-insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), 
-							(2, "Julien", "BARRETO", "0645749655", "toulouse", 1, "commercial", "homme"),
-							(3, "Gerard", "DEPARD", "0658856244", "bordeaux", 4, "comptabilite", "homme"),
-							(4, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
-							(5, "Damiens", "DENIS", "0646220322", "boissy-saint-leger", 1, "commercial", "homme");
 #------------------------------------------------------------
 # Table: Sponsor
 #------------------------------------------------------------
@@ -100,15 +75,6 @@ CREATE TABLE Sponsor(
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 		
 );
-
-insert into sponsor values (6, "IMACInfo", 8000, "0184452566"),
-							(7, "Techphone", 5000, "0925526358"),
-							(8, "ImatRepair", 9500, "0180300322"),
-							(9, "SpaceTech", 10000, "0144857852");
-
-# voir tous les utilisateurs:
-select * from utilisateur;
-
 #------------------------------------------------------------
 # Table: commentaire
 #------------------------------------------------------------
@@ -123,14 +89,6 @@ CREATE TABLE commentaire(
 		FOREIGN KEY (id_activite) REFERENCES activite(id_activite),
 		FOREIGN KEY (idutilisateur) REFERENCES salarie(idutilisateur)
 );
-
-insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très prochainement, c'était super !", 1, 1),
-	(NULL, "2020-11-29", "Assez satisfait, prix intéressant", 2, 2),
-	(NULL, "2020-11-30", "Un voyage inoubliable !", 3, 3),
-	(NULL, "2020-12-02", "Mauvaise masseuse, prix bien trop élevé.", 4, 4);
-
-
-
 #------------------------------------------------------------
 # Table: contact
 #------------------------------------------------------------
@@ -144,15 +102,6 @@ CREATE TABLE contact(
 		PRIMARY KEY (id_contact),
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 );
-
-insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
-						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
-
-
-
-
-
-
 #------------------------------------------------------------
 # Table: participer
 #------------------------------------------------------------
@@ -185,9 +134,7 @@ CREATE TABLE don(
 		FOREIGN key (id_tresorerie) REFERENCES tresorerie(id_tresorerie)
 );
 
-INSERT INTO don VALUES (NULL,"2020-11-15", 100, "Avec plaisir", 7,1),
-						(NULL,"2020-12-10", 50, "Pour vous aidez", 6,1),
-						(NULL,"2020-12-10", 150, "Etant riche, je me permet de vous donnez cette somme", 8,1);
+
 
 #------------------------------------------------------------
 # View : utilisateur_sponsor
@@ -519,10 +466,51 @@ END $
 DELIMITER ;
 
 #On insère ces valeurs après le trigger pour que ce soit pris en compte
+
+insert into tresorerie values (NULL, 85000);
+
+insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
+	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
+	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
+	(4, "Soins massages", "Paris", "lib/images/massage.jpg", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
+
+insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "salarie"), 
+	(2, "Julien", "885DE", "julien@cfa-insta.fr", "salarie"), 
+	(3, "Gerard", "8555ed", "Gerard@cfa-insta.fr", "admin"),
+	(4, "Franck", "445d4d", "Franck@cfa-insta.fr", "admin"),
+	(5, "Damiens", "23daeez", "damiens@cfa-insta.fr", "salarie"),
+	(6, "Cedric", "c85d4ee", "cedric@cfa-insta.fr", "sponsor"),
+	(7, "Jessica", "jess744", "jessica@cfa-insta.fr", "sponsor"),
+	(8, "Michele", "m847cihe", "michele@cfa-insta.fr", "sponsor"),
+	(9, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor");
+
+insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), 
+							(2, "Julien", "BARRETO", "0645749655", "toulouse", 1, "commercial", "homme"),
+							(3, "Gerard", "DEPARD", "0658856244", "bordeaux", 4, "comptabilite", "homme"),
+							(4, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
+							(5, "Damiens", "DENIS", "0646220322", "boissy-saint-leger", 1, "commercial", "homme");
+
 insert into participer values (1, 1, "2020-10-05"),
 								(2, 2, "2020-08-20"),
 								(3, 3, "2020-10-12"),
 								(4, 4, "2020-04-17");
+
+insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très prochainement, c'était super !", 1, 1),
+	(NULL, "2020-11-29", "Assez satisfait, prix intéressant", 2, 2),
+	(NULL, "2020-11-30", "Un voyage inoubliable !", 3, 3),
+	(NULL, "2020-12-02", "Mauvaise masseuse, prix bien trop élevé.", 4, 4);
+
+insert into sponsor values (6, "IMACInfo", 8000, "0184452566"),
+							(7, "Techphone", 5000, "0925526358"),
+							(8, "ImatRepair", 9500, "0180300322"),
+							(9, "SpaceTech", 10000, "0144857852");
+
+insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
+						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
+
+INSERT INTO don VALUES (NULL,"2020-11-15", 100, "Avec plaisir", 7,1),
+						(NULL,"2020-12-10", 50, "Pour vous aidez", 6,1),
+						(NULL,"2020-12-10", 150, "Etant riche, je me permet de vous donnez cette somme", 8,1);
 
 # verification :
 select * from utilisateur_salarie;
@@ -533,6 +521,7 @@ select * from utilisateur_sponsor_don;
 select * from utilisateur_contact;
 select * from utilisateur_administrateur;
 select * from utilisateur_salarie_activite_participer;
+select * from utilisateur;
 select * from participer;
 select * from activite;
 select * from commentaire;
