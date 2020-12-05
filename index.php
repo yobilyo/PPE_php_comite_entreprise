@@ -70,14 +70,13 @@
                                 <a href="index.php?page=2" class="nav-item nav-link">Salariés</a>
                                 ';
                             //}
-                            echo "
-                            <a href='index.php?page=3' class='nav-item nav-link'>Participations</a>
-                           
+                            echo "                          
                               <div class='dropdown'>
                                 <a class='nav-link dropdown-toggle' href='#' role='button' id='deroulant' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Activités</a>
                                 <div class='dropdown-menu' aria-labelledby='deroulant'>
-                                  <a class='dropdown-item' href='index.php?page=4&action2=vue_activite_client&menuactivite'>Les activités</a>
-                                  <a class='dropdown-item' href='index.php?page=4&action2=vue_activite_admin&menuactivite'>Ajout/modification d'une activité</a>
+                                  <a class='dropdown-item' href='index.php?page=4&action2=vue_activite_client&menuactivite'>Les Activités</a>
+                                  <a class='dropdown-item' href='index.php?page=4&action2=vue_activite_admin&menuactivite'>Les Activités (Admin)</a>
+                                  <a class='dropdown-item' href='index.php?page=3'>Participer</a>
                                 </div>
                               </div>
 
