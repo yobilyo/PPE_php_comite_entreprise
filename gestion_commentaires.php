@@ -24,8 +24,10 @@
                     $unControleur->delete($tab);
                     break;
             case "edit" : 
+
                     $tab=array("id_commentaire"=>$id_commentaire); 
                     $unCommentaire = $unControleur->selectWhere ($tab);  //ledon
+                    var_dump($unCommentaire);
                     break; 
         }
     }
