@@ -31,7 +31,7 @@
 							<a href='index.php?page=4&action2=vue_activite_admin&menuactivite&action=sup&id_activite=".$uneActivite['id_activite']."'>
 							<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
 
-							<a href='index.php?page=4&action2=vue_activite_client&menuactivite&action=edit&id_activite=".$uneActivite['id_activite']."'>
+							<a href='index.php?page=4&action2=vue_activite_admin&menuactivite&action=edit&id_activite=".$uneActivite['id_activite']."'>
 							<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
 
 							</td>

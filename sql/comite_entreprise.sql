@@ -425,13 +425,13 @@ DELIMITER ;
 
 
 #------------------------------------------------------------
-# Trigger : update_budjet_activite_fond_tresorerie
+# Trigger : update_budget_activite_fond_tresorerie
 #Apres une insertion dans participation, mettre a jour le budget de l activité ainsi que les fonds de la trésorerie
 #------------------------------------------------------------
 
-#DROP trigger IF EXISTS maj_budjet_activite;
+#DROP trigger IF EXISTS maj_budget_activite;
 #DELIMITER $
-#CREATE TRIGGER maj_budjet_activite
+#CREATE TRIGGER maj_budget_activite
 #AFTER INSERT ON participer
 #FOR EACH ROW
 #BEGIN

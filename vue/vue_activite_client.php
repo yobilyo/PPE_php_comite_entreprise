@@ -4,7 +4,7 @@
 		<?php 
 			foreach ($lesActivites as $uneActivite) {
 				
-					echo "<div class='col-sm-3'>
+					echo "<div class='col-sm-4'>
 						<img src='".$uneActivite['image_url']."' width='200' />
 						<div>Nom: ".$uneActivite['nom']." </div>
 						<div>Lieu: ".$uneActivite['lieu']." </div>

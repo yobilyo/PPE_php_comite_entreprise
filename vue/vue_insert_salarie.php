@@ -89,7 +89,7 @@
 			<td> <input type="text" class="form-control" required="required" name="adresse" value ="<?php echo ($leSalarie!=null) ? $leSalarie['adresse']:""; ?>">  </td>
 		</tr>
         <tr> 
-			<td> Quotient familiale : </td>
+			<td> Quotient familial : </td>
 			<!-- $leSalarie -->
 			<td>
                 <select name='quotient_fam' class="form-control form-control-sm">
