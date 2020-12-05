@@ -282,19 +282,18 @@ create view utilisateur_salarie_activite_commentaire as (
 		sa.tel, 
 		sa.adresse, 
 		sa.service, 
+		a.id_activite,
 		a.nom as "nom_activite",
 		a.lieu,
 		a.image_url,
-		a.description,
+		c.id_commentaire,
 		c.contenu,
-		c.datecomment,
-		c.id_commentaire
-		
+		c.datecomment
 	
-	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t, commentaire c
+	
+	from  utilisateur u, salarie sa, activite a, tresorerie t, commentaire c
 	where u.idutilisateur = sa.idutilisateur 
-	and sa.idutilisateur = p.idutilisateur  
-	and p.id_activite = a.id_activite  
+	and c.idutilisateur = sa.idutilisateur
 	and c.id_activite = a.id_activite 
 );
 

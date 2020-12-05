@@ -8,7 +8,7 @@
 	$tab=array("*");
     $lesActivités= $unControleur->selectAll ($tab); 
     
-    $unControleur->setTable ("utilisateur");
+    $unControleur->setTable ("utilisateur_salarie");
 	$tab=array("*");
 	$lesUtilisateurs = $unControleur->selectAll ($tab); 
 
