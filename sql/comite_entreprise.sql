@@ -472,6 +472,52 @@ BEGIN
 END $
 DELIMITER ;
 
+#------------------------------------------------------------
+# Trigger : ajout_activite_tresorerie
+#------------------------------------------------------------
+
+
+DROP trigger IF EXISTS ajout_activite_tresorerie;
+DELIMITER $
+CREATE TRIGGER ajout_activite_tresorerie
+AFTER INSERT ON activite
+FOR EACH ROW
+BEGIN
+    UPDATE tresorerie SET fonds = fonds - new.budget
+    WHERE new.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
+#------------------------------------------------------------
+# Trigger : modifie_activite_tresorerie
+#------------------------------------------------------------
+
+DROP trigger IF EXISTS modifie_activite_tresorerie;
+DELIMITER $
+CREATE TRIGGER modifie_activite_tresorerie
+AFTER UPDATE ON activite
+FOR EACH ROW
+BEGIN
+    UPDATE tresorerie SET fonds = fonds + old.budget - new.budget
+    WHERE new.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
+#------------------------------------------------------------
+# Trigger : supprime_activite_tresorerie
+#------------------------------------------------------------
+
+DROP trigger IF EXISTS supprime_activite_tresorerie;
+DELIMITER $
+CREATE TRIGGER supprime_activite_tresorerie
+AFTER DELETE ON activite
+FOR EACH ROW
+BEGIN
+    UPDATE tresorerie SET fonds = fonds + old.budget
+    WHERE old.id_tresorerie = id_tresorerie;
+END $
+DELIMITER ;
+
 #On insère ces valeurs après le trigger pour que ce soit pris en compte
 insert into participer values (1, 1, "2020-10-05"),
 								(2, 2, "2020-08-20"),
