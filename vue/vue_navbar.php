@@ -44,8 +44,14 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                               }
                               echo "
                             <a href='index.php?page=6' class='nav-item nav-link'>Contact</a>
-                            <a href='index.php?page=7' class='nav-item nav-link'>Sponsors</a>
+                            <a href='index.php?page=71' class='nav-item nav-link'>Sponsors</a>
                             ";
+                            if ($_SESSION['droits'] == 'admin')
+                            {
+                                echo "
+                                <a href='index.php?page=72' class='nav-item nav-link'>Sponsors (Admin)</a>
+                                ";
+                            }
                             if ($_SESSION['droits'] == 'sponsor' || $_SESSION['droits'] == 'admin')
                             {
                                 echo "
