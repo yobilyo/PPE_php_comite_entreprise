@@ -1,4 +1,6 @@
 <?php
+    echo "<img src='".$lUtilisateurSponsor['image_url']."' width='100'></img>";
+
     require_once("vue/vue_sponsor.php");
     require_once("vue/vue_don.php");
     require_once("vue/vue_contact.php");
