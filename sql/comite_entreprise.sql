@@ -490,13 +490,14 @@ insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "
 	(3, "Gerard", "8555ed", "Gerard@cfa-insta.fr", "admin"),
 	(4, "Franck", "445d4d", "Franck@cfa-insta.fr", "admin"),
 	(5, "Damiens", "23daeez", "damiens@cfa-insta.fr", "salarie"),
-	(6, "Cedric", "c85d4ee", "cedric@cfa-insta.fr", "sponsor"),
-	(7, "Jessica", "jess744", "jessica@cfa-insta.fr", "sponsor"),
-	(8, "Michele", "m847cihe", "michele@cfa-insta.fr", "sponsor"),
-	(9, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor"),
-	(10, "admin", "", "a@gmail.com", "admin"),
-	(11, "salarie", "", "sa@gmail.com", "salarie"),
-	(12, "sponsor", "", "sp@gmail.com", "sponsor");
+	(6, "Cedric", "c85d4ee", "cedric@airfrance.fr", "sponsor"),
+	(7, "Jessica", "jess744", "jessica@lysdor.com", "sponsor"),
+	(8, "Michele", "m847cihe", "michele@ticketmaster.fr", "sponsor"),
+	(9, "Jeremie", "j885ee", "jeremie@voyage-prive.com", "sponsor"),
+	(10, "Michael", "m845gg", "michael@fnacspectacles.com", "sponsor"),
+	(11, "admin", "", "a@gmail.com", "admin"),
+	(12, "salarie", "", "sa@gmail.com", "salarie"),
+	(13, "sponsor", "", "sp@gmail.com", "sponsor");
 
 insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), 
 							(2, "Julien", "BARRETO", "0645749655", "toulouse", 1, "commercial", "homme"),
@@ -520,7 +521,8 @@ insert into sponsor values (6, "Air France", "lib/images/sponsors/air-france.png
 							(7, "Lys D'Or", "lib/images/sponsors/lys-d-or.png", 5000, "0925526358", "https://www.lysdor.com/"),
 							(8, "Ticketmaster", "lib/images/sponsors/ticketmaster.png", 9500, "0180300322", "https://www.ticketmaster.fr/"),
 							(9, "Voyage Privé", "lib/images/sponsors/voyage-prive.png", 10000, "0144857852", "https://www.voyage-prive.com/"),
-							(12, "Fnac Spectacles", "lib/images/sponsors/fnac-spectacles.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/");
+							(10, "Fnac Spectacles", "lib/images/sponsors/fnac-spectacles.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/"),
+							(12, "Fnac ", "https://blog.hubspot.com/hubfs/image8-2.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/");
 
 insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
 						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
