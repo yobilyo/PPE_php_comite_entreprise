@@ -504,8 +504,8 @@ insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "de
 							(3, "Gerard", "DEPARD", "0658856244", "bordeaux", 4, "comptabilite", "homme"),
 							(4, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
 							(5, "Damiens", "DENIS", "0646220322", "boissy-saint-leger", 1, "commercial", "homme"),
-							(10, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
-							(11, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme");
+							(11, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
+							(12, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme");
 
 insert into participer values (1, 1, "2020-10-05"),
 								(2, 2, "2020-08-20"),
@@ -522,7 +522,7 @@ insert into sponsor values (6, "Air France", "lib/images/sponsors/air-france.png
 							(8, "Ticketmaster", "lib/images/sponsors/ticketmaster.png", 9500, "0180300322", "https://www.ticketmaster.fr/"),
 							(9, "Voyage Privé", "lib/images/sponsors/voyage-prive.png", 10000, "0144857852", "https://www.voyage-prive.com/"),
 							(10, "Fnac Spectacles", "lib/images/sponsors/fnac-spectacles.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/"),
-							(12, "Fnac ", "https://blog.hubspot.com/hubfs/image8-2.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/");
+							(13, "Fnac ", "https://blog.hubspot.com/hubfs/image8-2.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/");
 
 insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
 						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
