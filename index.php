@@ -66,7 +66,7 @@
                             /*if ($_SESSION['droits'] =="admin")
                             {*/
                                 echo'
-                                <a href="index.php?page=1" class="nav-item nav-link">Mon espace</a>
+                                
                                 <a href="index.php?page=2" class="nav-item nav-link">Salariés</a>
                                 ';
                             //}
@@ -87,6 +87,7 @@
                             <a href='index.php?page=8' class='nav-item nav-link'>Dons</a>
                         </div>
                         <div class='navbar-nav ml-auto'>
+                                 <a href='index.php?page=1' class='nav-item nav-link'>Mon espace</a>
                                 <a href='index.php?page=9' class='nav-item nav-link'>Déconnexion</a>
                          </div>
                     </div>
