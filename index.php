@@ -26,7 +26,7 @@
     <center>
        
         <?php
-            /*if ( ! isset($_SESSION['username']))
+            if ( ! isset($_SESSION['email']))
             {
                 require_once ("vue/vue_connexion.php");
                 
@@ -34,26 +34,48 @@
             if (isset($_POST['seconnecter']))
             {
                 $unControleur->setTable ("utilisateur");
-                $tab=array("username"=>$_POST['username'], "password"=>$_POST['password']); 
+                $tab=array("email"=>$_POST['email'], "password"=>$_POST['password']); 
                 $membreConnecte = $unControleur->selectWhere ($tab);
                 if ($membreConnecte == null || $membreConnecte == false )
                 {
                     echo "<br /> Erreur de connexion, Veuillez vérifier vos identifiants";
-                }else if (isset($membreConnecte['username'])){
-                    $_SESSION['username'] = $membreConnecte['username']; 
+                }else if (isset($membreConnecte['email'])){
+                    $_SESSION['email'] = $membreConnecte['email']; 
                     $_SESSION['droits'] = $membreConnecte['droits'];
-                    $_SESSION['idmembre'] = $membreConnecte['idmembre'];
-                    $_SESSION['nom'] = $membreConnecte['nom'];
-                    $_SESSION['prenom'] = $membreConnecte['prenom'];
+                    $_SESSION['idutilisateur'] = $membreConnecte['idutilisateur'];
+
+                    if ($_SESSION['droits'] == 'salarie' || $_SESSION['droits'] == 'admin')
+                    {
+                        $unControleur->setTable ("salarie");
+                        $tab=array("*"); 
+                        $salarieConnecte = $unControleur->selectWhere ($tab);
+                        $_SESSION['nom'] = $salarieConnecte['nom'];
+                        $_SESSION['prenom'] = $salarieConnecte['prenom'];
+                        $_SESSION['tel'] = $salarieConnecte['tel'];
+                        $_SESSION['adresse'] = $salarieConnecte['adresse'];
+                        $_SESSION['quotient_fam'] = $salarieConnecte['quotient_fam'];
+                        $_SESSION['service'] = $salarieConnecte['service'];
+                        $_SESSION['sexe'] = $salarieConnecte['sexe'];
+                    }
+                    else if ($_SESSION['droits'] == 'sponsor')
+                    {
+                        $unControleur->setTable ("sponsor");
+                        $tab=array("*"); 
+                        $sponsorConnecte = $unControleur->selectWhere ($tab);
+                        $_SESSION['societe'] = $sponsorConnecte['societe'];
+                        $_SESSION['budget'] = $sponsorConnecte['budget'];
+                        $_SESSION['tel'] = $sponsorConnecte['tel'];
+                    }
                     header("Location: index.php");
                 }
-            }*/
+
+            }
 
 
 
 
-           /*if (isset($_SESSION['droits']))src="lib/images/logo_3dsoft.jpg"
-            {*/
+           if (isset($_SESSION['droits']))
+            {
                     echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                     <a href='index.php?page=0' class='navbar-brand'><img src='lib/images/3Dsoft-logo-RVB-300px.png' width=170px/></a>
                     <button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbarCollapse'>
@@ -63,28 +85,51 @@
                     <div class='collapse navbar-collapse' id='navbarCollapse'>
                         <div class='navbar-nav'>
                             <a href='index.php?page=0' class='nav-item nav-link active'>Accueil</a>";
-                            /*if ($_SESSION['droits'] =="admin")
-                            {*/
-                                echo'
+                            if ($_SESSION['droits'] =="admin")
+                            {
+                                echo " 
                                 
-                                <a href="index.php?page=2" class="nav-item nav-link">Salariés</a>
-                                ';
-                            //}
+                                <a href='index.php?page=2' class='nav-item nav-link'>Salariés</a>
+                                ";
+                            }
                             echo "                          
                               <div class='dropdown'>
                                 <a class='nav-link dropdown-toggle' href='#' role='button' id='deroulant' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Activités</a>
                                 <div class='dropdown-menu' aria-labelledby='deroulant'>
-                                  <a class='dropdown-item' href='index.php?page=41'>Les Activités</a>
-                                  <a class='dropdown-item' href='index.php?page=42'>Les Activités (Admin)</a>
-                                  <a class='dropdown-item' href='index.php?page=3'>Participer</a>
+                                  <a class='dropdown-item' href='index.php?page=41'>Les Activités</a> ";
+                                    if ($_SESSION['droits'] =="admin")
+                                    {
+                                        echo " 
+                                        <a class='dropdown-item' href='index.php?page=42'>Les Activités (Admin)</a>
+                                            ";
+                                    }
+                                    if ($_SESSION['droits'] != "sponsor")
+                                    {
+                                        echo " 
+                                            <a class='dropdown-item' href='index.php?page=3'>Participer</a>
+                                            ";
+                                    }
+                            echo "
                                 </div>
-                              </div>
+                              </div>";
 
-
-                            <a href='index.php?page=5' class='nav-item nav-link'>Commentaires</a>
+                              if ($_SESSION['droits'] == 'salarie' || $_SESSION['droits'] == 'admin')
+                              {
+                                  echo "
+                                  <a href='index.php?page=5' class='nav-item nav-link'>Commentaires</a>
+                                  ";
+                              }
+                              echo "
                             <a href='index.php?page=6' class='nav-item nav-link'>Contact</a>
                             <a href='index.php?page=7' class='nav-item nav-link'>Sponsors</a>
-                            <a href='index.php?page=8' class='nav-item nav-link'>Dons</a>
+                            ";
+                            if ($_SESSION['droits'] == 'sponsor' || $_SESSION['droits'] == 'admin')
+                            {
+                                echo "
+                                <a href='index.php?page=8' class='nav-item nav-link'>Dons</a>
+                                ";
+                            }
+                            echo "
                         </div>
                         <div class='navbar-nav ml-auto'>
                                  <a href='index.php?page=1' class='nav-item nav-link'>Mon espace</a>
@@ -136,10 +181,9 @@
                         session_destroy();   
                         header("Location: index.php");             
                     }
-            //}
+            }
         
      ?>
     </center>
 </body>
 </html>
-

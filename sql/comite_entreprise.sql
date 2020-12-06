@@ -488,13 +488,18 @@ insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "
 	(6, "Cedric", "c85d4ee", "cedric@cfa-insta.fr", "sponsor"),
 	(7, "Jessica", "jess744", "jessica@cfa-insta.fr", "sponsor"),
 	(8, "Michele", "m847cihe", "michele@cfa-insta.fr", "sponsor"),
-	(9, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor");
+	(9, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor"),
+	(10, "admin", "", "a@gmail.com", "admin"),
+	(11, "salarie", "", "sa@gmail.com", "salarie"),
+	(12, "sponsor", "", "sp@gmail.com", "sponsor");
 
 insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), 
 							(2, "Julien", "BARRETO", "0645749655", "toulouse", 1, "commercial", "homme"),
 							(3, "Gerard", "DEPARD", "0658856244", "bordeaux", 4, "comptabilite", "homme"),
 							(4, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
-							(5, "Damiens", "DENIS", "0646220322", "boissy-saint-leger", 1, "commercial", "homme");
+							(5, "Damiens", "DENIS", "0646220322", "boissy-saint-leger", 1, "commercial", "homme"),
+							(10, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
+							(11, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme");
 
 insert into participer values (1, 1, "2020-10-05"),
 								(2, 2, "2020-08-20"),
@@ -509,7 +514,8 @@ insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très p
 insert into sponsor values (6, "IMACInfo", 8000, "0184452566"),
 							(7, "Techphone", 5000, "0925526358"),
 							(8, "ImatRepair", 9500, "0180300322"),
-							(9, "SpaceTech", 10000, "0144857852");
+							(9, "SpaceTech", 10000, "0144857852"),
+							(12, "ImatRepair", 9500, "0180300322");
 
 insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
 						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);

@@ -22,11 +22,15 @@
 						<td>".$unContact['username']." </td>
 						<td>
 							<a href='index.php?page=6&action=sup&id_contact=".$unContact['id_contact']."'>
-							<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
-
+							<img src ='lib/images/sup.png' height='30' witdh='30'> </a>";
+							
+							if ($_SESSION['droits'] != "admin")
+							{
+								echo "
 							<a href='index.php?page=6&action=edit&id_contact=".$unContact['id_contact']."'>
-							<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
-
+							<img src ='lib/images/edition.png' height='30' witdh='30'> </a>";
+							}
+								echo "
 							</td>
 					</tr>";
 			}

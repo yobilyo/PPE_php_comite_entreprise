@@ -1,4 +1,4 @@
-<h2> Ajout d'un message </h2>
+<h2>Contactez-nous</h2>
 <form method ="post" action ="">
 	<table>
 		<tr> 
