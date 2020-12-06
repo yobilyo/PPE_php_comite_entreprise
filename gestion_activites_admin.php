@@ -89,6 +89,11 @@
 
     /*} else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="user")*/
     //{
+
+        // actualisation des activites
+        // il faut le faire juste avant le require_once vue_activite.php,
+        // pour bien afficher ces modifications sans avoir besoin d'utiliser de header
+        // ni de refresh manuellement la page
         $unControleur->setTable ("activite");
         $tab=array("*");
         $lesActivites = $unControleur->selectAll ($tab);
