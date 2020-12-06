@@ -95,6 +95,7 @@
                 <select name='quotient_fam' class="form-control form-control-sm">
 					<!-- choix de la valeur sélectionnée en cours avec le mot clé HTML selected https://www.geeksforgeeks.org/how-to-set-the-default-value-for-an-html-select-element/-->
 					<?php
+					
 						if ($leSalarie == null) {
 							echo "<option value='1'>1</option>
 								  <option value='2'>2</option>
@@ -132,6 +133,17 @@
 								  <option value='4'>4</option>
 								  <option value='5' selected>5</option>";
 						}
+				/*
+						foreach ($lesUtilisateurSalaries as $lesSalaries) {
+							echo "<option value ='".$lesSalaries['idutilisateur']."'";
+							if(isset($_GET['idutilisateur']) && $lesSalaries['idutilisateur'] == $_GET['idutilisateur']){
+								echo " selected>";
+							}else {
+								echo " >";
+							}
+							echo $lesSalaries['quotient_fam'] ." "."</option>";
+						}
+				*/
 					?>
 			    </select>
         </td>
