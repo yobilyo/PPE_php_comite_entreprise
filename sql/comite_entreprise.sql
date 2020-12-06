@@ -467,12 +467,12 @@ DELIMITER ;
 
 #On insère ces valeurs après le trigger pour que ce soit pris en compte
 
-insert into tresorerie values (NULL, 85000);
+insert into tresorerie values (NULL, 17900);
 
-insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
-	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
-	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
-	(4, "Soins massages", "Paris", "lib/images/massage.jpg", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
+insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", 1150, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
+	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", 730, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
+	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg", 7000, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 950, 0, 1),
+	(4, "Soins massages", "Paris", "lib/images/massage.jpg", 900, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
 
 insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "salarie"), 
 	(2, "Julien", "885DE", "julien@cfa-insta.fr", "salarie"), 
@@ -508,9 +508,9 @@ insert into sponsor values (6, "IMACInfo", 8000, "0184452566"),
 insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
 						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
 
-INSERT INTO don VALUES (NULL,"2020-11-15", 100, "Avec plaisir", 7,1),
-						(NULL,"2020-12-10", 50, "Pour vous aidez", 6,1),
-						(NULL,"2020-12-10", 150, "Etant riche, je me permet de vous donnez cette somme", 8,1);
+INSERT INTO don VALUES (NULL,"2020-11-15", 300, "Avec plaisir", 7,1),
+						(NULL,"2020-12-10", 450, "Pour vous aider", 6,1),
+						(NULL,"2020-12-10", 180, "Etant riche, je me permet de vous donnez cette somme", 8,1);
 
 # verification :
 select * from utilisateur_salarie;
