@@ -74,8 +74,8 @@
                               <div class='dropdown'>
                                 <a class='nav-link dropdown-toggle' href='#' role='button' id='deroulant' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Activités</a>
                                 <div class='dropdown-menu' aria-labelledby='deroulant'>
-                                  <a class='dropdown-item' href='index.php?page=4&action2=vue_activite_client&menuactivite'>Les Activités</a>
-                                  <a class='dropdown-item' href='index.php?page=4&action2=vue_activite_admin&menuactivite'>Les Activités (Admin)</a>
+                                  <a class='dropdown-item' href='index.php?page=41'>Les Activités</a>
+                                  <a class='dropdown-item' href='index.php?page=42'>Les Activités (Admin)</a>
                                   <a class='dropdown-item' href='index.php?page=3'>Participer</a>
                                 </div>
                               </div>
@@ -110,8 +110,11 @@
                         require_once("gestion_participations.php");
                         break;
                     
-                    case 4:
-                        require_once("gestion_activites.php");
+                    case 41:
+                        require_once("gestion_activites_client.php");
+                        break;
+                    case 42:
+                        require_once("gestion_activites_admin.php");
                         break;
                     case 5:
                         require_once("gestion_commentaires.php");
