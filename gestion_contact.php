@@ -35,8 +35,10 @@
                 }
             }
 
-            
+            if ($_SESSION['droits'] != "admin")
+            {
             require_once("vue/vue_insert_contact.php");
+            }
 
             if (isset($_POST['modifier'])){
 

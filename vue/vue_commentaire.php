@@ -10,7 +10,6 @@
 				<th> Nom de l'utilisateur </th>
 				<th> Prenom de l'utilisateur </th>
 				<th> Nom de l'activité </th>
-				<th> Opérations </th>
                 
 				<?php 
 				if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
@@ -35,8 +34,8 @@
 						
 						";
 
-						/*if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
-						{*/
+						if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
+						{
 						echo "<td>
 						<a href='index.php?page=5&action=sup&id_commentaire=".$unCommentaire['id_commentaire']."'>
 						<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
@@ -45,7 +44,7 @@
 						<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
 
 						</td>";
-						//}
+						}
 				echo "</tr>";
 			}
 			?>

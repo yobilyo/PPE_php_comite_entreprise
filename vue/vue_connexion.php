@@ -2,7 +2,7 @@
 <script src="lib/js/helpers.js"></script>
 <link rel="stylesheet" href="lib/css/style.css"/>
 
-<img src='images/secours-logo.png' style='position: relative'/>
+<img src='lib/images/3Dsoft-logo-RVB-300px.png' style='position: relative'/>
 
 <br/>
 <br/>
@@ -18,10 +18,10 @@
 	  <br/>
 
 	  <!-- Text input-->
-	  Votre identifiant
+	  Votre email
 	  <div class='form-group'>
 		<div class='col-sm-8'>
-		  <input type='text' name = 'username' class='form-control'>
+		  <input type='email' required='required' name = 'email' class='form-control'>
 		</div>
 	  </div>
 	  <br/>
