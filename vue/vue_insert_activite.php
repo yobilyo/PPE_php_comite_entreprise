@@ -14,6 +14,10 @@
 			<td> <input type="text" class="form-control" name="image_url" value ="<?php echo ($uneActivite!=null) ? $uneActivite['image_url']:"lib/images/nom_image.jpg"; ?>" ></td>
 		</tr>
 		<tr> 
+			<td> Lien descriptif (URL) : </td> 
+			<td> <input type="text" class="form-control" name="lien" value ="<?php echo ($uneActivite!=null) ? $uneActivite['lien']:""; ?>" ></td>
+		</tr>
+		<tr> 
 			<td> Budget : </td> 
 			<td> <input type="text" class="form-control" name="budget"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['budget']:""; ?>">  </td>
 		</tr>

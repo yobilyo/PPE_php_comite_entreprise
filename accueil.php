@@ -19,7 +19,7 @@
       <div class='carousel-item'>
         <img class='d-block w-100' src='lib/images/parc_asterix.jpg' alt='Second slide'>
           <div class='desc_img'>
-            <h2> Venez découvrir notre offre tout comprise au Parc Astérix ! </h2>
+            <h2> Venez découvrir notre offre toute comprise au Parc Astérix ! </h2>
           </div>
       </div>
       <div class='carousel-item'>

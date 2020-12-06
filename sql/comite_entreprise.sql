@@ -25,6 +25,7 @@ CREATE TABLE activite(
         nom           Varchar (50),
         lieu          Varchar (50),
 		image_url	  Varchar (100),
+		lien	  	Varchar (100),
         budget        Float,
         description   Varchar (200),
         date_debut    Date,
@@ -201,6 +202,7 @@ create view utilisateur_salarie_activite as (
 		a.nom as "nom_activite", 
 		a.lieu, 
 		a.image_url,
+		a.lien,
 		a.nb_personnes, 
 		a.description, 
 		sum(a.prix) as "prix_total", 
@@ -233,6 +235,7 @@ create view utilisateur_salarie_activite_commentaire as (
 		a.nom as "nom_activite",
 		a.lieu,
 		a.image_url,
+		a.lien,
 		c.id_commentaire,
 		c.contenu,
 		c.datecomment
@@ -314,6 +317,7 @@ create view utilisateur_salarie_activite_participer as (
 		p.date_inscription,
 		a.lieu,
 		a.image_url,
+		a.lien,
 		a.description
 		
 	
@@ -469,10 +473,10 @@ DELIMITER ;
 
 insert into tresorerie values (NULL, 85000);
 
-insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", 250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
-	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
-	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
-	(4, "Soins massages", "Paris", "lib/images/massage.jpg", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
+insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", "https://www.parcasterix.fr/",250, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
+	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", "https://www.disneylandparis.com/fr-fr/", 550, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
+	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg", "https://www.leclercvoyages.com/product/?pid=253098&c.desti=US.EST#rubric=search&dispo=25-03-2021-5-3-PAR&dpci=&p=m_c.desti%3DUS.NYC", 25, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 1550, 0, 1),
+	(4, "Soins massages", "Paris", "lib/images/massage.jpg","https://www.massage-concept.fr/", 350, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
 
 insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "salarie"), 
 	(2, "Julien", "885DE", "julien@cfa-insta.fr", "salarie"), 
