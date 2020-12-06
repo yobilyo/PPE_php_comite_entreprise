@@ -114,8 +114,8 @@
             // attention à bien rajouter la clé étrangère idutilisateur héritée et pas null
             // SELECT * from utilisateur WHERE username="Jean" and email="j.thomas@gmail.com"; 
             $unControleur->setTable ("utilisateur");
-            $tab=array("username"=>$_POST['username'], "email"=>$_POST['email']); 
-            $lUtilisateurInsere = $unControleur->selectWhere ($tab);
+            $where=array("username"=>$_POST['username'], "email"=>$_POST['email']); 
+            $lUtilisateurInsere = $unControleur->selectWhere ($where);
             // maintenant qu'on a l'idutilisateur réel de la database et pas null (exemple idutilisateur = 5 pour jean), on peut faire l'insertion
             $tabSalarie=array(
                 "nom"=>$_POST['nom'],

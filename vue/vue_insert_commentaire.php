@@ -25,7 +25,7 @@
 							 }else {
 								 echo " >";
 							 }
-							 echo $uneActivite['nom'];
+							 echo $uneActivite['nom'] ." "."</option>";
 					 	}
 					 ?>
 				</select>

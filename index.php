@@ -11,6 +11,7 @@
 <head>
     <meta charset="utf-8">
     <title>Comité d'entreprise</title>
+
     <!-- jquery 3.5.1 -->
     <script src="lib/js/jquery-3.5.1.slim.min.js"></script>
     <!-- popper.js 1.16.1 -->
@@ -18,7 +19,8 @@
     <!-- bootstrap 4.5.3 -->
     <link rel="stylesheet" href="lib/css/bootstrap.min.css">
     <script src="lib/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="lib/css/style.css">
+    <link rel="stylesheet" href="lib/css/sty_css.css">
+
     
     <script src="lib/js/helpers.js"></script>
 </head>

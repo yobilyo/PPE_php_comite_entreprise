@@ -1,0 +1,30 @@
+body {
+    background-color: #ced6e0;
+}
+
+#boutonenvoyer { 
+    float: right;
+    background-color: #1F3E80;
+    border-radius: 30px;
+    border: 1px solid #1F3E80;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px 30px;
+    width: 200px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s linear;
+    cursor: pointer;
+    margin: 15px;
+    
+    
+    
+}
+#boutonenvoyer:hover {
+    color :#1F3E80;
+    background-color: white;
+    
+    }
+

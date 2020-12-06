@@ -16,8 +16,14 @@
 										<div class='text-left'>Prix : ".$uneActivite['prix']."</div>
 										<div class='text-left'>Participants : ".$uneActivite['nb_personnes']."</div>
 										<div class='text-left'><a href='".$uneActivite['lien']."'>En savoir plus...</a></div>
-										<p class='text-right'>
+										<p class='text-right'>";
+										if ($_SESSION['droits'] != "sponsor")
+										{
+											echo "
 										<a href='index.php?page=3' class='btn btn-primary' role='button'>Participer</a></p>
+										";
+										}
+										echo "
 								</div>";
 					}
 				?>
