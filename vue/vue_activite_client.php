@@ -1,4 +1,4 @@
-<h2> Liste des activités du comité entreprise </h2>
+<h2> Activités du comité d'entreprise </h2>
 <div class='container'>
 	<div class="row">
 				<?php 
