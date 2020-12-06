@@ -19,7 +19,13 @@
 			<td> <select name ="id_activite" class="form-control form-control-sm">
 					 <?php
 					 	foreach ($lesActivités as $uneActivite) {
-					 		echo "<option value ='".$uneActivite['id_activite']."'>".$uneActivite['nom']."</option>";
+							 echo "<option value ='".$uneActivite['id_activite']."'";
+							 if(isset($_GET['id_activite']) && $uneActivite['id_activite'] == $_GET['id_activite']){
+								 echo " selected >";
+							 }else {
+								 echo " >";
+							 }
+							 echo $uneActivite['nom'] ." "."</option>";
 					 	}
 					 ?>
 				</select>
@@ -31,7 +37,13 @@
 			<td> <select name ="idutilisateur" class="form-control form-control-sm">
 					 <?php
 					 	foreach ($lesUtilisateurs as $unUtilisateur) {
-					 		echo "<option value ='".$unUtilisateur['idutilisateur']."'>".$unUtilisateur['username']."</option>";
+							 echo "<option value ='".$unUtilisateur['idutilisateur']."'";
+							 if(isset($_GET['idutilisateur']) && $unUtilisateur['idutilisateur'] == $_GET['idutilisateur']){
+								 echo " selected>";
+							 }else {
+								 echo " >";
+							 }
+							 echo $unUtilisateur['nom'];
 					 	}
 					 ?>
 				</select>

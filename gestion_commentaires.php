@@ -27,7 +27,6 @@
 
                     $tab=array("id_commentaire"=>$id_commentaire); 
                     $unCommentaire = $unControleur->selectWhere ($tab);  //ledon
-                    var_dump($unCommentaire);
                     break; 
         }
     }
@@ -47,7 +46,6 @@
 
 
 	if (isset($_POST['valider'])){
-        var_dump($_POST);
         $date = date("yy.m.d");
         $tab=array("datecomment"=>$date, "contenu" =>$_POST['contenu'], "id_activite"=>$_POST['id_activite'],"idutilisateur"=>$_POST['idutilisateur']);
         

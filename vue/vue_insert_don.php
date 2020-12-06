@@ -23,7 +23,13 @@
 			<td>		 <select name ="idutilisateur" class="form-control form-control-sm">
 						 <?php
 						 	foreach ($lesSponsors as $unSponsor) {
-						 		echo "<option value ='".$unSponsor['idutilisateur']."'>".$unSponsor['societe']."  "."</option>";
+								 echo "<option value ='".$unSponsor['idutilisateur']."'";
+								 if(isset($_GET['idutilisateur']) && $unSponsor['idutilisateur'] == $_GET['idutilisateur'] ){
+									 echo " selected>";
+								 }else {
+									 echo " >";
+								 }
+								 echo $unSponsor['societe']." "."</option>";
 						 	}
 						 ?>
 					</select>

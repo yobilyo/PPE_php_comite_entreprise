@@ -37,10 +37,10 @@
 						if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
 						{
 						echo "<td>
-						<a href='index.php?page=5&action=sup&id_commentaire=".$unCommentaire['id_commentaire']."'>
+						<a href='index.php?page=5&action=sup&id_commentaire=".$unCommentaire['id_commentaire']." &idutilisateur=".$unCommentaire['idutilisateur']. " &id_activite=".$unCommentaire['id_activite']. "'>
 						<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
 
-						<a href='index.php?page=5&action=edit&id_commentaire=".$unCommentaire['id_commentaire']."'>
+						<a href='index.php?page=5&action=edit&id_commentaire=".$unCommentaire['id_commentaire']." &idutilisateur=".$unCommentaire['idutilisateur']. " &id_activite=".$unCommentaire['id_activite']. "'>
 						<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
 
 						</td>";
