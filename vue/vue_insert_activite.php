@@ -13,7 +13,8 @@
 			<td> Image (URL) : </td> 
 			<td> <input type="text" class="form-control" name="image_url" value ="<?php echo ($uneActivite!=null) ? $uneActivite['image_url']:"lib/images/nom_image.jpg"; ?>" ></td>
 		</tr>
-		<tr> 
+		<tr> <?php
+		/*
 			<!-- input de type range bootstrap: https://mdbootstrap.com/docs/jquery/forms/slider/
 			Slider with updating value -->
 			<td> Budget : </td>
@@ -42,15 +43,13 @@
 					</div>
 				</td>
 				";
+						</tr>
+				*/
 			?>
-		</tr>
-		<!--
 		<tr>
 			<td> Budget : </td> 
 			<td> <input type="text" class="form-control" name="budget"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['budget']:""; ?>">  </td>
 		</tr>
-		-->
-
 		<tr> 
 			<td> Description :</td> 
 			<td> <input type="text" class="form-control" name="description"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['description']:""; ?>">  </td>
