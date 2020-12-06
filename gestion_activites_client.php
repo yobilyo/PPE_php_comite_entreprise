@@ -1,6 +1,7 @@
 <?php
 
     $uneActivite = null; 
+    
     $unControleur->setTable ("activite");
     $tab=array("*");
     $lesActivites = $unControleur->selectAll ($tab);

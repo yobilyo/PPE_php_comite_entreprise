@@ -1,10 +1,6 @@
 <?php
 
     $uneActivite = null; 
-    $unControleur->setTable ("activite");
-    $tab=array("*");
-    $lesActivites = $unControleur->selectAll ($tab);
-
 
     $uneTresorerie = null;
     $unControleur->setTable ("tresorerie");
@@ -35,7 +31,7 @@
                     $unControleur->delete($tab);
 
                     // refresh de la page en PHP
-                    header("index.php?page=42");
+                    //header("index.php?page=42");
                     
                     break;
             case "edit" : 
@@ -44,7 +40,7 @@
                     $uneActivite = $unControleur->selectWhere ($tab);
 
                     // refresh de la page en PHP
-                    header("index.php?page=42");
+                    //header("index.php?page=42");
                     break; 
         }
     }
@@ -55,10 +51,17 @@
     if (isset($_POST['modifier'])){
         //var_dump($_POST);
 
-        $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'], "image_url"=>$_POST['image_url'],
-                    "budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix'],"nb_personnes"=>$_POST['nb_personnes'],
+        $tab=array("nom"=>$_POST['nom'],
+                    "lieu"=>$_POST['lieu'],
+                    "image_url"=>$_POST['image_url'],
+                    "budget"=>$_POST['budget'],
+                    "description"=>$_POST['description'],
+                    "date_debut"=>$_POST['date_debut'],
+                    "date_fin"=>$_POST['date_fin'],
+                    "prix"=>$_POST['prix'],
+                    "nb_personnes"=>$_POST['nb_personnes'],
                     "id_tresorerie"=>$_POST['id_tresorerie']);
-        $unControleur->setTable ("activite");
+        //$unControleur->setTable ("activite");
         $where =array("id_activite"=>$id_activite);
 
         $unControleur->update($tab, $where);
@@ -68,10 +71,17 @@
 
     if (isset($_POST['valider'])){
         //var_dump($_POST);
-        $unControleur->setTable ("activite");
-        $tab=array("nom"=>$_POST['nom'], "lieu"=>$_POST['lieu'], "image_url"=>$_POST['image_url'],
-        "budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix'],"nb_personnes"=>$_POST['nb_personnes'],
-        "id_tresorerie"=>$_POST['id_tresorerie']);
+        //$unControleur->setTable ("activite");
+        $tab=array("nom"=>$_POST['nom'],
+                    "lieu"=>$_POST['lieu'],
+                    "image_url"=>$_POST['image_url'],
+                    "budget"=>$_POST['budget'],
+                    "description"=>$_POST['description'],
+                    "date_debut"=>$_POST['date_debut'],
+                    "date_fin"=>$_POST['date_fin'],
+                    "prix"=>$_POST['prix'],
+                    "nb_personnes"=>$_POST['nb_personnes'],
+                    "id_tresorerie"=>$_POST['id_tresorerie']);
         $unControleur->insert($tab);
         //header("Location: index.php?page=42");
     }
@@ -79,7 +89,9 @@
 
     /*} else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="user")*/
     //{
-        
+        $unControleur->setTable ("activite");
+        $tab=array("*");
+        $lesActivites = $unControleur->selectAll ($tab);
         require_once("vue/vue_activite.php"); 
     //}
 ?>
