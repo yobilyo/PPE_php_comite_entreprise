@@ -249,6 +249,7 @@ create view utilisateur_salarie_activite_commentaire as (
 #------------------------------------------------------------
 create view utilisateur_sponsor_don as (
     select 
+		u.idutilisateur,
 		d.iddon,
         u.username , 
         u.email, 
