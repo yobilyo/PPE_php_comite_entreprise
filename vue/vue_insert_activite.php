@@ -11,14 +11,13 @@
 		</tr>
         <tr> 
 			<td> Image (URL) : </td> 
-			<td> <input type="text" class="form-control" name="image_url" value ="<?php echo ($uneActivite!=null) ? $uneActivite['image_url']:"lib/images/nom_image.jpg"; ?>" ></td>
+			<td> <input type="text" class="form-control" name="image_url" value ="<?php echo ($uneActivite!=null) ? $uneActivite['image_url']:"lib/images/activites/nom_image.jpg"; ?>" ></td>
 		</tr>
 		<tr> 
 			<td> Lien descriptif (URL) : </td> 
 			<td> <input type="text" class="form-control" name="lien" value ="<?php echo ($uneActivite!=null) ? $uneActivite['lien']:""; ?>" ></td>
 		</tr>
-		<tr> 
-		<tr> <?php
+		<?php
 		/*
 			<!-- input de type range bootstrap: https://mdbootstrap.com/docs/jquery/forms/slider/
 			Slider with updating value -->
@@ -50,7 +49,7 @@
 				";
 						</tr>
 				*/
-			?>
+		?>
 		<tr>
 			<td> Budget : </td> 
 			<td> <input type="text" class="form-control" name="budget"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['budget']:""; ?>">  </td>

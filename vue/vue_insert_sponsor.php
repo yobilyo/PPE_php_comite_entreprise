@@ -31,12 +31,20 @@
 			<td> <input type="text" class="form-control" name="societe" value ="<?php echo ($leSponsor!=null) ? $leSponsor['societe']:""; ?>"></td>
 		</tr>
 		<tr> 
+			<td> Image (URL) : </td> 
+			<td> <input type="text" class="form-control" name="image_url" value ="<?php echo ($leSponsor!=null) ? $leSponsor['image_url']:"lib/images/sponsors/nom_image.jpg"; ?>" ></td>
+		</tr>
+		<tr> 
 			<td> Budget: </td> 
 			<td> <input type="text" class="form-control" name="budget" value ="<?php echo ($leSponsor!=null) ? $leSponsor['budget']:""; ?>"></td>
 		</tr>
 		<tr> 
 			<td> Tel : </td> 
 			<td> <input type="tel" class="form-control" name="tel" value ="<?php echo ($leSponsor!=null) ? $leSponsor['tel']:""; ?>"></td>
+		</tr>
+		<tr> 
+			<td> Lien descriptif (URL) : </td> 
+			<td> <input type="text" class="form-control" name="lien" value ="<?php echo ($leSponsor!=null) ? $leSponsor['lien']:""; ?>" ></td>
 		</tr>
 		
         
