@@ -43,15 +43,26 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                                   ";
                               }
                               echo "
-                            <a href='index.php?page=6' class='nav-item nav-link'>Contact</a>
-                            <a href='index.php?page=71' class='nav-item nav-link'>Sponsors</a>
-                            ";
-                            if ($_SESSION['droits'] == 'admin')
+                            <a href='index.php?page=6' class='nav-item nav-link'>Contact</a>";
+
+                            // si on est un sponsor on ne voit ni sponsor client ni sponsor admin
+                            if ($_SESSION['droits'] == 'salarie')
                             {
                                 echo "
-                                <a href='index.php?page=72' class='nav-item nav-link'>Sponsors (Admin)</a>
+                                <a href='index.php?page=71' class='nav-item nav-link'>Sponsors</a>
                                 ";
+                            } else if ($_SESSION['droits'] == 'admin') {
+                                // pour les admins on fait un dropdown complet de Sponsors (Client + Admin)
+                                echo "
+                                <div class='dropdown'>
+                                    <a class='nav-link dropdown-toggle' href='#' role='button' id='deroulant' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Sponsors</a>
+                                    <div class='dropdown-menu' aria-labelledby='deroulant'>
+                                        <a class='dropdown-item' href='index.php?page=71'>Les Sponsors</a>
+                                        <a class='dropdown-item' href='index.php?page=72'>Les Sponsors (Admin)</a>
+                                    </div>
+                                </div>";
                             }
+
                             if ($_SESSION['droits'] == 'sponsor' || $_SESSION['droits'] == 'admin')
                             {
                                 echo "
