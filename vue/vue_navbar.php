@@ -71,7 +71,7 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                             }
                             echo "
                         </div>";
-                            if ($_SESSION['droits'] =="admin")
+                            /*if ($_SESSION['droits'] =="admin")
                             {
                                 echo "
                                 <div class='navbar-nav ml-auto'>
@@ -79,13 +79,17 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                                 </div>
                                 </div>
                                 ";
-                            }
+                            }*/
                             echo "
                             <div class='navbar-nav ml-auto'>
                             ";
                             if($_SESSION['droits'] != "sponsor"){
                                 echo "
-                                <a href='index.php?page=9' class='nav-item nav-link'>Espace salarié</a>
+                                <a href='index.php?page=91' class='nav-item nav-link'>Espace Salarié</a>
+                                ";
+                            } else {
+                                echo "
+                                <a href='index.php?page=92' class='nav-item nav-link'>Espace Sponsor</a>
                                 ";
                             }
                             echo "

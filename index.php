@@ -118,8 +118,11 @@
                         require_once("gestion_dons.php");
                         break;
 
-                    case 9:
+                    case 91:
                         require_once("gestion_espace_salarie.php");
+                        break; 
+                    case 92:
+                        require_once("gestion_espace_sponsor.php");
                         break; 
 
                     case 10:
