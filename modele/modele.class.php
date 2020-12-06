@@ -116,6 +116,34 @@
 				return null; 
 			}
 		}
+
+
+		public function selectWhereAll ($tab)
+		{
+			if ($this->unPdo != null){
+				//construction du where 
+				$listeChamps = array(); 
+				$donnees =array();
+				foreach ($tab as $cle => $valeur) {
+					$listeChamps[] = $cle." = ".":".$cle ;
+					$donnees[":".$cle] = $valeur;
+				}
+				$chaineChamps = implode(" and ", $listeChamps); 
+
+				$requete = "select * from   ".$this->uneTable. " where ".$chaineChamps.";" ;
+				$select = $this->unPdo->prepare ($requete); 
+				$select->execute ($donnees); 
+				return $select->fetchAll();  //plusieurs résultats
+			}
+			else
+			{
+				return null; 
+			}
+		}
+
+
+
+
 		/*public function update($tab, $where)
 		{
 			if ($this->unPdo != null){

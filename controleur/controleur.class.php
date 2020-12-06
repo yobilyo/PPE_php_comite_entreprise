@@ -54,6 +54,10 @@
 			return $this->unModele->selectWhere($tab);
 		}
 
+		public function selectWhereAll ($tab)
+		{
+			return $this->unModele->selectWhereAll($tab);
+		}
 		public function update($tab, $where){
 			$this->unModele->update($tab, $where);
 		}

@@ -284,7 +284,8 @@ create view utilisateur_contact as (
 		c.objet,
 		c.contenu,
 		c.date,
-		u.username
+		u.username,
+		u.idutilisateur
 	
 	from contact c, utilisateur u
 	where c.idutilisateur = u.idutilisateur
@@ -510,7 +511,8 @@ insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "de
 insert into participer values (1, 1, "2020-10-05"),
 								(2, 2, "2020-08-20"),
 								(3, 3, "2020-10-12"),
-								(4, 4, "2020-04-17");
+								(4, 4, "2020-04-17"),
+								(1, 2, "2020-10-05");
 
 insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très prochainement, c'était super !", 1, 1),
 	(NULL, "2020-11-29", "Assez satisfait, prix intéressant", 2, 2),

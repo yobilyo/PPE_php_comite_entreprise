@@ -1,3 +1,12 @@
+<?php
+    require_once("vue/vue_salarie.php");
+    require_once("vue/vue_participation.php");
+    require_once("vue/vue_commentaire.php");
+    require_once("vue/vue_contact.php");
+
+
+
+/*
 <h1> Mon espace salarié </h1>
 
 <div class='container'>
@@ -5,14 +14,12 @@
 	<table class="table table-striped">
 		<thead>
 			<tr> 
-				<th> Id utilisateur </th>
-				<th> Nom d'utilisateur </th>
                 <th> Nom</th> 
                 <th> Prenom </th> 
                 <th> Nom de l'activité </th> 
-                <th> Lieu </th> 
-                <th> Lien </th>
+                <th> Image </th>
                 <th> Commentaire </th>  
+                <th> Date commentaire </th>
 			</tr>
 		</thead>
 
@@ -24,15 +31,17 @@
 		</tbody>
 	</table>
 </div>
+*/
+?>
+
+<?php 
 
 
-
-<?php /*
+/*
                 if ($_SESSION['droits'] == "salarie")
                 {
                     foreach ($mesCommentairesActivitesParticipations as $unCommentaireActiviteParticipation) {
                         echo "<tr> 
-                                <td>".$unCommentaireActiviteParticipation['idutilisateur']." </td>
                                 <td>".$unCommentaireActiviteParticipation['username']." </td>
                                 <td>".$unCommentaireActiviteParticipation['nom']." </td>
                                 <td>".$unCommentaireActiviteParticipation['prenom']." </td>
