@@ -105,8 +105,11 @@
                         require_once("gestion_contact.php");
                         break;
                     
-                    case 7:
-                        require_once("gestion_sponsors.php");
+                    case 71:
+                        require_once("gestion_sponsors_client.php");
+                        break;
+                    case 72:
+                        require_once("gestion_sponsors_admin.php");
                         break;
 
                     case 8:

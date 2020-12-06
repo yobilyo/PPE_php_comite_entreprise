@@ -52,11 +52,11 @@
 */						
 						
 						echo "<td>
-						<a href='index.php?page=7&action=sup&idutilisateur=".$unUtiliSpons['idutilisateur']."'>
+						<a href='index.php?page=72&action=sup&idutilisateur=".$unUtiliSpons['idutilisateur']."'>
 						
 						<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
 
-						<a href='index.php?page=7&action=edit&idutilisateur=".$unUtiliSpons['idutilisateur']."'>
+						<a href='index.php?page=72&action=edit&idutilisateur=".$unUtiliSpons['idutilisateur']."'>
 						<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
  
 						</td>";
