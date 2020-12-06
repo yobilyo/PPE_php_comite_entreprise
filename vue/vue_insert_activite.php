@@ -18,10 +18,43 @@
 			<td> <input type="text" class="form-control" name="lien" value ="<?php echo ($uneActivite!=null) ? $uneActivite['lien']:""; ?>" ></td>
 		</tr>
 		<tr> 
+		<tr> <?php
+		/*
+			<!-- input de type range bootstrap: https://mdbootstrap.com/docs/jquery/forms/slider/
+			Slider with updating value -->
+			<td> Budget : </td>
+			<script>
+				$(document).ready(function() {
+					const $valueSpan = $('.valueSpan');
+					const $value = $('#slider11');
+					$valueSpan.html($value.val());
+					$value.on('input change', () => {
+						$valueSpan.html($value.val());
+					});
+				});
+			</script>
+			<?php
+				$min = 0;
+				$max = $lesTresoreries[0]['fonds'];
+				// si une activité a un budget on met le budget existant, sinon on met 50% (max divisé par 2) de la trésorerie par défaut pour les nouvelles activités
+				$actuel = ($uneActivite!=null ? $uneActivite['budget'] : ($max / 2));
+				echo "
+				<td>
+					<div class='d-flex justify-content-center my-4'>
+						<form class='range-field w-75'>
+							<input id='slider11' class='border-0' type='range' min='".$min."' max='".$max."' value='".$actuel."' />
+						</form>
+						<span class='font-weight-bold text-primary ml-2 mt-1 valueSpan'></span>
+					</div>
+				</td>
+				";
+						</tr>
+				*/
+			?>
+		<tr>
 			<td> Budget : </td> 
 			<td> <input type="text" class="form-control" name="budget"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['budget']:""; ?>">  </td>
 		</tr>
-
 		<tr> 
 			<td> Description :</td> 
 			<td> <input type="text" class="form-control" name="description"  value ="<?php echo ($uneActivite!=null) ? $uneActivite['description']:""; ?>">  </td>
