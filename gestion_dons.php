@@ -65,9 +65,10 @@
             $unControleur->insert($tab);
         }
 
-        /*if ($_SESSION['droits'] =="admin") {*/
+        if ($_SESSION['droits'] =="admin") {
             $unControleur->setTable ("utilisateur_sponsor_don");	//changement de table : prendre la vue 
             $tab=array("*");
             $lesDons= $unControleur->selectAll ($tab); 
             require_once("vue/vue_don.php");
+        }
 ?>
