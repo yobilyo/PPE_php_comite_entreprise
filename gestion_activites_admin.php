@@ -35,7 +35,7 @@
                     $unControleur->delete($tab);
 
                     // refresh de la page en PHP
-                    header("index.php?page=4");
+                    header("index.php?page=42");
                     
                     break;
             case "edit" : 
@@ -44,7 +44,7 @@
                     $uneActivite = $unControleur->selectWhere ($tab);
 
                     // refresh de la page en PHP
-                    header("index.php?page=4");
+                    header("index.php?page=42");
                     break; 
         }
     }
@@ -63,7 +63,7 @@
 
         $unControleur->update($tab, $where);
         // erreur, ligne non nécessaire
-        //header("Location: index.php?page=4");
+        //header("Location: index.php?page=42");
     }
 
     if (isset($_POST['valider'])){
@@ -73,7 +73,7 @@
         "budget"=>$_POST['budget'],"description"=>$_POST['description'],"date_debut"=>$_POST['date_debut'],"date_fin"=>$_POST['date_fin'],"prix"=>$_POST['prix'],"nb_personnes"=>$_POST['nb_personnes'],
         "id_tresorerie"=>$_POST['id_tresorerie']);
         $unControleur->insert($tab);
-        //header("Location: index.php?page=4");
+        //header("Location: index.php?page=42");
     }
 
 
