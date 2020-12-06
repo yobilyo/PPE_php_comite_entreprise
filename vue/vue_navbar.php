@@ -59,11 +59,21 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                                 ";
                             }
                             echo "
-                        </div>
-                        <div class='navbar-nav ml-auto'>
-                                 <a href='index.php?page=1' class='nav-item nav-link'>Mon espace</a>
-                                <a href='index.php?page=9' class='nav-item nav-link'>Déconnexion</a>
-                         </div>
+                        </div>";
+                            if ($_SESSION['droits'] =="admin")
+                            {
+                                echo "
+                                <div class='navbar-nav ml-auto'>
+                                <a href='index.php?page=1' class='nav-item nav-link'>Espace administrateur</a>
+                                </div>
+                                </div>
+                                ";
+                            }
+                            echo "
+                            <div class='navbar-nav ml-auto'>
+                                    <a href='index.php?page=9' class='nav-item nav-link'>Espace salarié</a>
+                                    <a href='index.php?page=10' class='nav-item nav-link'>Déconnexion</a>
+                            </div>
                     </div>
                 </nav>";
 ?>

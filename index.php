@@ -84,7 +84,7 @@
                         require_once("accueil.php");
                         break;
                     case 1:
-                        require_once("gestion_mon_espace.php");
+                        require_once("gestion_mon_espace_administrateur.php");
                         break;
                     case 2:
                         require_once("gestion_salarie.php");
@@ -119,6 +119,10 @@
                         break;
 
                     case 9:
+                        require_once("gestion_espace_salarie.php");
+                        break; 
+
+                    case 10:
                         session_destroy();   
                         header("Location: index.php");             
                     }
