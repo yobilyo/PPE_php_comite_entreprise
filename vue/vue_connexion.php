@@ -1,8 +1,8 @@
 
 <script src="lib/js/helpers.js"></script>
-<link rel="stylesheet" href="lib/css/style.css"/>
 
-<img src='lib/images/3Dsoft-logo-RVB-300px.png' style='position: relative'/>
+
+<a href="https://www.3dsoft.fr"><img src='lib/images/3Dsoft-logo-RVB-300px.png' style='position: relative'/></a>
 
 <br/>
 <br/>
@@ -47,7 +47,7 @@
 
 	</fieldset>
   </form>
-  <a href="vue/vue_inscription.php">Nouveau membre ? Créez votre compte.</a>
+  <a href="vue_insert_inscription.php">Nouveau salarié ? Créez votre compte.</a>
 </div>
 
 

@@ -101,31 +101,31 @@
 								  <option value='3'>3</option>
 								  <option value='4'>4</option>
 								  <option value='5'>5</option>";
-						} else if ($leSalarie['quotient_fam'] == 1) {
+						} else if ($leSalarie['quotient_fam'] == "1") {
 							echo "<option value='1' selected>1</option>
 								  <option value='2'>2</option>
 								  <option value='3'>3</option>
 								  <option value='4'>4</option>
 								  <option value='5'>5</option>";
-						} else if ($leSalarie['quotient_fam'] == 2) {
+						} else if ($leSalarie['quotient_fam'] == "2") {
 							echo "<option value='1'>1</option>
 								  <option value='2' selected>2</option>
 								  <option value='3'>3</option>
 								  <option value='4'>4</option>
 								  <option value='5'>5</option>";
-						} else if ($leSalarie['quotient_fam'] == 3) {
+						} else if ($leSalarie['quotient_fam'] == "3") {
 							echo "<option value='1'>1</option>
 								  <option value='2'>2</option>
 								  <option value='3' selected>3</option>
 								  <option value='4'>4</option>
 								  <option value='5'>5</option>";
-						} else if ($leSalarie['quotient_fam'] == 4) {
+						} else if ($leSalarie['quotient_fam'] == "4") {
 							echo "<option value='1'>1</option>
 								  <option value='2'>2</option>
 								  <option value='3'>3</option>
 								  <option value='4' selected>4</option>
 								  <option value='5'>5</option>";
-						} else if ($leSalarie['quotient_fam'] == 5) {
+						} else if ($leSalarie['quotient_fam'] == "5") {
 							echo "<option value='1'>1</option>
 								  <option value='2'>2</option>
 								  <option value='3'>3</option>

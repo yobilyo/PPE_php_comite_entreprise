@@ -64,7 +64,10 @@
             $unControleur->setTable ("utilisateur_contact");	//changement de table : prendre la vue 
             $tab=array("*");
             $lesContacts = $unControleur->selectAll ($tab);
+            if ($_SESSION['droits'] == "admin")
+            {
             require_once("vue/vue_contact.php");
+            }
     //} 
 
 
