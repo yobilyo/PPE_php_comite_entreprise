@@ -82,8 +82,14 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                             }
                             echo "
                             <div class='navbar-nav ml-auto'>
-                                    <a href='index.php?page=9' class='nav-item nav-link'>Espace salarié</a>
-                                    <a href='index.php?page=10' class='nav-item nav-link'>Déconnexion</a>
+                            ";
+                            if($_SESSION['droits'] != "sponsor"){
+                                echo "
+                                <a href='index.php?page=9' class='nav-item nav-link'>Espace salarié</a>
+                                ";
+                            }
+                            echo "
+                            <a href='index.php?page=10' class='nav-item nav-link'>Déconnexion</a>
                             </div>
                     </div>
                 </nav>";
