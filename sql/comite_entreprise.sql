@@ -468,7 +468,8 @@ DELIMITER ;
 
 #On insère ces valeurs après le trigger pour que ce soit pris en compte
 
-insert into tresorerie values (NULL, 17900);
+# au début la trésorerie est haute afin de pouvoir créer de nombreuses activités en sql
+insert into tresorerie values (NULL, 50000);
 
 insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg", 1150, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
 	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", 730, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
