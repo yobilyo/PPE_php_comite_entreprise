@@ -61,7 +61,7 @@
                     "prix"=>$_POST['prix'],
                     "nb_personnes"=>$_POST['nb_personnes'],
                     "id_tresorerie"=>$_POST['id_tresorerie']);
-        //$unControleur->setTable ("activite");
+        $unControleur->setTable ("activite");
         $where =array("id_activite"=>$id_activite);
 
         $unControleur->update($tab, $where);
@@ -71,7 +71,7 @@
 
     if (isset($_POST['valider'])){
         //var_dump($_POST);
-        //$unControleur->setTable ("activite");
+        $unControleur->setTable ("activite");
         $tab=array("nom"=>$_POST['nom'],
                     "lieu"=>$_POST['lieu'],
                     "image_url"=>$_POST['image_url'],
