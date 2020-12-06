@@ -25,7 +25,7 @@ CREATE TABLE activite(
         nom           Varchar (50),
         lieu          Varchar (50),
 		image_url	  Varchar (100),
-		lien	  	Varchar (100),
+		lien	  	  Varchar (100),
         budget        Float,
         description   Varchar (200),
         date_debut    Date,
@@ -70,8 +70,10 @@ CREATE TABLE salarie(
 CREATE TABLE Sponsor(
         idutilisateur Int NOT NULL ,
         societe       Varchar (20),
+		image_url	  Varchar (100),
         budget        Float,
         tel           Varchar (15),
+		lien	    Varchar (100),
 
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 		
@@ -149,9 +151,10 @@ create view utilisateur_sponsor as (
 		u.password,
 		u.droits, 
 		s.societe, 
+		s.image_url,
 		s.budget, 
-		s.tel
-		
+		s.tel,
+		s.lien
 		
 	from utilisateur u, sponsor s where u.idutilisateur = s.idutilisateur 
 );
@@ -256,9 +259,11 @@ create view utilisateur_sponsor_don as (
 		d.iddon,
         u.username , 
         u.email, 
-        s.societe , 
-        s.budget, 
-        s.tel , 
+		s.societe, 
+		s.image_url,
+		s.budget, 
+		s.tel,
+		s.lien,
         d.montant,
         d.appreciation
 
@@ -475,31 +480,32 @@ DELIMITER ;
 # au début la trésorerie est haute afin de pouvoir créer de nombreuses activités en sql
 insert into tresorerie values (NULL, 50000);
 
-insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/parc_asterix.jpg","https://www.parcasterix.fr/", 1150, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
-	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/disneyland.jpg", "https://www.disneylandparis.com/fr-fr/", 730, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
-	(3, "Voyage a NYC", "Etats Unis", "lib/images/voyage-new-york.jpg","https://www.leclercvoyages.com/product/?pid=253098&c.desti=US.EST#rubric=search&dispo=25-03-2021-5-3-PAR&dpci=&p=m_c.desti%3DUS.NYC", 7000, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 950, 0, 1),
-	(4, "Soins massages", "Paris", "lib/images/massage.jpg","https://www.massage-concept.fr/", 900, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
+insert into activite values (1, "Parc Asterix", "Plailly", "lib/images/activites/parc_asterix.jpg","https://www.parcasterix.fr/", 1150, "Venez découvrir un Noël au Parc Astérix !", "2020-11-28", "2021-05-15", 25, 0, 1),
+	(2, "Disneyland Paris", "Marne-La-Vallee", "lib/images/activites/disneyland.jpg", "https://www.disneylandparis.com/fr-fr/", 730, "Noel chez Disney", "2020-11-28", "2021-08-10", 35, 0, 1),
+	(3, "Voyage a NYC", "Etats Unis", "lib/images/activites/voyage-new-york.jpg","https://www.leclercvoyages.com/product/?pid=253098&c.desti=US.EST#rubric=search&dispo=25-03-2021-5-3-PAR&dpci=&p=m_c.desti%3DUS.NYC", 7000, "Detendez vous en optant pour un voyage exceptionnel", "2020-12-08", "2021-03-14", 950, 0, 1),
+	(4, "Soins massages", "Paris", "lib/images/activites/massage.jpg","https://www.massage-concept.fr/", 900, "Prenez soin de vous avec ce massage tout compris", "2020-12-14", "2021-05-10", 32, 0, 1);
 
 insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "salarie"), 
 	(2, "Julien", "885DE", "julien@cfa-insta.fr", "salarie"), 
 	(3, "Gerard", "8555ed", "Gerard@cfa-insta.fr", "admin"),
 	(4, "Franck", "445d4d", "Franck@cfa-insta.fr", "admin"),
 	(5, "Damiens", "23daeez", "damiens@cfa-insta.fr", "salarie"),
-	(6, "Cedric", "c85d4ee", "cedric@cfa-insta.fr", "sponsor"),
-	(7, "Jessica", "jess744", "jessica@cfa-insta.fr", "sponsor"),
-	(8, "Michele", "m847cihe", "michele@cfa-insta.fr", "sponsor"),
-	(9, "Jeremie", "j885ee", "jeremie@cfa-insta.fr", "sponsor"),
-	(10, "admin", "", "a@gmail.com", "admin"),
-	(11, "salarie", "", "sa@gmail.com", "salarie"),
-	(12, "sponsor", "", "sp@gmail.com", "sponsor");
+	(6, "Cedric", "c85d4ee", "cedric@airfrance.fr", "sponsor"),
+	(7, "Jessica", "jess744", "jessica@lysdor.com", "sponsor"),
+	(8, "Michele", "m847cihe", "michele@ticketmaster.fr", "sponsor"),
+	(9, "Jeremie", "j885ee", "jeremie@voyage-prive.com", "sponsor"),
+	(10, "Michael", "m845gg", "michael@fnacspectacles.com", "sponsor"),
+	(11, "admin", "", "a@gmail.com", "admin"),
+	(12, "salarie", "", "sa@gmail.com", "salarie"),
+	(13, "sponsor", "", "sp@gmail.com", "sponsor");
 
 insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), 
 							(2, "Julien", "BARRETO", "0645749655", "toulouse", 1, "commercial", "homme"),
 							(3, "Gerard", "DEPARD", "0658856244", "bordeaux", 4, "comptabilite", "homme"),
 							(4, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
 							(5, "Damiens", "DENIS", "0646220322", "boissy-saint-leger", 1, "commercial", "homme"),
-							(10, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
-							(11, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme");
+							(11, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
+							(12, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme");
 
 insert into participer values (1, 1, "2020-10-05"),
 								(2, 2, "2020-08-20"),
@@ -511,11 +517,12 @@ insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très p
 	(NULL, "2020-11-30", "Un voyage inoubliable !", 3, 3),
 	(NULL, "2020-12-02", "Mauvaise masseuse, prix bien trop élevé.", 4, 4);
 
-insert into sponsor values (6, "IMACInfo", 8000, "0184452566"),
-							(7, "Techphone", 5000, "0925526358"),
-							(8, "ImatRepair", 9500, "0180300322"),
-							(9, "SpaceTech", 10000, "0144857852"),
-							(12, "ImatRepair", 9500, "0180300322");
+insert into sponsor values (6, "Air France", "lib/images/sponsors/air-france.png", 8000, "0184452566", "https://wwws.airfrance.fr/"),
+							(7, "Lys D'Or", "lib/images/sponsors/lys-d-or.png", 5000, "0925526358", "https://www.lysdor.com/"),
+							(8, "Ticketmaster", "lib/images/sponsors/ticketmaster.png", 9500, "0180300322", "https://www.ticketmaster.fr/"),
+							(9, "Voyage Privé", "lib/images/sponsors/voyage-prive.png", 10000, "0144857852", "https://www.voyage-prive.com/"),
+							(10, "Fnac Spectacles", "lib/images/sponsors/fnac-spectacles.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/"),
+							(13, "Fnac ", "https://blog.hubspot.com/hubfs/image8-2.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/");
 
 insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
 						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);
