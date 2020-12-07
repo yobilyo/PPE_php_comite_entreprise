@@ -12,11 +12,11 @@
 
 		<tbody>
 			<?php 
-			foreach ($lesUtilisateurs as $unUtilisateur) {
+			foreach ($lesUtilisateurAdmins as $unUtilisateurAdmin) {
 				echo "<tr> 
-						<td>".$unUtilisateur['username']." </td>
-						<td>".$unUtilisateur['password']." </td>
-						<td>".$unUtilisateur['email']." </td>
+						<td>".$unUtilisateurAdmin['username']." </td>
+						<td>".$unUtilisateurAdmin['password']." </td>
+						<td>".$unUtilisateurAdmin['email']." </td>
 					</tr>";
 			}
 			?>

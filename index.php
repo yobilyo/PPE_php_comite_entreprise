@@ -83,9 +83,6 @@
                     case 0:
                         require_once("accueil.php");
                         break;
-                    case 1:
-                        require_once("gestion_mon_espace_administrateur.php");
-                        break;
                     case 2:
                         require_once("gestion_salarie.php");
                         break;
@@ -124,6 +121,9 @@
                     case 92:
                         require_once("gestion_espace_sponsor.php");
                         break; 
+                    case 93:
+                        require_once("gestion_espace_administrateur.php");
+                        break;
 
                     case 10:
                         session_destroy();   

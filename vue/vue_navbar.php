@@ -77,30 +77,31 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                             }
                             echo "
                         </div>";
-                            /*if ($_SESSION['droits'] =="admin")
-                            {
-                                echo "
-                                <div class='navbar-nav ml-auto'>
-                                <a href='index.php?page=1' class='nav-item nav-link'>Espace administrateur</a>
-                                </div>
-                                </div>
-                                ";
-                            }*/
+                        
+                        if ($_SESSION['droits'] =="admin")
+                        {
                             echo "
                             <div class='navbar-nav ml-auto'>
-                            ";
-                            if($_SESSION['droits'] != "sponsor"){
-                                echo "
-                                <a href='index.php?page=91' class='nav-item nav-link'>Espace Salarié</a>
-                                ";
-                            } else {
-                                echo "
-                                <a href='index.php?page=92' class='nav-item nav-link'>Espace Sponsor</a>
-                                ";
-                            }
-                            echo "
-                            <a href='index.php?page=10' class='nav-item nav-link'>Déconnexion</a>
+                            <a href='index.php?page=93' class='nav-item nav-link'>Espace administrateur</a>
                             </div>
+                            </div>
+                            ";
+                        }
+                        echo "
+                        <div class='navbar-nav ml-auto'>
+                        ";
+                        if($_SESSION['droits'] != "sponsor"){
+                            echo "
+                            <a href='index.php?page=91' class='nav-item nav-link'>Espace Salarié</a>
+                            ";
+                        } else {
+                            echo "
+                            <a href='index.php?page=92' class='nav-item nav-link'>Espace Sponsor</a>
+                            ";
+                        }
+                        echo "
+                        <a href='index.php?page=10' class='nav-item nav-link'>Déconnexion</a>
+                        </div>
                     </div>
                 </nav>";
 ?>
