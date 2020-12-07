@@ -3,7 +3,7 @@
         echo "ERREUR 404, page non identifiée ";
     } else if ($_SESSION['droits'] == "admin") {
         echo "<br/>
-        <img src='lib/images/pages/activite.jpg' width='200'></img>
+        <img src='lib/images/pages/activite.png' width='200'></img>
         <br/>";
 
         $uneActivite = null; 

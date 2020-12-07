@@ -1,5 +1,15 @@
+@font-face {
+    font-family: "Lato";
+	src: url('../fonts/Lato-Bold.ttf');
+}
+
+
+
+
 body {
     background-color: #ced6e0;
+    font-family: "Lato", sans-serif;
+    
 }
 
 #boutonenvoyer { 

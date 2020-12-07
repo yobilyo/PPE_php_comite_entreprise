@@ -4,7 +4,7 @@
 		echo "ERREUR 404, page non identifiée ";
 	} else if ($_SESSION['droits'] != "sponsor") {
         echo "<br/>
-        <img src='lib/images/pages/commentaire.jpg' width='150'></img>
+        <img src='lib/images/pages/commentaire.png' width='150'></img>
         <br/>";
         $unCommentaire=null;
         $unControleur->setTable ("commentaire");

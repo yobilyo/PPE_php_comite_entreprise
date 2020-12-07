@@ -4,7 +4,7 @@
 		echo "ERREUR 404, page non identifiée ";
 	} else {
         echo "<br/>
-        <img src='lib/images/pages/contact.jpg' width='150'></img>
+        <img src='lib/images/pages/contact.png' width='150'></img>
         <br/>";
 
         $unContact=null;

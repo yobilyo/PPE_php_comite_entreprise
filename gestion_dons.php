@@ -5,7 +5,7 @@
 	} else if ($_SESSION['droits'] != "salarie")
 	{
         echo "<br/>
-        <img src='lib/images/pages/don.jpg' width='150'></img>
+        <img src='lib/images/pages/don.png' width='150'></img>
         <br/>";
         $leDon=null;
 

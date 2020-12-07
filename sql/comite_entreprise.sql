@@ -495,10 +495,10 @@ insert into utilisateur values (1, "Melanie", "45D4E", "melanie@cfa-insta.fr", "
 	(7, "Jessica", "jess744", "jessica@lysdor.com", "sponsor"),
 	(8, "Michele", "m847cihe", "michele@ticketmaster.fr", "sponsor"),
 	(9, "Jeremie", "j885ee", "jeremie@voyage-prive.com", "sponsor"),
-	(10, "Michael", "m845gg", "michael@fnacspectacles.com", "sponsor"),
+	(10, "sponsor", "", "sp@gmail.com", "sponsor"),
 	(11, "admin", "", "a@gmail.com", "admin"),
-	(12, "salarie", "", "sa@gmail.com", "salarie"),
-	(13, "sponsor", "", "sp@gmail.com", "sponsor");
+	(12, "salarie", "", "sa@gmail.com", "salarie");
+	#(13, "sponsor", "", "sp@gmail.com", "sponsor");
 
 insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "developpeur", "femme"), 
 							(2, "Julien", "BARRETO", "0645749655", "toulouse", 1, "commercial", "homme"),
@@ -519,12 +519,12 @@ insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très p
 	(NULL, "2020-11-30", "Un voyage inoubliable !", 3, 3),
 	(NULL, "2020-12-02", "Mauvaise masseuse, prix bien trop élevé.", 4, 4);
 
-insert into sponsor values (6, "Air France", "lib/images/sponsors/air-france.png", 8000, "0184452566", "https://wwws.airfrance.fr/"),
+insert into sponsor values (6, "Air France", "lib/images/sponsors/airfrance.png", 8000, "0184452566", "https://wwws.airfrance.fr/"),
 							(7, "Lys D'Or", "lib/images/sponsors/lys-d-or.png", 5000, "0925526358", "https://www.lysdor.com/"),
-							(8, "Ticketmaster", "lib/images/sponsors/ticketmaster.png", 9500, "0180300322", "https://www.ticketmaster.fr/"),
-							(9, "Voyage Privé", "lib/images/sponsors/voyage-prive.png", 10000, "0144857852", "https://www.voyage-prive.com/"),
-							(10, "Fnac Spectacles", "lib/images/sponsors/fnac-spectacles.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/"),
-							(13, "Fnac ", "https://blog.hubspot.com/hubfs/image8-2.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/");
+							(8, "Ticketmaster", "lib/images/sponsors/ticket_master.png", 9500, "0180300322", "https://www.ticketmaster.fr/"),
+							(9, "Voyage Privé", "lib/images/sponsors/voyage_prive.png", 10000, "0144857852", "https://www.voyage-prive.com/"),
+							(10, "Fnac Spectacles", "lib/images/sponsors/fnac.png", 9500, "0180300322", "https://www.fnacspectacles.com/");
+							#(13, "Fnac ", "https://blog.hubspot.com/hubfs/image8-2.jpg", 9500, "0180300322", "https://www.fnacspectacles.com/");
 
 insert into contact values (NULL, "Reservation", "Bonjour, je vous contacte suite à l'annonce concernant le voyage a New-York. Les chambres disposent-elle d'une SDB handicapée ? Merci", "2020-11-29",4),
 						(NULL, "Probleme technique", "Bonjour, je ne parviens pas à accedez à mon espace CE", "2020-11-30", 4);

@@ -5,12 +5,12 @@
     require_once("vue/vue_sponsor.php");
 
     echo "<br/>
-    <img src='lib/images/pages/don.jpg' width='150'></img>";
+    <img src='lib/images/pages/don.png' width='150'></img>";
     echo "<br/><h2>Mes Dons</h2>";
     require_once("vue/vue_don.php");
 
     echo "<br/>
-    <img src='lib/images/pages/contact.jpg' width='150'></img>";
+    <img src='lib/images/pages/contact.png' width='150'></img>";
     echo "<br/><h2>Mes messages de contact</h2>";
     require_once("vue/vue_contact.php");
 
