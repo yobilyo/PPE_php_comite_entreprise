@@ -70,6 +70,7 @@
         $lesParticipations= $unControleur->selectAll ($tab); 
     
         echo "<br/>";
+        echo "<h2> Liste des participations </h2>";
         require_once("vue/vue_participation.php");
     }
 ?>

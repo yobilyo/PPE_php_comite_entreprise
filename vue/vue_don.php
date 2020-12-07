@@ -1,5 +1,4 @@
 <div class='container'>
-	<h2> Liste des dons fait par les sponsors </h2>
 	<table class="table table-striped">
 		<thead>
 			<tr>

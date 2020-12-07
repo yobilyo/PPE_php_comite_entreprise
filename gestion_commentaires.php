@@ -63,7 +63,7 @@
         $tab=array("*");
         $lesCommentaires= $unControleur->selectAll ($tab); 
     
-        echo "<br/>";
+        echo "<br/><h2> Liste des commentaires des activités du CE </h2>";
         require_once("vue/vue_commentaire.php"); 
     }
 ?>

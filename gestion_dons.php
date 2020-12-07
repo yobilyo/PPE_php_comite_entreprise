@@ -72,7 +72,7 @@
             $unControleur->setTable ("utilisateur_sponsor_don");	//changement de table : prendre la vue 
             $tab=array("*");
             $lesDons= $unControleur->selectAll ($tab); 
-            echo "<br/>";
+            echo "<br/><h2> Liste des dons faits par les sponsors </h2>";
             require_once("vue/vue_don.php");
         }
     }

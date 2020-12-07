@@ -103,6 +103,7 @@
             $unControleur->setTable ("activite");
             $tab=array("*");
             $lesActivites = $unControleur->selectAll ($tab);
+            echo "<br/><h2> Modification des activités</h2>";
             require_once("vue/vue_activite.php"); 
         //}
     }

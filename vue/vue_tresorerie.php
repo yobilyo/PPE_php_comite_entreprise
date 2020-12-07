@@ -1,15 +1,13 @@
 <div class='container'>
-	<h2> Situation de la trésorerie </h2>
-	<br/>
 	<!--<table class="table table-striped">
 		<thead>
 			<tr>
 				<th> Fonds actuelle </th>
 			</tr>
 		</thead>
-	-->
 
-		<tbody>
+		<tbody> 
+		-->
 			<img src='lib/images/pages/tresorerie.png' width='300'></img>
 			<br/>
 			<?php 
@@ -23,7 +21,7 @@
 					</tr>";
 			}*/
 			?>
-		</tbody>
-	</table>
+		<!-- </tbody>
+	</table> -->
 </div>
 

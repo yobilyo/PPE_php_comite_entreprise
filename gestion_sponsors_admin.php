@@ -139,6 +139,7 @@
         $lesUtilisateurSponsors = $unControleur->selectAll ($tab);
 
         echo "<br/>";
+        echo "<h2> Liste des sponsors participant au CE </h2>";
         require_once("vue/vue_sponsor.php");
     }
 ?>

@@ -5,7 +5,7 @@
 					foreach ($lesActivites as $uneActivite) {
 						
 							echo "<div class='col-sm-6 col-md-4'>
-							<br><br><br>
+							<br>
 										<img src='".$uneActivite['image_url']."' class='rounded' width='350' />
 										<div class='text-left'>Nom : ".$uneActivite['nom']." </div>
 										<div class='text-left'>Lieu : ".$uneActivite['lieu']." </div>

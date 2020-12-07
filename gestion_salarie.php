@@ -143,6 +143,7 @@
         $lesUtilisateurSalaries = $unControleur->selectAll ($tab);
 
         echo "<br/>";
+        echo "<h2> Liste des salariés de 3DSoft </h2>";
         require_once("vue/vue_salarie.php");
     }
 

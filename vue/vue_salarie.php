@@ -1,7 +1,5 @@
 <!-- https://www.codeproject.com/articles/1155713/bootstrapping-your-web-pages-dressing-up-tables -->
-
 <div class='container'>
-	<h2> Liste des salariés de 3DSoft </h2>
 	<table class="table table-striped">
 		<thead>
 			<tr > 

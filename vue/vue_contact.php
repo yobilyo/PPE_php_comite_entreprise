@@ -1,6 +1,5 @@
 
 <div class='container'>
-	<h2> Liste des messages </h2>
 	<table class="table table-striped">
 		<thead>
 			<tr > 

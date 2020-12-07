@@ -69,7 +69,7 @@
             $lesContacts = $unControleur->selectAll ($tab);
             if ($_SESSION['droits'] == "admin")
             {
-            echo "<br/>";
+            echo "<h2> Liste des messages </h2><br/>";
             require_once("vue/vue_contact.php");
             }
     } 
