@@ -10,12 +10,12 @@
     require_once("vue/vue_participation.php");
 
     echo "<br/>
-    <img src='lib/images/pages/commentaire.jpg' width='150'></img>";
+    <img src='lib/images/pages/commentaire.png' width='150'></img>";
     echo "<br/><h2>Mes Commentaires</h2>";
     require_once("vue/vue_commentaire.php");
     
     echo "<br/>
-    <img src='lib/images/pages/contact.jpg' width='150'></img>";
+    <img src='lib/images/pages/contact.png' width='150'></img>";
     echo "<br/><h2>Mes Messages de contact</h2>";
     require_once("vue/vue_contact.php");
 

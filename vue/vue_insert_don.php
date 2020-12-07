@@ -1,4 +1,4 @@
-<h2> Ajout d'un Don </h2>
+<h2> Ajout d'un don </h2>
 <form method ="post" action ="">
 	<table> 
 
@@ -20,17 +20,31 @@
 
 		<tr> 
 			<td> Société/Utilisateur donateur: </td> 
-			<td>		 <select name ="idutilisateur" class="form-control form-control-sm">
+			<td>		 
+			
 						 <?php
-						 	foreach ($lesSponsors as $unSponsor) {
-								 echo "<option value ='".$unSponsor['idutilisateur']."'";
-								 if(isset($_GET['idutilisateur']) && $unSponsor['idutilisateur'] == $_GET['idutilisateur'] ){
-									 echo " selected>";
-								 }else {
-									 echo " >";
-								 }
-								 echo $unSponsor['societe']." "."</option>";
-						 	}
+							if ($_SESSION['droits'] == "admin"){
+								echo "
+								<select name ='idutilisateur' class='form-control form-control-sm'>
+							";
+								foreach ($lesSponsors as $unSponsor) {
+									echo "<option value ='".$unSponsor['idutilisateur']."'";
+									if(isset($_GET['idutilisateur']) && $unSponsor['idutilisateur'] == $_GET['idutilisateur'] ){
+										echo " selected>";
+									}else {
+										echo " >";
+									}
+									echo $unSponsor['societe']." "."</option>";
+								}
+							}
+							if ($_SESSION['droits'] == "sponsor"){
+
+								$fullNameSession = $_SESSION['email'];
+							
+								echo "<div>&#160;".$fullNameSession."</div>";
+
+								echo "<input type='hidden' name='idutilisateur' value ='".$_SESSION['idutilisateur']."'>";
+							}
 						 ?>
 					</select>
 				</td>

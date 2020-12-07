@@ -2,22 +2,35 @@
 <form method ="post" action ="">
 	<table>
 		<tr>
-		    <td> Utilisateur :</td> 
-				<td>		 
-					<select name ="idutilisateur" class="form-control form-control-sm">
-						<?php
-							foreach ($lesUtilisateursSalaries as $lUtilisateurSalarie) {
-								echo "<option value ='".$lUtilisateurSalarie['idutilisateur']."'";
-								if (isset($_GET['idutilisateur']) && $lUtilisateurSalarie['idutilisateur'] == $_GET['idutilisateur']) {
-									echo " selected>";
-								} else {
-									echo " >";
+		<tr>
+		    <td> Utilisateur : </td> 
+		<td>		 
+		<?php
+							if ($_SESSION['droits'] == "admin"){
+								echo "
+								<select name ='idutilisateur' class='form-control form-control-sm'>
+							";
+								foreach ($lesUtilisateursSalaries as $unUtilisateur) {
+									echo "<option value ='".$unUtilisateur['idutilisateur']."'";
+									if(isset($_GET['idutilisateur']) && $unUtilisateur['idutilisateur'] == $_GET['idutilisateur'] ){
+										echo " selected>";
+									}else {
+										echo " >";
+									}
+									echo $unUtilisateur['nom']." "."</option>";
 								}
-								echo $lUtilisateurSalarie['username']."  "."</option>";
 							}
-						?>
+							if ($_SESSION['droits'] != "admin"){
+
+								$fullNameSession = $_SESSION['nom'];
+							
+								echo "<div>&#160;".$fullNameSession."</div>";
+
+								echo "<input type='hidden' name='idutilisateur' value ='".$_SESSION['idutilisateur']."'>";
+							}
+						 ?>
 					</select>
-				</td>
+			</td>
 		</tr>
 
         <tr>

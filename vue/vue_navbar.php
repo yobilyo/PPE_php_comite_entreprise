@@ -30,7 +30,7 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                                     if ($_SESSION['droits'] != "sponsor")
                                     {
                                         echo " 
-                                        <a class='dropdown-item' href='index.php?page=3'>Participer</a>
+                                        <a class='dropdown-item' href='index.php?page=3'>Participation</a>
                                         ";
                                     }
                                     echo "
@@ -92,11 +92,11 @@ echo "<nav class='navbar navbar-expand-md navbar-light bg-light'>
                         ";
                         if($_SESSION['droits'] != "sponsor"){
                             echo "
-                            <a href='index.php?page=91' class='nav-item nav-link'>Espace Salarié</a>
+                            <a href='index.php?page=91' class='nav-item nav-link'>Espace salarié</a>
                             ";
                         } else {
                             echo "
-                            <a href='index.php?page=92' class='nav-item nav-link'>Espace Sponsor</a>
+                            <a href='index.php?page=92' class='nav-item nav-link'>Espace sponsor</a>
                             ";
                         }
                         echo "
