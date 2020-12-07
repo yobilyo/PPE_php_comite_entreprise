@@ -1,16 +1,14 @@
 <div class='container'>
-	<h2> Situation de la trésorerie </h2>
-	<br/>
 	<!--<table class="table table-striped">
 		<thead>
 			<tr>
 				<th> Fonds actuelle </th>
 			</tr>
 		</thead>
-	-->
 
-		<tbody>
-			<img src='lib/images/tresorerie.png' width='300'></img>
+		<tbody> 
+		-->
+			<img src='lib/images/pages/tresorerie.png' width='300'></img>
 			<br/>
 			<?php 
 			$uneTresorerie = $lesTresoreries[0];
@@ -23,7 +21,7 @@
 					</tr>";
 			}*/
 			?>
-		</tbody>
-	</table>
+		<!-- </tbody>
+	</table> -->
 </div>
 

@@ -1,9 +1,12 @@
 <?php
-	/*if ( ! isset($_SESSION['username']))
+	if ( ! isset($_SESSION['email']))
 	{
 		echo "ERREUR 404, page non identifiée ";
-	}else if (isset($_SESSION['username']))
-	{*/
+	} else if ($_SESSION['droits'] != "salarie")
+	{
+        echo "<br/>
+        <img src='lib/images/pages/don.jpg' width='150'></img>
+        <br/>";
         $leDon=null;
 
         $unControleur->setTable ("sponsor");
@@ -69,6 +72,8 @@
             $unControleur->setTable ("utilisateur_sponsor_don");	//changement de table : prendre la vue 
             $tab=array("*");
             $lesDons= $unControleur->selectAll ($tab); 
+            echo "<br/><h2> Liste des dons faits par les sponsors </h2>";
             require_once("vue/vue_don.php");
         }
+    }
 ?>

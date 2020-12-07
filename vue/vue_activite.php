@@ -1,5 +1,4 @@
 <div class='container'>
-	<h2> Modification des activités</h2>
 	<table class="table table-striped">
 		<thead>
 			<tr > 

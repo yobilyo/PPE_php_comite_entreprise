@@ -4,6 +4,10 @@
 		echo "ERREUR 404, page non identifiée ";
 	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
     {
+        echo "<br/>
+        <img src='lib/images/pages/sponsor.png' width='100'></img>
+        <br/>";
+
         $lUtilisateur = null;
         
         $idutilisateur=NULL;
@@ -134,6 +138,8 @@
         $tab=array("*");
         $lesUtilisateurSponsors = $unControleur->selectAll ($tab);
 
+        echo "<br/>";
+        echo "<h2> Liste des sponsors participant au CE </h2>";
         require_once("vue/vue_sponsor.php");
     }
 ?>

@@ -1,4 +1,5 @@
 <?php
+    if ($_SESSION['droits'] != "sponsor") {
         // pour vue_salarie.php
         // pour afficher tous les salariés, on prend la view sql utilisateur_salarie qui contient la classe mère utilisateur et sa classe fille salarie pour obtenir $lesUtilisateurSalaries
         $unControleur->setTable ("utilisateur_salarie");
@@ -27,4 +28,5 @@
         // $lesContacts = array($leContactSalarie);
 
         require_once("vue/vue_espace_salarie.php");
+    }
 ?>

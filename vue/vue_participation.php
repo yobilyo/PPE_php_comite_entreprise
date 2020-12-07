@@ -1,6 +1,4 @@
-
 <div class='container'>
-	<h2> Liste des participations </h2>
 	<table class="table table-striped">
 	
 		<thead>

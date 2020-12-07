@@ -1,8 +1,17 @@
 <?php
-    echo "<img src='".$lUtilisateurSponsor['image_url']."' width='100'></img>";
-
+    echo "<br/>
+    <img src='".$lUtilisateurSponsor['image_url']."' width='100'></img>";
+    echo "<br/><h2>Mes Informations Sponsor</h2>";
     require_once("vue/vue_sponsor.php");
+
+    echo "<br/>
+    <img src='lib/images/pages/don.jpg' width='150'></img>";
+    echo "<br/><h2>Mes Dons</h2>";
     require_once("vue/vue_don.php");
+
+    echo "<br/>
+    <img src='lib/images/pages/contact.jpg' width='150'></img>";
+    echo "<br/><h2>Mes messages de contact</h2>";
     require_once("vue/vue_contact.php");
 
 
