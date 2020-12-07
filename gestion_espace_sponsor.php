@@ -1,4 +1,5 @@
 <?php
+    if ($_SESSION['droits'] == "sponsor") {
         // pour vue_salarie.php
         // pour afficher tous les sponsors, on prend la view sql utilisateur_sponsor qui contient la classe mère utilisateur et sa classe fille sponsor pour obtenir $lesUtilisateurSalaries
         $unControleur->setTable ("utilisateur_sponsor");
@@ -21,4 +22,5 @@
         // $lesContacts = array($leContactSalarie);
 
         require_once("vue/vue_espace_sponsor.php");
+    }
 ?>

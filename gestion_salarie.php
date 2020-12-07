@@ -1,9 +1,12 @@
 <?php
-	/*if ( ! isset($_SESSION['email']))
+	if ( ! isset($_SESSION['email']))
 	{
 		echo "ERREUR 404, page non identifiée ";
-	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
-    { */
+	} else if ($_SESSION['droits'] != "sponsor")
+    { 
+        echo "<br/>
+        <img src='lib/images/pages/salarie.png' width='250'></img>
+        <br/>";
 
         // pour vue_insert_salarie.php
         // c'est le salarie selectionne en cours, 2 valeurs sont utilisées car on fait 2 insertions à cause de l'héritage : une dans la table utilisateur, et une dans la table salarie
@@ -139,8 +142,9 @@
         $tab=array("*");
         $lesUtilisateurSalaries = $unControleur->selectAll ($tab);
 
+        echo "<br/>";
         require_once("vue/vue_salarie.php");
-    /* } */ 
+    }
 
 
 

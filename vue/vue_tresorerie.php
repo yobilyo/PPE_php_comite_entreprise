@@ -10,7 +10,7 @@
 	-->
 
 		<tbody>
-			<img src='lib/images/tresorerie.png' width='300'></img>
+			<img src='lib/images/pages/tresorerie.png' width='300'></img>
 			<br/>
 			<?php 
 			$uneTresorerie = $lesTresoreries[0];

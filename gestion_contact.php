@@ -1,9 +1,12 @@
 <?php
-	/*if ( ! isset($_SESSION['email']))
+	if ( ! isset($_SESSION['email']))
 	{
 		echo "ERREUR 404, page non identifiée ";
-	}else if (isset($_SESSION['droits']) && $_SESSION['droits'] =="admin")
-	{ */
+	} else {
+        echo "<br/>
+        <img src='lib/images/pages/contact.jpg' width='150'></img>
+        <br/>";
+
         $unContact=null;
         $unControleur->setTable ("contact");
         $tab=array("*");
@@ -66,10 +69,8 @@
             $lesContacts = $unControleur->selectAll ($tab);
             if ($_SESSION['droits'] == "admin")
             {
+            echo "<br/>";
             require_once("vue/vue_contact.php");
             }
-    //} 
-
-
-
+    } 
 ?>
