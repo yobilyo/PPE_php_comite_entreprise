@@ -12,7 +12,7 @@
 						
 						
 						<?php 
-						/*if (isset($_SESSION['username']) && $_SESSION['password'])*/
+						if ($_SESSION['droits'] == 'admin')
 							{
 						echo "<th> Opérations </th>";
 						}
@@ -49,18 +49,21 @@
 					</div>
 				</td>";
 */						
-						
-						echo "<td>
-						<a href='index.php?page=72&action=sup&idutilisateur=".$unUtiliSpons['idutilisateur']."'>
-						
-						<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
+						if ($_SESSION['droits'] == 'admin')
+						{					
+							echo "<td>
+							<a href='index.php?page=72&action=sup&idutilisateur=".$unUtiliSpons['idutilisateur']."'>
+							
+							<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
 
-						<a href='index.php?page=72&action=edit&idutilisateur=".$unUtiliSpons['idutilisateur']."'>
-						<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
+							<a href='index.php?page=72&action=edit&idutilisateur=".$unUtiliSpons['idutilisateur']."'>
+							<img src ='lib/images/edition.png' height='30' witdh='30'> </a>";
+						}
+						echo "
  
-						</td>";
+						</td>
 						
-				echo "</tr>";
+				 </tr>";
 			}
 			?>
 		</tbody>

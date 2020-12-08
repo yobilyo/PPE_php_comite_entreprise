@@ -15,7 +15,13 @@
                 <th> Adresse </th> 
 				<th> Quotient Familial </th>
                 <th> Service </th>
-				<th>Operations</th>
+				<?php
+					if ($_SESSION['droits'] == 'admin')
+					{
+						echo "
+						<th>Operations</th>";
+					}
+				?>
 			</tr>
 		</thead>
 
@@ -35,12 +41,19 @@
 						<td width='300'>".$unUtilisateurSalarie['adresse']." </td>
                         <td>".$unUtilisateurSalarie['quotient_fam']." </td>
                         <td>".$unUtilisateurSalarie['service']." </td>
-						<td>
+						<td>";
+
+						
+						if ($_SESSION['droits'] == 'admin')
+						{
+						echo "
 							<a href='index.php?page=2&action=sup&idutilisateur=".$unUtilisateurSalarie['idutilisateur']."'>
 							<img src ='lib/images/sup.png' height='30' witdh='30'> </a>
 							<a href='index.php?page=2&action=edit&idutilisateur=".$unUtilisateurSalarie['idutilisateur']."'>
 							<img src ='lib/images/edition.png' height='30' witdh='30'> </a>
-							</td>
+							</td>";
+						}
+						echo "
 					</tr>";
 			}
 			?>

@@ -62,8 +62,12 @@
         $unControleur->setTable ("utilisateur_salarie_activite_commentaire");	//changement de table : prendre la vue 
         $tab=array("*");
         $lesCommentaires= $unControleur->selectAll ($tab); 
-    
-        echo "<br/><h2> Liste des commentaires des activités du CE </h2>";
-        require_once("vue/vue_commentaire.php"); 
+
+        if ($_SESSION['droits'] == 'admin')
+        {
+            echo "<br/><h2> Liste des commentaires des activités du CE </h2>";
+            require_once("vue/vue_commentaire.php"); 
+        }
+        
     }
 ?>
