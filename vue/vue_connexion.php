@@ -47,7 +47,7 @@
 
 	</fieldset>
   </form>
-  <a href="vue_insert_inscription.php">Nouveau salarié ? Créez votre compte.</a>
+  <a href="index.php?page=001">Nouveau salarié ? Créez votre compte.</a>
 </div>
 
 

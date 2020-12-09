@@ -1,10 +1,10 @@
 <?php
-    $unControleur = new Controleur($serveur, $bdd, $user, $mdp);
-
-
-
-
-      if (isset($_POST['sinscrire'])){
+    if (!isset($_POST['sinscrire'])){
+        // pour s'inscrire, on affiche le formulaire d'inscription
+        require_once("vue/vue_inscription.php");
+    } else {
+        // lorsqu'on clique sur le bouton s'inscrire, on insère ces informations dans la table utilisateur, puis dans l'héritage de la table fille (salarie si c'est un salarie ou un admin, sponsor si c'est un sponsor)
+        
         // insertion de l'utilisateur
         $droits = "salarie";
         $tabUtilisateur=array(
@@ -17,7 +17,7 @@
         );
         $unControleur->setTable ("utilisateur");
         $unControleur->insert($tabUtilisateur);
-
+  
         // insertion de l'héritage utilisateur.salarie
         // attention à bien rajouter la clé étrangère idutilisateur héritée et pas null
         // SELECT * from utilisateur WHERE username="Jean" and email="j.thomas@gmail.com"; 
@@ -39,12 +39,9 @@
         // l'insertion du tableau modifié à la fin
         $unControleur->setTable ("salarie");
         $unControleur->insert($tabSalarie);
+
+        // une fois qu'on est inscrit, on revient à l'index pour se connecter (donc on enlève le get page = 001 de la page d'inscription)
+        header('Location: index.php');
     }
 
-    if (isset($_POST['sinscrire'])){
-      header('Location: index.php');
-    }
-
-
-
-  
+?>

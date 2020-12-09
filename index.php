@@ -28,52 +28,17 @@
     <center>
        
         <?php
-            if ( ! isset($_SESSION['email']))
-            {
-                require_once ("vue/vue_connexion.php");
-                
-            }
-            if (isset($_POST['seconnecter']))
-            {
-                $unControleur->setTable ("utilisateur");
-                $tab=array("email"=>$_POST['email'], "password"=>$_POST['password']); 
-                $membreConnecte = $unControleur->selectWhere ($tab);
-                if ($membreConnecte == null || $membreConnecte == false )
-                {
-                    echo "<br /> Erreur de connexion, Veuillez vérifier vos identifiants";
-                }else if (isset($membreConnecte['email'])){
-                    $_SESSION['email'] = $membreConnecte['email']; 
-                    $_SESSION['droits'] = $membreConnecte['droits'];
-                    $_SESSION['idutilisateur'] = $membreConnecte['idutilisateur'];
-
-                    if ($_SESSION['droits'] == 'salarie' || $_SESSION['droits'] == 'admin')
-                    {
-                        $unControleur->setTable ("salarie");
-                        $tab=array("*"); 
-                        $salarieConnecte = $unControleur->selectWhere ($tab);
-                        $_SESSION['nom'] = $salarieConnecte['nom'];
-                        $_SESSION['prenom'] = $salarieConnecte['prenom'];
-                        $_SESSION['tel'] = $salarieConnecte['tel'];
-                        $_SESSION['adresse'] = $salarieConnecte['adresse'];
-                        $_SESSION['quotient_fam'] = $salarieConnecte['quotient_fam'];
-                        $_SESSION['service'] = $salarieConnecte['service'];
-                        $_SESSION['sexe'] = $salarieConnecte['sexe'];
-                    }
-                    else if ($_SESSION['droits'] == 'sponsor')
-                    {
-                        $unControleur->setTable ("sponsor");
-                        $tab=array("*"); 
-                        $sponsorConnecte = $unControleur->selectWhere ($tab);
-                        $_SESSION['societe'] = $sponsorConnecte['societe'];
-                        $_SESSION['budget'] = $sponsorConnecte['budget'];
-                        $_SESSION['tel'] = $sponsorConnecte['tel'];
-                    }
-                    header("Location: index.php");
+            // on n'est pas connecté, donc on se connecte ou on s'inscrit
+            if (!isset($_SESSION['email'])) {
+                if (isset($_GET['page']) && $_GET['page'] == "001") {
+                    require_once("gestion_inscription.php");
+                } else {
+                    // ?page=001 est la page d'inscription, si ce n'est pas set on est sur la page de connexion
+                    require_once("gestion_connexion.php");
                 }
 
-            }
-
-            if (isset($_SESSION['droits'])) {
+            } else {
+                // on est connecté maintenant, donc on affiche le site
                 require_once("vue/vue_navbar.php");
 
                 if(isset($_GET['page'])) $page = $_GET['page']; 
