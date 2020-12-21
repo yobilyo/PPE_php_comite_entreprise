@@ -24,10 +24,10 @@ CREATE TABLE activite(
         id_activite   Int  Auto_increment  NOT NULL ,
         nom           Varchar (50),
         lieu          Varchar (50),
-		image_url	  Varchar (100),
-		lien	  	  Varchar (100),
+		image_url	  Varchar (200),
+		lien	  	  Varchar (200),
         budget        Float,
-        description   Varchar (200),
+        description   Varchar (400),
         date_debut    Date,
         date_fin      Date,
         prix          Float,
@@ -44,7 +44,7 @@ CREATE TABLE utilisateur(
         idutilisateur Int  Auto_increment  NOT NULL ,
         username      Varchar (20),
         password      Varchar (20),
-        email         Varchar (20),
+        email         Varchar (40),
 		droits        Enum("salarie", "admin", "sponsor") NOT NULL,
 		PRIMARY KEY (idutilisateur)
 );
@@ -57,7 +57,7 @@ CREATE TABLE salarie(
         nom           Varchar (20),
         prenom        Varchar (20),
         tel           Varchar (15),
-        adresse       Varchar (50),
+        adresse       Varchar (80),
         quotient_fam  Enum ("1","2","3","4","5"),
         service       Enum ("comptabilite","developpeur","commercial","ressources_humaines"),
         sexe          Enum ("homme","femme"),
@@ -69,11 +69,11 @@ CREATE TABLE salarie(
 
 CREATE TABLE Sponsor(
         idutilisateur Int NOT NULL ,
-        societe       Varchar (20),
+        societe       Varchar (25),
 		image_url	  Varchar (100),
         budget        Float,
         tel           Varchar (15),
-		lien	    Varchar (100),
+		lien	    Varchar (200),
 
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 		
@@ -99,7 +99,7 @@ CREATE TABLE commentaire(
 CREATE TABLE contact(
         id_contact    Int  Auto_increment  NOT NULL ,
         objet         Varchar (50),
-        contenu       Varchar (500),
+        contenu       Varchar (700),
         date          Date,
         idutilisateur Int NOT NULL,
 		PRIMARY KEY (id_contact),
@@ -126,15 +126,15 @@ CREATE TABLE participer(
 #------------------------------------------------------------
 
 CREATE TABLE don(
-		iddon int AUTO_INCREMENT not null ,
+		iddon Int  Auto_increment  NOT NULL ,
 		datedon DATE,
-		montant float ,
-		appreciation varchar(50),
+		montant float,
+		appreciation varchar(200),
 		idutilisateur int not null,
 		id_tresorerie int not null,
-		PRIMARY key (iddon),
-		FOREIGN key(idutilisateur) REFERENCES utilisateur(idutilisateur),
-		FOREIGN key (id_tresorerie) REFERENCES tresorerie(id_tresorerie)
+		PRIMARY KEY (iddon),
+		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur),
+		FOREIGN KEY (id_tresorerie) REFERENCES tresorerie(id_tresorerie)
 );
 
 
@@ -380,23 +380,6 @@ BEGIN
 	WHERE old.id_tresorerie = id_tresorerie;
 END $
 DELIMITER ;
-
-
-#------------------------------------------------------------
-# Trigger : update_budget_activite_fond_tresorerie
-#Apres une insertion dans participation, mettre a jour le budget de l activité ainsi que les fonds de la trésorerie
-#------------------------------------------------------------
-
-#DROP trigger IF EXISTS maj_budget_activite;
-#DELIMITER $
-#CREATE TRIGGER maj_budget_activite
-#AFTER INSERT ON participer
-#FOR EACH ROW
-#BEGIN
-#	UPDATE activite SET budget = budget + new.???
-#	WHERE new.id_activite = id_activite;
-#END $
-#DELIMITER ;
 
 #------------------------------------------------------------
 # Trigger : ajout_participation_activite 
