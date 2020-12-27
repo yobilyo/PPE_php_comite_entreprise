@@ -113,6 +113,7 @@ CREATE TABLE participer(
         idutilisateur    Int NOT NULL ,
         id_activite      Int NOT NULL ,
         date_inscription Date,
+		statut enum("valide", "en cours", "annule") not null default "en cours",
 		PRIMARY KEY (idutilisateur,id_activite),
 		FOREIGN KEY (idutilisateur) REFERENCES salarie(idutilisateur),
 		FOREIGN KEY (id_activite) REFERENCES activite(id_activite)
@@ -209,7 +210,8 @@ create view utilisateur_salarie_activite as (
 		a.nb_personnes, 
 		a.description, 
 		sum(a.prix) as "prix_total", 
-		p.date_inscription
+		p.date_inscription,
+		p.statut
 	
 	from  utilisateur u, salarie sa, participer p, activite a, tresorerie t
 	where u.idutilisateur = sa.idutilisateur 
@@ -322,6 +324,7 @@ create view utilisateur_salarie_activite_participer as (
 		sa.service, 
 		a.nom as "nom_activite",
 		p.date_inscription,
+		p.statut,
 		a.lieu,
 		a.image_url,
 		a.lien,
@@ -491,11 +494,11 @@ insert into salarie values (1, "Melanie", "DUVIL", "0633928562", "paris", 2, "de
 							(11, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme"),
 							(12, "Franck", "HAMIAUX", "0755896254", "caen", 3, "ressources_humaines", "homme");
 
-insert into participer values (1, 1, "2020-10-05"),
-								(2, 2, "2020-08-20"),
-								(3, 3, "2020-10-12"),
-								(4, 4, "2020-04-17"),
-								(1, 2, "2020-10-05");
+insert into participer values (1, 1, "2020-10-05", "valide"),
+								(2, 2, "2020-08-20", "en cours"),
+								(3, 3, "2020-10-12", "annule"),
+								(4, 4, "2020-04-17", "valide"),
+								(1, 2, "2020-10-05", "annule");
 
 insert into commentaire values (NULL, "2020-11-29", "Nous y retournerons très prochainement, c'était super !", 1, 1),
 	(NULL, "2020-11-29", "Assez satisfait, prix intéressant", 2, 2),

@@ -32,6 +32,14 @@
                     $tab = array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite);
                     $uneParticipation = $unControleur->selectWhere($tab);
                     break; 
+
+                case "validation" : 
+                    // UPDATE participer SET statut = 'valide' WHERE idutilisateur = 5 and id_activite = 3;
+                    $unControleur->setTable ("participer");
+                    $set = array("statut"=>"valide");
+                    $where = array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite);
+                    $uneParticipation = $unControleur->update($set, $where);
+                    break;
             }
         }
 
@@ -48,7 +56,12 @@
             // WHERE idutilisateur = $_GET['idutilisateur'] and id_activite = $_GET['id_activite'];
             $unControleur->setTable ("participer");
             //var_dump($_POST);
-            $tab = array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
+            $tab = array(
+                "idutilisateur"=>$_POST['idutilisateur'],
+                "id_activite" =>$_POST['id_activite'],
+                "date_inscription"=>$_POST['date_inscription'],
+                "statut"=>$_POST['statut']
+            );
             $where=array("idutilisateur"=>$idutilisateur, "id_activite"=>$id_activite); 
             $unControleur->update($tab, $where);
 
@@ -58,8 +71,12 @@
 
         if (isset($_POST['valider'])){
             $unControleur->setTable ("participer");
-            $tab=array("idutilisateur"=>$_POST['idutilisateur'], "id_activite" =>$_POST['id_activite'], "date_inscription"=>$_POST['date_inscription']);
-            
+            $tab = array(
+                "idutilisateur"=>$_POST['idutilisateur'],
+                "id_activite" =>$_POST['id_activite'],
+                "date_inscription"=>$_POST['date_inscription'],
+                "statut"=>$_POST['statut']
+            );
             $unControleur->insert($tab);
             
         }

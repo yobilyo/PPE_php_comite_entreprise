@@ -58,6 +58,47 @@
 				</td>
 		</tr>
 		
+        <tr> 
+			<td> Statut  : </td> 
+				<td> 
+				<?php
+				if ($_SESSION['droits'] == "admin"){
+					echo "<select name ='statut' class='form-control form-control-sm'>";
+						if ($uneParticipation['statut'] == null || $uneParticipation['statut'] == "valide") {
+							echo "
+								<option value='valide'>valide</option>
+								<option value='en cours'>en cours</option>
+								<option value='annule'>annule</option>
+							";
+						} else if ($uneParticipation['statut'] == "en cours") {
+							echo "
+								<option value='valide'>valide</option>
+								<option value='en cours' selected>en cours</option>
+								<option value='annule'>annule</option>
+							";
+						} else if ($uneParticipation['statut'] == "annule") {
+							echo "
+								<option value='valide'>valide</option>
+								<option value='en cours'>en cours</option>
+								<option value='annule' selected>annule</option>
+							";
+						}
+					echo "</select>";
+				} else {
+					if (isset($uneParticipation['statut'])) {
+				
+						echo "<div>&#160;".$uneParticipation['statut']."</div>";
+
+						echo "<input type='hidden' name='statut' value ='".$uneParticipation['statut']."'>";
+					} else {
+						echo "<div>&#160;"."en cours"."</div>";
+						echo "<input type='hidden' name='statut' value ='en cours'>";
+					}
+				}
+				?>
+				</td>
+		</tr>
+
 		
 		<tr>
 
