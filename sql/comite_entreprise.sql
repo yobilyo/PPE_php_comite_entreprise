@@ -7,10 +7,10 @@ create database ce;
 use ce;
 
 #------------------------------------------------------------
-# Table: Tresorerie
+# Table: tresorerie
 #------------------------------------------------------------
 
-CREATE TABLE Tresorerie(
+CREATE TABLE tresorerie(
         id_tresorerie Int  Auto_increment  NOT NULL ,
         fonds         Float,
 		PRIMARY KEY (id_tresorerie)
@@ -34,7 +34,7 @@ CREATE TABLE activite(
 		nb_personnes  Int(5),
         id_tresorerie Int NOT NULL,
 		PRIMARY KEY (id_activite),
-		FOREIGN KEY (id_tresorerie) REFERENCES Tresorerie(id_tresorerie)
+		FOREIGN KEY (id_tresorerie) REFERENCES tresorerie(id_tresorerie)
 );
 #------------------------------------------------------------
 # Table: utilisateur
@@ -64,10 +64,10 @@ CREATE TABLE salarie(
 		FOREIGN KEY (idutilisateur) REFERENCES utilisateur(idutilisateur)
 );
 #------------------------------------------------------------
-# Table: Sponsor
+# Table: sponsor
 #------------------------------------------------------------
 
-CREATE TABLE Sponsor(
+CREATE TABLE sponsor(
         idutilisateur Int NOT NULL ,
         societe       Varchar (25),
 		image_url	  Varchar (100),
